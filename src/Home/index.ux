@@ -1,9 +1,15 @@
 <template>
     <div class="container">
-        <a class="btn_redirect_to_detail" href="/Detail">Table1</a>
-        <a class="btn_redirect_to_detail" href="/Detail">Table2</a>
-        <a class="btn_redirect_to_detail" href="/Detail">Table3</a>
-        <a class="btn_redirect_to_detail" href="/Detail">Table4</a>
+        <a class="btn_redirect_to_detail" href="/Detail?tableName=table1">Table1</a>
+        <a class="btn_redirect_to_detail" href="/Detail?tableName=table2">Table2</a>
+        <a class="btn_redirect_to_detail" href="/Detail?tableName=table3">Table3</a>
+        <a class="btn_redirect_to_detail" href="/Detail?tableName=table4">Table4</a>
+        <!-- 包含完整schema的uri -->
+        <a class="btn_redirect_to_detail" href="tel:10086">调起电话</a>
+        <a class="btn_redirect_to_detail" href="sms:10086">调起短信</a>
+        <a class="btn_redirect_to_detail" href="mailto:example@xx.com">调起邮件</a>
+        <!-- 打开webview加载网页 -->
+        <a class="btn_redirect_to_detail" href="https://www.baidu.com/">打开网页</a>
     </div>
 </template>
 
@@ -23,13 +29,15 @@
         border-radius: 10px;
         margin: 10px;
     }
+
     a {
-        text-decoration:none;
+        text-decoration: none;
     }
 </style>
 
 <script>
     import router from '@system.router';
+    import webview from '@system.webview';
 
     export default {}
 </script>
