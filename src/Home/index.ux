@@ -1,39 +1,27 @@
+<style lang="less">
+    @import '../Common/index.less';
+</style>
+
 <template>
     <div class="container">
-        <a class="btn_redirect_to_detail" href="/Detail?tableName=table1">Table1</a>
-        <a class="btn_redirect_to_detail" href="/Detail?tableName=table2">Table2</a>
-        <a class="btn_redirect_to_detail" href="/Detail?tableName=table3">Table3</a>
-        <a class="btn_redirect_to_detail" href="/Detail?tableName=table4">Table4</a>
-        <!-- 包含完整schema的uri -->
-        <a class="btn_redirect_to_detail" href="tel:10086">调起电话</a>
-        <a class="btn_redirect_to_detail" href="sms:10086">调起短信</a>
-        <a class="btn_redirect_to_detail" href="mailto:example@xx.com">调起邮件</a>
-        <!-- 打开webview加载网页 -->
-        <a class="btn_redirect_to_detail" href="https://www.baidu.com/">打开网页</a>
+        <div class="box">
+            <a class="btn" href="/Detail?tableName=table1">Table1</a>
+            <a class="btn" href="/Detail?tableName=table2">Table2</a>
+            <a class="btn" href="/Detail?tableName=table3">Table3</a>
+            <a class="btn" href="/Detail?tableName=table4">Table4</a>
+        </div>
+
+        <div class="box">
+            <!-- 包含完整schema的uri -->
+            <a class="btn" href="tel:10086">调起电话</a>
+            <a class="btn" href="sms:10086">调起短信</a>
+            <a class="btn" href="mailto:example@xx.com">调起邮件</a>
+            <!-- 打开webview加载网页 -->
+            <a class="btn" href="https://www.baidu.com/">打开网页</a>
+        </div>
+        <div style="margin-bottom: 30px;"></div>
     </div>
 </template>
-
-<style>
-    .container {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .btn_redirect_to_detail {
-        width: 300px;
-        background-color: #4286f5;
-        border: 1px solid #ff0000;
-        padding: 10px;
-        text-align: center;
-        border-radius: 10px;
-        margin: 10px;
-    }
-
-    a {
-        text-decoration: none;
-    }
-</style>
 
 <script>
     import router from '@system.router';
