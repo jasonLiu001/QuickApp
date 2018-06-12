@@ -22,7 +22,8 @@
     }
   ],
   "config": {
-    "logLevel": "off"
+    "logLevel": "debug",
+    "designWidth": 640
   },
   "router": {
     "entry": "Home",

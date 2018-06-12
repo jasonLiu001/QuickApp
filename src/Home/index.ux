@@ -1,7 +1,9 @@
 <template>
     <div class="container">
-        <text>{{title}}</text>
-        <text onclick="press">{{message}}</text>
+        <a class="btn_redirect_to_detail" href="/Detail">Table1</a>
+        <a class="btn_redirect_to_detail" href="/Detail">Table2</a>
+        <a class="btn_redirect_to_detail" href="/Detail">Table3</a>
+        <a class="btn_redirect_to_detail" href="/Detail">Table4</a>
     </div>
 </template>
 
@@ -11,16 +13,23 @@
         justify-content: center;
         align-items: center;
     }
+
+    .btn_redirect_to_detail {
+        width: 300px;
+        background-color: #4286f5;
+        border: 1px solid #ff0000;
+        padding: 10px;
+        text-align: center;
+        border-radius: 10px;
+        margin: 10px;
+    }
+    a {
+        text-decoration:none;
+    }
 </style>
 
 <script>
-    export default {
-        private: {
-            title: "标题",
-            message: "点下试试"
-        },
-        press(e) {
-            this.title = this.title + "别点了";
-        }
-    }
+    import router from '@system.router';
+
+    export default {}
 </script>
