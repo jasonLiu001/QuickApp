@@ -1,0 +1,21 @@
+<template>
+    <div>
+        <text>{{message}}</text>
+    </div>
+</template>
+
+<style>
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<script>
+    export default {
+        private: {
+            message: "详情页"
+        }
+    }
+</script>

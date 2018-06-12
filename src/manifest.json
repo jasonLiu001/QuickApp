@@ -6,23 +6,31 @@
   "minPlatformVersion": "101",
   "icon": "/Common/logo.png",
   "features": [
-    { "name": "system.prompt" },
-    { "name": "system.router" },
-    { "name": "system.shortcut" }
+    {
+      "name": "system.prompt"
+    },
+    {
+      "name": "system.router"
+    },
+    {
+      "name": "system.shortcut"
+    }
   ],
   "permissions": [
-    { "origin": "*" }
+    {
+      "origin": "*"
+    }
   ],
   "config": {
     "logLevel": "off"
   },
   "router": {
-    "entry": "Demo",
+    "entry": "Home",
     "pages": {
-      "Demo": {
+      "Home": {
         "component": "index"
       },
-      "DemoDetail": {
+      "Detail": {
         "component": "index"
       },
       "About": {
@@ -33,13 +41,14 @@
   "display": {
     "titleBarBackgroundColor": "#f2f2f2",
     "titleBarTextColor": "#414141",
+    "titleBarText": "QuickApp",
     "menu": true,
     "pages": {
-      "Demo": {
-        "titleBarText": "示例页",
+      "Home": {
+        "titleBarText": "首页",
         "menu": false
       },
-      "DemoDetail": {
+      "Detail": {
         "titleBarText": "详情页"
       },
       "About": {

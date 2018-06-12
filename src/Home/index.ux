@@ -1,0 +1,26 @@
+<template>
+    <div class="container">
+        <text>{{title}}</text>
+        <text onclick="press">{{message}}</text>
+    </div>
+</template>
+
+<style>
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<script>
+    export default {
+        private: {
+            title: "标题",
+            message: "点下试试"
+        },
+        press(e) {
+            this.title = this.title + "别点了";
+        }
+    }
+</script>
