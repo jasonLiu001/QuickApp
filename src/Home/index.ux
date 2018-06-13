@@ -10,10 +10,3 @@
         </div>
     </div>
 </template>
-
-<script>
-    import router from '@system.router';
-    import webview from '@system.webview';
-
-    export default {}
-</script>

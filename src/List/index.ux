@@ -4,12 +4,17 @@
 
 <template>
     <div class="container">
-        <text></text>
+        <text class="txt">{{tableName}}</text>
     </div>
 </template>
 
 <script>
     import router from '@system.router';
 
-    export default {}
+    export default {
+        protected: {
+            //上个页面传递的参数
+            tableName: ''
+        }
+    }
 </script>

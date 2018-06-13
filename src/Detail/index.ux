@@ -18,7 +18,6 @@
             tableName: ''
         },
         onInit() {
-            console.log('tableName' + this.tableName);
         }
     }
 </script>
