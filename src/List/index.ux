@@ -1,0 +1,15 @@
+<style lang="less">
+    @import '../Common/index.less';
+</style>
+
+<template>
+    <div class="container">
+        <text></text>
+    </div>
+</template>
+
+<script>
+    import router from '@system.router';
+
+    export default {}
+</script>

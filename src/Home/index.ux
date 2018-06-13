@@ -5,21 +5,9 @@
 <template>
     <div class="container">
         <div class="box">
-            <a class="btn" href="/Detail?tableName=table1">Table1</a>
-            <a class="btn" href="/Detail?tableName=table2">Table2</a>
-            <a class="btn" href="/Detail?tableName=table3">Table3</a>
-            <a class="btn" href="/Detail?tableName=table4">Table4</a>
+            <a class="btn" href="/List?tableName=invest">Invest</a>
+            <a class="btn" href="/List?tableName=max_profit">MaxProfit</a>
         </div>
-
-        <div class="box">
-            <!-- 包含完整schema的uri -->
-            <a class="btn" href="tel:10086">调起电话</a>
-            <a class="btn" href="sms:10086">调起短信</a>
-            <a class="btn" href="mailto:example@xx.com">调起邮件</a>
-            <!-- 打开webview加载网页 -->
-            <a class="btn" href="https://www.baidu.com/">打开网页</a>
-        </div>
-        <div style="margin-bottom: 30px;"></div>
     </div>
 </template>
 

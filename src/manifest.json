@@ -34,6 +34,9 @@
       "Home": {
         "component": "index"
       },
+      "List": {
+        "component": "index"
+      },
       "Detail": {
         "component": "index"
       },
@@ -45,15 +48,16 @@
   "display": {
     "titleBarBackgroundColor": "#f2f2f2",
     "titleBarTextColor": "#414141",
-    "titleBarText": "QuickApp",
     "menu": true,
     "pages": {
       "Home": {
-        "titleBarText": "首页",
-        "menu": false
+        "titleBarText": "选择表"
+      },
+      "List": {
+        "titleBarText": "选择查询字段"
       },
       "Detail": {
-        "titleBarText": "详情页"
+        "titleBarText": "查询结果"
       },
       "About": {
         "menu": false
