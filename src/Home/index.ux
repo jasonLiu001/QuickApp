@@ -5,8 +5,8 @@
 <template>
     <div class="container">
         <div class="box">
-            <a class="btn" href="/List?tableName=invest">Invest</a>
-            <a class="btn" href="/List?tableName=max_profit">MaxProfit</a>
+            <a class="btn margin_top" href="/List?tableName=invest">Invest</a>
+            <a class="btn margin_top" href="/List?tableName=max_profit">MaxProfit</a>
         </div>
     </div>
 </template>

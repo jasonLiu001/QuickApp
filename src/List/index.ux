@@ -5,16 +5,16 @@
 <template>
     <div class="container">
         <list class="box">
-            <list-item for="{{value in list}}" type="tableField" class="list_item" onclick="clickTabEventHandler">
+            <list-item for="{{value in list}}" type="tableField" class="list_item margin_top" onclick="clickTabEventHandler">
                 <image src="../Common/icon_box-checked.png"></image>
                 <text>{{value}}</text>
             </list-item>
-        </list>
 
-        <!--查询按钮-->
-        <div class="box">
-            <a class="btn" href="/Detail">查询</a>
-        </div>
+            <!--查询按钮-->
+            <list-item type="btnQuery" class="btn_list_box">
+                <a class="btn" href="/Detail">查询</a>
+            </list-item>
+        </list>
     </div>
 </template>
 

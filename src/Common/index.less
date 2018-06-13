@@ -47,7 +47,6 @@ a {
   .flex_column_center;
   padding-left: @padding;
   padding-right: @padding;
-  padding-bottom: @padding;
 
   .box {
     .flex_column_center;
@@ -57,7 +56,6 @@ a {
 
 /*按钮的默认样式*/
 .btn {
-  .margin_top;
   width: @btn-width;
   height: @btn-height;
   background-color: @btn-background-color;
@@ -74,10 +72,15 @@ a {
 
 /*列表页中tab的高度*/
 .list_item {
-  .margin_top;
   .flex_row_center;
   height: @list-item-height;
   padding: @padding;
   background-color: @list-item-background-color;
   border-radius: @border-radius;
+}
+
+/*列表页面底部按钮*/
+.btn_list_box {
+  .flex_column_center;
+  height: @list-item-height;
 }
