@@ -4,7 +4,17 @@
 
 <template>
     <div class="container">
-        <text class="txt">{{tableName}}</text>
+        <list class="box">
+            <list-item for="{{value in list}}" type="tableField" class="list_item" onclick="clickTabEventHandler">
+                <image src="../Common/icon_box-checked.png"></image>
+                <text>{{value}}</text>
+            </list-item>
+        </list>
+
+        <!--查询按钮-->
+        <div class="box">
+            <a class="btn" href="/Detail">查询</a>
+        </div>
     </div>
 </template>
 
@@ -12,9 +22,18 @@
     import router from '@system.router';
 
     export default {
+        private: {
+            list: ['field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'field7']
+        },
         protected: {
             //上个页面传递的参数
             tableName: ''
+        },
+        /*
+        * 点击列表项事件处理函数
+        * */
+        clickTabEventHandler(e) {
+
         }
     }
 </script>

@@ -71,7 +71,7 @@
     color: #2a9700;
   }
 
-  .gap {
+  .margin_top {
     font-size: 22px;
     color: #b2b2b2;
   }

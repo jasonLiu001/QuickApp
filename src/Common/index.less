@@ -1,9 +1,31 @@
 /*公共变量*/
-@margin: 16px;
+@margin: 24px;
+@padding: 24px;
+/*字体尺寸*/
 @font-size: 20px;
+/*行高*/
+@line-height: 24px;
+/*按钮宽度及样式*/
+@btn-font-color: #ffffff;
+@btn-background-color: #4286f5;
+@btn-height: 100px;
+@btn-width: 100%;
+/*圆角*/
+@border-radius: 10px;
+/*列表项*/
+@list-item-height: 240px;
+@list-item-background-color: #19a6d9;
+
+/*文本对齐*/
+@text-align-center: center;
 
 a {
   text-decoration: none;
+}
+
+/*间隔*/
+.margin_top {
+  margin-top: @margin;
 }
 
 /*flex主轴居中*/
@@ -13,35 +35,49 @@ a {
   justify-content: center;
 }
 
+/*flex次轴居中*/
+.flex_row_center {
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+}
+
 /*主容器*/
 .container {
-  padding: 15px;
   .flex_column_center;
+  padding-left: @padding;
+  padding-right: @padding;
+  padding-bottom: @padding;
+
   .box {
     .flex_column_center;
     align-items: center;
-    margin-top: @margin;
   }
 }
 
 /*按钮的默认样式*/
 .btn {
-  width: 100%;
-  height: 100px;
-  background-color: #4286f5;
-  color: #ffffff;
-  margin: @margin;
-  border-radius: 10px;
-  text-align: center;
+  .margin_top;
+  width: @btn-width;
+  height: @btn-height;
+  background-color: @btn-background-color;
+  color: @btn-font-color;
+  border-radius: @border-radius;
+  text-align: @text-align-center;
 }
 
 /*文本的默认样式*/
 .txt {
   font-size: @font-size;
-  text-align: center;
+  text-align: @text-align-center;
 }
 
 /*列表页中tab的高度*/
 .list_item {
-  height: 240px;
+  .margin_top;
+  .flex_row_center;
+  height: @list-item-height;
+  padding: @padding;
+  background-color: @list-item-background-color;
+  border-radius: @border-radius;
 }
