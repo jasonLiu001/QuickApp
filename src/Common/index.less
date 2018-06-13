@@ -1,3 +1,7 @@
+/*公共变量*/
+@margin: 16px;
+@font-size: 20px;
+
 a {
   text-decoration: none;
 }
@@ -16,7 +20,7 @@ a {
   .box {
     .flex_column_center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: @margin;
   }
 }
 
@@ -26,13 +30,18 @@ a {
   height: 100px;
   background-color: #4286f5;
   color: #ffffff;
-  margin: 10px;
+  margin: @margin;
   border-radius: 10px;
   text-align: center;
 }
 
 /*文本的默认样式*/
 .txt {
-  font-size: 20px;
+  font-size: @font-size;
   text-align: center;
+}
+
+/*列表页中tab的高度*/
+.list_item {
+  height: 240px;
 }
