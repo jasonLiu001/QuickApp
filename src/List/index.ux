@@ -7,12 +7,17 @@
         <list class="box">
             <list-item for="{{fieldName in list}}" type="tableField" class="list_item margin_top"
                        onclick="clickTabEventHandler(fieldName)">
-                <image class="image" src="../Common/img/icon_box-checked.png"></image>
-                <text>{{fieldName}}</text>
+                <div>
+                    <image class="image" src="../Common/img/icon_box-checked.png"></image>
+                    <text>{{fieldName}}</text>
+                </div>
+                <div>
+                    <text></text>
+                </div>
             </list-item>
 
             <!--查询按钮-->
-            <list-item type="btnQuery" class="btn_list_box margin_top margin-bottom">
+            <list-item type="btnQuery" class="margin_top margin-bottom">
                 <a class="btn" href="/Detail">查询</a>
             </list-item>
         </list>
