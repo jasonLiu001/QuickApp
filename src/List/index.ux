@@ -21,19 +21,6 @@
 <template>
     <stack class="container">
         <list class="box">
-            <!-- 通过监听"列表中的顶部元素"的元素的appear和disappear事件，控制"列表中的吸顶元素对应的Mask"的显示 -->
-            <list-item type="top" ondisappear="showMask" onappear="hideMask">
-                <div class="height-300 bg-blue">
-                    <text>列表中的顶部元素</text>
-                </div>
-            </list-item>
-            <!-- 列表中的吸顶元素 -->
-            <list-item type="ceiling">
-                <div class="height-300 bg-red">
-                    <text>列表中的吸顶元素</text>
-                </div>
-            </list-item>
-
             <!--普通列表项-->
             <list-item for="{{fieldName in list}}"
                        type="tableField" class="list_item margin_top"
@@ -42,9 +29,8 @@
                     <image class="imge" src="../Common/img/icon_box-checked.png"></image>
                     <text>{{fieldName}}</text>
                 </div>
-                <div>
-                    <text>字段说明</text>
-                </div>
+                <text>字段说明</text>
+                <text style="border-bottom-color: #0faeff;border-bottom-width: 1px;"></text>
             </list-item>
 
             <!--查询按钮-->
@@ -53,12 +39,6 @@
             </list-item>
         </list>
 
-        <!-- 列表中的吸顶元素对应的Mask -->
-        <div show="{{maskShow}}">
-            <div class="height-300 bg-red">
-                <text>列表中的吸顶元素</text>
-            </div>
-        </div>
     </stack>
 </template>
 

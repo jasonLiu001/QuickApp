@@ -50,7 +50,6 @@ a {
 /*主容器*/
 .container {
   .flex_column_center;
-  background-color: @background-color;
   padding-left: @padding;
   padding-right: @padding;
 
@@ -87,7 +86,8 @@ a {
 .list_item {
   .flex_column_center;
   height: @btn-height;
-  background-color: @list-item-background-color;
+  border-bottom-width: 1px;
+  border-bottom-color: @list-item-background-color;
   border-radius: @border-radius;
 
   .image {

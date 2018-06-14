@@ -6,11 +6,14 @@
     <div class="container">
         <list class="box">
             <block for="{{(index,value) in list}}">
+
+                <!--表行数据-->
                 <list-item type="data"
-                           style="padding:10px;height: 240px;flex-direction: column;align-items:flex-start;background-color: #fcfefc;border-radius:10px;"
-                           class="margin_top margin-bottom">
+                           style="padding:10px;flex-direction: column;align-items:flex-start;border-radius:10px;"
+                           class="margin-bottom">
                     <text style="font-size: 30px;line-height: 60px;">20180506-012</text>
 
+                    <!--表各列数据-->
                     <block for="{{(index,value) in list}}">
                         <div>
                             <text style="width: 150px;">{{value}}:</text>
@@ -18,6 +21,7 @@
                         </div>
                     </block>
 
+                    <text style="width: 100%;border-bottom-color: #0faeff;border-bottom-width: 1px;"></text>
                 </list-item>
             </block>
         </list>
