@@ -1,17 +1,18 @@
 <style lang="less">
-    @import '../Common/index.less';
+    @import '../Common/css/index.less';
 </style>
 
 <template>
     <div class="container">
         <list class="box">
-            <list-item for="{{value in list}}" type="tableField" class="list_item margin_top" onclick="clickTabEventHandler">
-                <image src="../Common/icon_box-checked.png"></image>
+            <list-item for="{{value in list}}" type="tableField" class="list_item margin_top"
+                       onclick="clickTabEventHandler">
+                <image class="image" src="../Common/img/icon_box-checked.png"></image>
                 <text>{{value}}</text>
             </list-item>
 
             <!--查询按钮-->
-            <list-item type="btnQuery" class="btn_list_box">
+            <list-item type="btnQuery" class="btn_list_box margin_top margin-bottom">
                 <a class="btn" href="/Detail">查询</a>
             </list-item>
         </list>
@@ -20,10 +21,12 @@
 
 <script>
     import router from '@system.router';
+    import prompt from '@system.prompt';
+    import {tableFields} from '../Common/js/data';
 
     export default {
         private: {
-            list: ['field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'field7']
+            list: tableFields
         },
         protected: {
             //上个页面传递的参数
@@ -33,7 +36,9 @@
         * 点击列表项事件处理函数
         * */
         clickTabEventHandler(e) {
-
+            prompt.showToast({
+                message: 'show me!'
+            })
         }
     }
 </script>

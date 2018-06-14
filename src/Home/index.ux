@@ -1,5 +1,5 @@
 <style lang="less">
-    @import '../Common/index.less';
+    @import '../Common/css/index.less';
 </style>
 
 <template>

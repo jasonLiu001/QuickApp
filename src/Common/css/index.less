@@ -14,7 +14,7 @@
 @border-radius: 10px;
 /*列表项*/
 @list-item-height: 240px;
-@list-item-background-color: #19a6d9;
+@list-item-background-color: rgba(114, 131, 199, 0.22);
 
 /*文本对齐*/
 @text-align-center: center;
@@ -77,15 +77,16 @@ a {
 /*列表页中tab的高度*/
 .list_item {
   .flex_row_center;
-  height: @list-item-height;
-  padding: @padding;
+  height: @btn-height;
   background-color: @list-item-background-color;
   border-radius: @border-radius;
+
+  .image {
+    height: @btn-height - 50;
+  }
 }
 
 /*列表页面底部按钮*/
 .btn_list_box {
-  .margin_top;
-  .margin-bottom;
   .flex_column_center;
 }
