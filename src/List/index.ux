@@ -22,20 +22,20 @@
     <stack class="container">
         <list class="box">
             <!--普通列表项-->
-            <list-item for="{{fieldName in list}}"
+            <list-item for="{{item in list}}"
                        type="tableField" class="list_item margin_top"
                        onclick="clickTabEventHandler(fieldName)">
                 <div>
                     <image class="image" src="{{checkbox_icon}}"></image>
-                    <text>{{fieldName}}</text>
+                    <text>{{item.name}}</text>
                 </div>
-                <text>字段说明</text>
+                <text>{{item.des}}</text>
                 <text style="border-bottom-color: #0faeff;border-bottom-width: 1px;"></text>
             </list-item>
 
             <!--查询按钮-->
             <list-item type="btnQuery" class="margin_top margin-bottom">
-                <a class="btn" href="/Detail">查询</a>
+                <a class="btn" onclick="btnQueryEventHandler">查询</a>
             </list-item>
         </list>
 
@@ -45,18 +45,41 @@
 <script>
     import router from '@system.router';
     import prompt from '@system.prompt';
-    import {tableFields} from '../Common/js/data';
+    import {investTable, maxProfitTable} from '../Common/js/data';
 
     export default {
         private: {
             checkbox_icon: '../Common/img/icon_box-checked.png',
             maskShow: false,
             appearCount: 0,
-            list: tableFields
+            list: []
         },
         protected: {
             //上个页面传递的参数
             tableName: ''
+        },
+        btnQueryEventHandler() {
+            //跳转到详情页
+            router.push({
+                uri: '/Detail?',
+                params: {tableName: this.tableName}
+            });
+        },
+        getTableFields() {
+            let list = [];
+            switch (this.tableName) {
+                case 'invest':
+                    list = investTable;
+                    break;
+                case 'max_profit':
+                    list = maxProfitTable;
+                    break;
+            }
+
+            return list;
+        },
+        onInit() {
+            this.list = this.getTableFields();
         },
         showMask() {
             this.maskShow = true

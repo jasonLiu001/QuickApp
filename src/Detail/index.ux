@@ -5,7 +5,7 @@
 <template>
     <div class="container">
         <list class="box">
-            <block for="{{(index,value) in list}}">
+            <block for="{{(index,row) in list}}">
 
                 <!--表行数据-->
                 <list-item type="data"
@@ -14,12 +14,10 @@
                     <text style="font-size: 30px;line-height: 60px;">20180506-01{{index}}</text>
 
                     <!--表各列数据-->
-                    <block for="{{(index,value) in list}}">
+                    <block for="{{(index,item) in list}}">
                         <div>
-                            <text style="width: 150px;">{{value}}:</text>
-                            <text style="width: 150px;">值</text>
-                            <text style="width: 150px;">{{value}}:</text>
-                            <text style="width: 150px;">值</text>
+                            <text style="width: 50%">{{item.name}}:</text>
+                            <text style="width: 50%">{{item.des}}</text>
                         </div>
                     </block>
 
@@ -31,18 +29,33 @@
 </template>
 
 <script>
-    import {tableFields} from '../Common/js/data';
+    import {investTable, maxProfitTable} from '../Common/js/data';
 
     export default {
         private: {
             message: "详情页",
-            list: tableFields
+            list: []
         },
         protected: {
             //上个页面传递的参数
             tableName: ''
         },
+        getTableFields() {
+            let list = [];
+            switch (this.tableName) {
+                case 'invest':
+                    list = investTable;
+                    break;
+                case 'max_profit':
+                    list = maxProfitTable;
+                    break;
+            }
+
+            return list;
+        },
         onInit() {
-        }
+            console.log(this.tableName);
+            this.list = this.getTableFields();
+        },
     }
 </script>
