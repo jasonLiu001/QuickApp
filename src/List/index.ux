@@ -5,10 +5,10 @@
 <template>
     <div class="container">
         <list class="box">
-            <list-item for="{{value in list}}" type="tableField" class="list_item margin_top"
-                       onclick="clickTabEventHandler">
+            <list-item for="{{fieldName in list}}" type="tableField" class="list_item margin_top"
+                       onclick="clickTabEventHandler(fieldName)">
                 <image class="image" src="../Common/img/icon_box-checked.png"></image>
-                <text>{{value}}</text>
+                <text>{{fieldName}}</text>
             </list-item>
 
             <!--查询按钮-->
@@ -35,10 +35,24 @@
         /*
         * 点击列表项事件处理函数
         * */
-        clickTabEventHandler(e) {
-            prompt.showToast({
-                message: 'show me!'
-            })
+        clickTabEventHandler(arg1, e) {
+            prompt.showDialog({
+                title: '选择字段名称',
+                message: arg1,
+                buttons: [
+                    {
+                        text: '确定',
+                        color: '#33dd44'
+                    }
+                ],
+                success: function (data) {
+
+                },
+                cancel: function (data) {
+                },
+                fail: function (data, code) {
+                }
+            });
         }
     }
 </script>
