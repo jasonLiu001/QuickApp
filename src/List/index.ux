@@ -1,11 +1,40 @@
 <style lang="less">
     @import '../Common/css/index.less';
+
+    .height-300 {
+        height: 300px;
+    }
+
+    .bg-blue {
+        flex-grow: 1;
+        justify-content: center;
+        background-color: #0faeff;
+    }
+
+    .bg-red {
+        flex-grow: 1;
+        justify-content: center;
+        background-color: #f76160;
+    }
 </style>
 
 <template>
-    <div class="container">
+    <stack class="container">
         <list class="box">
-            <!--列表项-->
+            <!-- 通过监听"列表中的顶部元素"的元素的appear和disappear事件，控制"列表中的吸顶元素对应的Mask"的显示 -->
+            <list-item type="top" ondisappear="showMask" onappear="hideMask">
+                <div class="height-300 bg-blue">
+                    <text>列表中的顶部元素</text>
+                </div>
+            </list-item>
+            <!-- 列表中的吸顶元素 -->
+            <list-item type="ceiling">
+                <div class="height-300 bg-red">
+                    <text>列表中的吸顶元素</text>
+                </div>
+            </list-item>
+
+            <!--普通列表项-->
             <list-item for="{{fieldName in list}}"
                        type="tableField" class="list_item margin_top"
                        onclick="clickTabEventHandler(fieldName)">
@@ -23,7 +52,14 @@
                 <a class="btn" href="/Detail">查询</a>
             </list-item>
         </list>
-    </div>
+
+        <!-- 列表中的吸顶元素对应的Mask -->
+        <div show="{{maskShow}}">
+            <div class="height-300 bg-red">
+                <text>列表中的吸顶元素</text>
+            </div>
+        </div>
+    </stack>
 </template>
 
 <script>
@@ -33,11 +69,24 @@
 
     export default {
         private: {
+            maskShow: false,
+            appearCount: 0,
             list: tableFields
         },
         protected: {
             //上个页面传递的参数
             tableName: ''
+        },
+        showMask() {
+            this.maskShow = true
+        },
+        hideMask() {
+            // 加载页面时，所有元素的appear事件都会被触发一次。因此，需要过滤第一次的appear事件
+            if (this.appearCount) {
+                this.maskShow = false
+            } else {
+                ++this.appearCount
+            }
         },
         /*
         * 点击列表项事件处理函数
