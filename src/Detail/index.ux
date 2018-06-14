@@ -7,13 +7,17 @@
         <list class="box">
             <block for="{{(index,value) in list}}">
                 <list-item type="data"
-                           style="height: 240px;flex-direction: column;align-items:flex-start;background-color: #fcfefc;border-radius:10px;"
+                           style="padding:10px;height: 240px;flex-direction: column;align-items:flex-start;background-color: #fcfefc;border-radius:10px;"
                            class="margin_top margin-bottom">
-                    <text style="font-size: 24px;line-height: 30px;">20180506-012</text>
-                    <div style="justify-content: center;flex: 1">
-                        <text>字段1</text>
-                        <text>值</text>
-                    </div>
+                    <text style="font-size: 30px;line-height: 60px;">20180506-012</text>
+
+                    <block for="{{(index,value) in list}}">
+                        <div>
+                            <text style="width: 150px;">{{value}}:</text>
+                            <text style="width: 200px;">值</text>
+                        </div>
+                    </block>
+
                 </list-item>
             </block>
         </list>
