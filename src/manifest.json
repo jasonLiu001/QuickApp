@@ -29,7 +29,7 @@
     "designWidth": 640
   },
   "router": {
-    "entry": "Home",
+    "entry": "Detail",
     "pages": {
       "Home": {
         "component": "index"

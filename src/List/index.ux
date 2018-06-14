@@ -8,11 +8,11 @@
             <list-item for="{{fieldName in list}}" type="tableField" class="list_item margin_top"
                        onclick="clickTabEventHandler(fieldName)">
                 <div>
-                    <image class="image" src="../Common/img/icon_box-checked.png"></image>
+                    <image class="imge" src="../Common/img/icon_box-checked.png"></image>
                     <text>{{fieldName}}</text>
                 </div>
                 <div>
-                    <text></text>
+                    <text>字段说明</text>
                 </div>
             </list-item>
 

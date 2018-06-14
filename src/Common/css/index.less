@@ -74,9 +74,16 @@ a {
   text-align: @text-align-center;
 }
 
+/*说明文本默认样式*/
+.txt_description {
+  font-size: 16px;
+  line-height: @line-height;
+  color: #b2b2b2;
+}
+
 /*列表页中tab的高度*/
 .list_item {
-  align-items: center;
+  .flex_column_center;
   height: @btn-height;
   background-color: @list-item-background-color;
   border-radius: @border-radius;
