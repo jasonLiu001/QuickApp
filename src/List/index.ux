@@ -26,7 +26,7 @@
                        type="tableField" class="list_item margin_top"
                        onclick="clickTabEventHandler(fieldName)">
                 <div>
-                    <image class="imge" src="../Common/img/icon_box-checked.png"></image>
+                    <image class="image" src="{{checkbox_icon}}"></image>
                     <text>{{fieldName}}</text>
                 </div>
                 <text>字段说明</text>
@@ -49,6 +49,7 @@
 
     export default {
         private: {
+            checkbox_icon: '../Common/img/icon_box-checked.png',
             maskShow: false,
             appearCount: 0,
             list: tableFields
@@ -72,23 +73,12 @@
         * 点击列表项事件处理函数
         * */
         clickTabEventHandler(arg1, e) {
-            prompt.showDialog({
-                title: '选择字段名称',
-                message: arg1,
-                buttons: [
-                    {
-                        text: '确定',
-                        color: '#33dd44'
-                    }
-                ],
-                success: function (data) {
+            if (this.checkbox_icon === '../Common/img/icon_box-empty.png') {
+                this.checkbox_icon = '../Common/img/icon_box-checked.png';
+            } else {
+                this.checkbox_icon = '../Common/img/icon_box-empty.png';
+            }
 
-                },
-                cancel: function (data) {
-                },
-                fail: function (data, code) {
-                }
-            });
         }
     }
 </script>
