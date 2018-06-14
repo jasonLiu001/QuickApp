@@ -11,17 +11,19 @@
                 <list-item type="data"
                            style="padding:10px;flex-direction: column;align-items:flex-start;border-radius:10px;"
                            class="margin-bottom">
-                    <text style="font-size: 30px;line-height: 60px;">20180506-012</text>
+                    <text style="font-size: 30px;line-height: 60px;">20180506-01{{index}}</text>
 
                     <!--表各列数据-->
                     <block for="{{(index,value) in list}}">
                         <div>
                             <text style="width: 150px;">{{value}}:</text>
-                            <text style="width: 200px;">值</text>
+                            <text style="width: 150px;">值</text>
+                            <text style="width: 150px;">{{value}}:</text>
+                            <text style="width: 150px;">值</text>
                         </div>
                     </block>
 
-                    <text style="width: 100%;border-bottom-color: #0faeff;border-bottom-width: 1px;"></text>
+                    <text style="width: 100%;margin-top:10px;border-bottom-color: #0faeff;border-bottom-width: 1px;"></text>
                 </list-item>
             </block>
         </list>
