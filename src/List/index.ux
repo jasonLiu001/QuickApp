@@ -5,7 +5,9 @@
 <template>
     <div class="container">
         <list class="box">
-            <list-item for="{{fieldName in list}}" type="tableField" class="list_item margin_top"
+            <!--列表项-->
+            <list-item for="{{fieldName in list}}"
+                       type="tableField" class="list_item margin_top"
                        onclick="clickTabEventHandler(fieldName)">
                 <div>
                     <image class="imge" src="../Common/img/icon_box-checked.png"></image>

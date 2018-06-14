@@ -4,14 +4,29 @@
 
 <template>
     <div class="container">
-        <text class="txt">{{tableName}}</text>
+        <list class="box">
+            <block for="{{(index,value) in list}}">
+                <list-item type="data"
+                           style="height: 240px;flex-direction: column;align-items:flex-start;background-color: #fcfefc;border-radius:10px;"
+                           class="margin_top margin-bottom">
+                    <text style="font-size: 24px;line-height: 30px;">20180506-012</text>
+                    <div style="justify-content: center;flex: 1">
+                        <text>字段1</text>
+                        <text>值</text>
+                    </div>
+                </list-item>
+            </block>
+        </list>
     </div>
 </template>
 
 <script>
+    import {tableFields} from '../Common/js/data';
+
     export default {
         private: {
-            message: "详情页"
+            message: "详情页",
+            list: tableFields
         },
         protected: {
             //上个页面传递的参数
