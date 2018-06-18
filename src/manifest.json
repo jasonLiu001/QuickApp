@@ -17,6 +17,9 @@
     },
     {
       "name": "system.webview"
+    },
+    {
+      "name": "system.fetch"
     }
   ],
   "permissions": [

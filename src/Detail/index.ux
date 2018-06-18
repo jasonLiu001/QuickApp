@@ -29,7 +29,8 @@
 </template>
 
 <script>
-    import {investTable, maxProfitTable} from '../Common/js/data';
+    import {investTable, maxProfitTable, apiUrl} from '../Common/js/data';
+    import fetch from '@system.fetch';
 
     export default {
         private: {
@@ -54,8 +55,26 @@
             return list;
         },
         onInit() {
-            console.log(this.tableName);
             this.list = this.getTableFields();
         },
+        onShow() {
+            fetch.fetch({
+                url: apiUrl.findInvestInfoList,
+                method: 'POST',
+                header: {
+                    'Content-Type': 'application/json'
+                },
+                data: {
+                    'pageIndex': 1,
+                    'pageSize': 10
+                },
+                success: function (data) {
+                    console.log(`title: ${JSON.parse(data.data).title}`)
+                },
+                fail: function (data, code) {
+                    console.log(`handling fail, code = ${code}`)
+                }
+            })
+        }
     }
 </script>

@@ -24,9 +24,10 @@
             <!--普通列表项-->
             <list-item for="{{item in list}}"
                        type="tableField" class="list_item margin_top"
-                       onclick="clickTabEventHandler(fieldName)">
+                       onclick="clickTabEventHandler(item)">
                 <div>
-                    <image class="image" src="{{checkbox_icon}}"></image>
+                    <image class="image"
+                           src="{{selectItems.has(item.name)?'../Common/img/icon_box-checked.png':'../Common/img/icon_box-empty.png'}}"></image>
                     <text>{{item.name}}</text>
                 </div>
                 <text>{{item.des}}</text>
@@ -52,6 +53,8 @@
             checkbox_icon: '../Common/img/icon_box-checked.png',
             maskShow: false,
             appearCount: 0,
+            //多选结果
+            selectItems: new Map(),
             list: []
         },
         protected: {
@@ -95,13 +98,16 @@
         /*
         * 点击列表项事件处理函数
         * */
-        clickTabEventHandler(arg1, e) {
-            if (this.checkbox_icon === '../Common/img/icon_box-empty.png') {
-                this.checkbox_icon = '../Common/img/icon_box-checked.png';
+        clickTabEventHandler(item, e) {
+            //一次 该操作会一次 更新列表中所有项的选中状态 效率比较低
+            //已选中
+            if (this.selectItems.has(item.name)) {
+                //选中则删除
+                this.selectItems.delete(item.name);
             } else {
-                this.checkbox_icon = '../Common/img/icon_box-empty.png';
+                //未选中则添加
+                this.selectItems.set(item.name, item);
             }
-
         }
     }
 </script>
