@@ -9,19 +9,17 @@
 
                 <!--表行数据-->
                 <list-item type="data"
-                           style="padding:10px;flex-direction: column;align-items:flex-start;border-radius:10px;"
+                           style="padding:10px;flex-direction: column;border-radius:10px;"
                            class="margin-bottom">
                     <text style="font-size: 30px;line-height: 60px;">{{row.period}}</text>
 
                     <!--表各列数据-->
                     <block for="{{(index,columnName) in getColumnNames(row)}}">
-                        <div>
-                            <text style="width: 50%">{{getColumnTextByColumnName(columnName)}}:</text>
-                            <text style="width: 50%">{{row[columnName]}}</text>
+                        <div style="justify-content: space-between">
+                            <text>{{getColumnTextByColumnName(columnName)}}:</text>
+                            <text>{{row[columnName]}}</text>
                         </div>
                     </block>
-
-                    <text style="width: 100%;margin-top:10px;border-bottom-color: #0faeff;border-bottom-width: 1px;"></text>
                 </list-item>
             </block>
         </list>
@@ -60,7 +58,10 @@
             let columnText = '';
             switch (columnName) {
                 case 'currentAccountBalance':
-                    columnText = '余额';
+                    columnText = '账号余额';
+                    break;
+                case 'status':
+                    columnText = '状态';
                     break;
                 default:
                     columnText = columnName;
@@ -105,6 +106,9 @@
                     console.log(`handling fail, code = ${code}`)
                 }
             })
+        },
+        onMenuPress() {
+            this.$app.$def.showMenu();
         }
     }
 </script>
