@@ -11,13 +11,11 @@
                 <list-item type="data"
                            style="padding:10px;flex-direction: column;align-items:flex-start;border-radius:10px;"
                            class="margin-bottom">
-                    <text style="font-size: 30px;line-height: 60px;">{{row.period}}</text>
-
                     <!--表各列数据-->
-                    <block for="{{(index,item) in list}}">
+                    <block for="{{(index,item) in getColumnNames(row)}}">
                         <div>
-                            <text style="width: 50%">{{item.planType}}:</text>
-                            <text style="width: 50%">{{item.investNumberCount}}</text>
+                            <text style="width: 50%">{{item}}:</text>
+                            <text style="width: 50%">{{row[item]}}</text>
                         </div>
                     </block>
 
@@ -41,6 +39,17 @@
             //上个页面传递的参数
             tableName: ''
         },
+        getColumnNames(row) {
+            let list = [];
+            for (let columnName in row) {
+                //排除不需要列名
+                if (columnName === 'investNumbers'
+                    || columnName === 'awardMode'
+                    || columnName === 'investNumberCount') continue;
+                list.push(columnName);
+            }
+            return list;
+        },
         getTableFields() {
             let list = [];
             switch (this.tableName) {
@@ -60,15 +69,15 @@
         onShow() {
             let list = this.list;
             fetch.fetch({
-                url: apiUrl.findInvestInfoList + "?pageIndex=1&pageSize=10",
+                url: apiUrl.findInvestInfoList + "?pageIndex=1&pageSize=20&planType=1",
                 method: 'POST',
-                data: {
-                    'pageIndex': 1,
-                    'pageSize': 10
-                },
+                data: 'pageIndex=1&pageSize=20&planType=1',
                 success: function (data) {
                     if (data) {
+                        //服务器端数据
                         let serverData = JSON.parse(data.data);
+
+                        //遍历数组数据
                         for (let key in serverData.data) {
                             list.push(serverData.data[key]);
                         }
