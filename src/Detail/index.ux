@@ -55,6 +55,9 @@
             return list;
         },
         onInit() {
+
+        },
+        onShow() {
             let list = this.list;
             fetch.fetch({
                 url: apiUrl.findInvestInfoList + "?pageIndex=1&pageSize=10",
@@ -76,8 +79,6 @@
                     console.log(`handling fail, code = ${code}`)
                 }
             })
-        },
-        onShow() {
         }
     }
 </script>
