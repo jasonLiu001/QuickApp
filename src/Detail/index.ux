@@ -55,6 +55,7 @@
             return list;
         },
         onInit() {
+            let list = this.list;
             fetch.fetch({
                 url: apiUrl.findInvestInfoList + "?pageIndex=1&pageSize=10",
                 method: 'POST',
@@ -63,9 +64,11 @@
                     'pageSize': 10
                 },
                 success: function (data) {
-                    console.log(data);
                     if (data) {
-                        this.list = data.data;
+                        let serverData = JSON.parse(data.data);
+                        for (let key in serverData.data) {
+                            list.push(serverData.data[key]);
+                        }
                     }
                     //console.log(`title: ${JSON.parse(data.data).title}`)
                 },
