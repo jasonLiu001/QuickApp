@@ -44,7 +44,9 @@
             for (let columnName in row) {
                 //排除不需要列名
                 if (columnName === 'investNumbers'
+                    || columnName === 'planType'
                     || columnName === 'awardMode'
+                    || columnName === 'winMoney'
                     || columnName === 'investNumberCount') continue;
                 list.push(columnName);
             }
