@@ -6,20 +6,32 @@
     <div class="container">
         <list class="box">
             <block for="{{(index,row) in list}}">
-
                 <!--表行数据-->
-                <list-item type="data"
-                           style="padding:10px;flex-direction: column;border-radius:10px;"
-                           class="margin-bottom">
-                    <text style="font-size: 30px;line-height: 60px;">{{row.period}}</text>
+                <list-item type="data" class="margin-bottom">
 
-                    <!--表各列数据-->
-                    <block for="{{(index,columnName) in getColumnNames(row)}}">
-                        <div style="justify-content: space-between">
-                            <text>{{getColumnTextByColumnName(columnName)}}:</text>
-                            <text>{{row[columnName]}}</text>
+                    <stack>
+                        <div style="width: 100%;padding:10px;flex-direction: column;border-radius:10px;background-color: #e4e4e4">
+                            <div style="justify-content: space-between">
+                                <text>{{row.period}}</text>
+                                <text>{{row.investTime}}</text>
+                            </div>
+
+                            <!--表各列数据-->
+                            <block for="{{(index,columnName) in getColumnNames(row)}}">
+                                <div style="justify-content: space-between">
+                                    <text>{{getColumnTextByColumnName(columnName)}}:</text>
+                                    <text>{{row[columnName]}}</text>
+                                </div>
+                            </block>
                         </div>
-                    </block>
+
+                        <!--icon图标-->
+                        <div style="margin-left: 300px;margin-top:60px;opacity:0.5;height: 50px;width: 100px;">
+                            <text show="{{row.status===1}}" style="color: #f76160">已完成</text>
+                            <text show="{{row.status===0}}" style="color: #f76160">进行中</text>
+                        </div>
+
+                    </stack>
                 </list-item>
             </block>
         </list>
@@ -48,6 +60,8 @@
                     || columnName === 'planType'
                     || columnName === 'awardMode'
                     || columnName === 'winMoney'
+                    || columnName === 'investTime'
+                    || columnName === 'status'
                     || columnName === 'investNumberCount') continue;
 
                 list.push(columnName);
@@ -62,6 +76,9 @@
                     break;
                 case 'status':
                     columnText = '状态';
+                    break;
+                case 'isWin':
+                    columnText = '是否盈利';
                     break;
                 default:
                     columnText = columnName;
