@@ -2,12 +2,12 @@
 const tableFields = ['field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'field7', 'field8'];
 
 const apiUrl = {
-    findAwardInfoList: 'https://www.cnlands.cn/servie/lottery/findAwardInfoList',
-    findInvestInfoList: 'https://www.cnlands.cn/servie/lottery/findInvestInfoList',
-    findMaxProfitInfoList: 'https://www.cnlands.cn/servie/lottery/findMaxProfitInfoList',
-    findPlanInfoList: 'https://www.cnlands.cn/servie/lottery/findPlanInfoList',
-    findPlanResultInfoList: 'https://www.cnlands.cn/servie/lottery/findPlanResultInfoList',
-    findInvestNumbersInfoList: 'https://www.cnlands.cn/servie/lottery/findInvestNumbersInfoList'
+    findAwardInfoList: 'https://www.cnlands.cn/service/lottery/findAwardInfoList',
+    findInvestInfoList: 'https://www.cnlands.cn/service/lottery/findInvestInfoList',
+    findMaxProfitInfoList: 'https://www.cnlands.cn/service/lottery/findMaxProfitInfoList',
+    findPlanInfoList: 'https://www.cnlands.cn/service/lottery/findPlanInfoList',
+    findPlanResultInfoList: 'https://www.cnlands.cn/service/lottery/findPlanResultInfoList',
+    findInvestNumbersInfoList: 'https://www.cnlands.cn/service/lottery/findInvestNumbersInfoList'
 };
 
 const investTable = [

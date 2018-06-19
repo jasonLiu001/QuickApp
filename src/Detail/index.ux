@@ -11,13 +11,13 @@
                 <list-item type="data"
                            style="padding:10px;flex-direction: column;align-items:flex-start;border-radius:10px;"
                            class="margin-bottom">
-                    <text style="font-size: 30px;line-height: 60px;">20180506-01{{index}}</text>
+                    <text style="font-size: 30px;line-height: 60px;">{{row.period}}</text>
 
                     <!--表各列数据-->
                     <block for="{{(index,item) in list}}">
                         <div>
-                            <text style="width: 50%">{{item.name}}:</text>
-                            <text style="width: 50%">{{item.des}}</text>
+                            <text style="width: 50%">{{item.planType}}:</text>
+                            <text style="width: 50%">{{item.investNumberCount}}</text>
                         </div>
                     </block>
 
@@ -55,26 +55,26 @@
             return list;
         },
         onInit() {
-            this.list = this.getTableFields();
-        },
-        onShow() {
             fetch.fetch({
-                url: apiUrl.findInvestInfoList,
+                url: apiUrl.findInvestInfoList + "?pageIndex=1&pageSize=10",
                 method: 'POST',
-                header: {
-                    'Content-Type': 'application/json'
-                },
                 data: {
                     'pageIndex': 1,
                     'pageSize': 10
                 },
                 success: function (data) {
-                    console.log(`title: ${JSON.parse(data.data).title}`)
+                    console.log(data);
+                    if (data) {
+                        this.list = data.data;
+                    }
+                    //console.log(`title: ${JSON.parse(data.data).title}`)
                 },
                 fail: function (data, code) {
                     console.log(`handling fail, code = ${code}`)
                 }
             })
+        },
+        onShow() {
         }
     }
 </script>
