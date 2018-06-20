@@ -36,9 +36,10 @@
             </block>
 
             <!--加载更多-->
-            <list-item type="loadMore" style="flex-direction: row;justify-content: center;" show="{{isLoading}}">
-                <progress type="circular"></progress>
-                <text>正在载入...</text>
+            <list-item type="loadMore" style="flex-direction: row;justify-content: center;">
+                <progress type="circular" show="{{hasMoreData}}"></progress>
+                <text show="{{hasMoreData}}">正在载入...</text>
+                <text show="{{!hasMoreData}}">已加载全部</text>
             </list-item>
 
         </list>
@@ -51,7 +52,7 @@
 
     export default {
         private: {
-            isLoading: true,
+            hasMoreData: true,
             pageIndex: 1,
             list: []
         },
@@ -104,15 +105,20 @@
             return list;
         },
         findInvestInfoList() {
-            //初始化正在加载
-            this.isLoading = true;
+            //console.log(`title: ${JSON.parse(data.data).title}`)
             fetch.fetch({
                 url: apiUrl.findInvestInfoList + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1",
                 method: 'POST',
                 success: (data) => {
                     if (data) {
-                        //服务器端数据
+                        //解析 服务器端接口数据
                         let serverData = JSON.parse(data.data);
+
+                        //全部加载完成 隐藏正在载入...
+                        if (serverData.data === null || serverData.data === undefined) {
+                            this.hasMoreData = false;
+                            return;
+                        }
 
                         //遍历数组数据
                         for (let key in serverData.data) {
@@ -120,9 +126,6 @@
                         }
 
                     }
-                    //隐藏正在载入...
-                    this.isLoading = false;
-                    //console.log(`title: ${JSON.parse(data.data).title}`)
                 },
                 fail: (data, code) => {
                     console.log(`handling fail, code = ${code}`)
