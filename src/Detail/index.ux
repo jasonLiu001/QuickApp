@@ -25,10 +25,20 @@
                             </block>
                         </div>
 
-                        <!--icon图标-->
-                        <div style="margin-left: 300px;margin-top:60px;opacity:0.5;height: 50px;width: 100px;">
-                            <text show="{{row.status===1}}" style="color: #f76160">已完成</text>
-                            <text show="{{row.status===0}}" style="color: #27f730">进行中</text>
+                        <!--status图标-->
+                        <div style="margin-left: 300px;margin-top:40px;opacity:0.5;height: 50px;width: 100px;">
+                            <text show="{{row.status===1}}" style="color: #f76160;">已完成</text>
+                            <text show="{{row.status===0}}" style="color: #27f730;">进行中</text>
+                        </div>
+
+                        <!--isWin图标-->
+                        <div style="margin-left: 400px;margin-top:24px;opacity:0.7;height: 70%;width: 100px;">
+                            <text show="{{row.isWin===1}}"
+                                  style="color: #f76160;background-image: url('../Common/img/icon_right.png')">
+                            </text>
+                            <text show="{{row.isWin===0}}"
+                                  style="color: #27f730;background-image: url('../Common/img/icon_error.png')">
+                            </text>
                         </div>
 
                     </stack>
@@ -71,6 +81,7 @@
                     || columnName === 'winMoney'
                     || columnName === 'investTime'
                     || columnName === 'status'
+                    || columnName === 'isWin'
                     || columnName === 'investNumberCount') continue;
 
                 list.push(columnName);
