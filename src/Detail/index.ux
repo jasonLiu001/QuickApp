@@ -4,7 +4,7 @@
 
 <template>
     <div class="container">
-        <list class="box">
+        <list class="box" onscrollbottom="loadMoreData">
             <block for="{{(index,row) in list}}">
                 <!--表行数据-->
                 <list-item type="data" class="margin-bottom">
@@ -28,12 +28,19 @@
                         <!--icon图标-->
                         <div style="margin-left: 300px;margin-top:60px;opacity:0.5;height: 50px;width: 100px;">
                             <text show="{{row.status===1}}" style="color: #f76160">已完成</text>
-                            <text show="{{row.status===0}}" style="color: #f76160">进行中</text>
+                            <text show="{{row.status===0}}" style="color: #27f730">进行中</text>
                         </div>
 
                     </stack>
                 </list-item>
             </block>
+
+            <!--加载更多-->
+            <list-item type="loadMore" style="flex-direction: row;justify-content: center;" show="{{isLoading}}">
+                <progress type="circular"></progress>
+                <text>正在载入...</text>
+            </list-item>
+
         </list>
     </div>
 </template>
@@ -44,7 +51,8 @@
 
     export default {
         private: {
-            message: "详情页",
+            isLoading: true,
+            pageIndex: 1,
             list: []
         },
         protected: {
@@ -74,11 +82,8 @@
                 case 'currentAccountBalance':
                     columnText = '账号余额';
                     break;
-                case 'status':
-                    columnText = '状态';
-                    break;
                 case 'isWin':
-                    columnText = '是否盈利';
+                    columnText = '盈利状态';
                     break;
                 default:
                     columnText = columnName;
@@ -98,34 +103,44 @@
 
             return list;
         },
-        onInit() {
-
-        },
-        onShow() {
-            let list = this.list;
+        findInvestInfoList() {
+            //初始化正在加载
+            this.isLoading = true;
             fetch.fetch({
-                url: apiUrl.findInvestInfoList + "?pageIndex=1&pageSize=20&planType=1",
+                url: apiUrl.findInvestInfoList + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1",
                 method: 'POST',
-                data: 'pageIndex=1&pageSize=20&planType=1',
-                success: function (data) {
+                success: (data) => {
                     if (data) {
                         //服务器端数据
                         let serverData = JSON.parse(data.data);
 
                         //遍历数组数据
                         for (let key in serverData.data) {
-                            list.push(serverData.data[key]);
+                            this.list.push(serverData.data[key]);
                         }
+
                     }
+                    //隐藏正在载入...
+                    this.isLoading = false;
                     //console.log(`title: ${JSON.parse(data.data).title}`)
                 },
-                fail: function (data, code) {
+                fail: (data, code) => {
                     console.log(`handling fail, code = ${code}`)
                 }
             })
         },
+        onInit() {
+
+        },
+        onShow() {
+            this.findInvestInfoList();
+        },
         onMenuPress() {
             this.$app.$def.showMenu();
+        },
+        loadMoreData() {
+            this.pageIndex++;
+            this.findInvestInfoList();
         }
     }
 </script>
