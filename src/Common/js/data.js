@@ -1,6 +1,4 @@
-/*列表中表字段*/
-const tableFields = ['field1', 'field2', 'field3', 'field4', 'field5', 'field6', 'field7', 'field8'];
-
+/*接口列表*/
 const apiUrl = {
     findAwardInfoList: 'https://www.cnlands.cn/service/lottery/findAwardInfoList',
     findInvestInfoList: 'https://www.cnlands.cn/service/lottery/findInvestInfoList',
@@ -67,7 +65,6 @@ const maxProfitTable = [
 ];
 
 export {
-    tableFields,
     investTable,
     maxProfitTable,
     apiUrl
