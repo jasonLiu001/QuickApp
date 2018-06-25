@@ -35,12 +35,8 @@
 
                         <!--isWin图标-->
                         <div style="margin-left: 400px;margin-top:20px;opacity:0.7;height: 70%;width: 100px;">
-                            <text show="{{row.isWin===1}}"
-                                  style="color: #f76160;background-image: url('../Common/img/icon_right.png')">
-                            </text>
-                            <text show="{{row.isWin===0}}"
-                                  style="color: #27f730;background-image: url('../Common/img/icon_error.png')">
-                            </text>
+                            <image show="{{row.isWin===1&&row.status===1}}" src="{{icons.icon_completed_right}}"></image>
+                            <image show="{{row.isWin===0&&row.status===1}}" src="{{icons.icon_completed_wrong}}"></image>
                         </div>
 
                     </stack>
@@ -60,13 +56,14 @@
 </template>
 
 <script>
-    import {investTable, maxProfitTable, apiUrl} from '../Common/js/data';
+    import {investTable, maxProfitTable, apiUrl, iconList} from '../Common/js/data';
     import fetch from '@system.fetch';
 
     export default {
         private: {
             hasMoreData: true,
             pageIndex: 1,
+            icons: iconList,
             displayColumns: [{id: 1, name: 'currentAccountBalance', des: '账号余额'}],
             list: []
         },

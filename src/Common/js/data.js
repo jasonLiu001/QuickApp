@@ -8,6 +8,14 @@ const apiUrl = {
     findInvestNumbersInfoList: 'https://www.cnlands.cn/service/lottery/findInvestNumbersInfoList'
 };
 
+// 图标列表
+const iconList = {
+    checkbox_checked: 'https://www.cnlands.cn/images/icon_box-checked.png',
+    checkbox_unchecked: 'https://www.cnlands.cn/images/icon_box-empty.png',
+    icon_completed_right: 'https://www.cnlands.cn/images/icon_right.png',
+    icon_completed_wrong: 'https://www.cnlands.cn/images/icon_error.png'
+};
+
 const investTable = [
     {
         name: 'period',
@@ -67,5 +75,6 @@ const maxProfitTable = [
 export {
     investTable,
     maxProfitTable,
-    apiUrl
+    apiUrl,
+    iconList
 }
