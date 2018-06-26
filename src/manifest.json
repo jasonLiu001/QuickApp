@@ -51,6 +51,9 @@
       },
       "About": {
         "component": "index"
+      },
+      "Settings": {
+        "component": "index"
       }
     }
   },
@@ -60,15 +63,22 @@
     "menu": true,
     "pages": {
       "Home": {
-        "titleBarText": "选择表"
+        "titleBarText": "选择表",
+        "menu": false
       },
       "List": {
-        "titleBarText": "选择查询字段"
-      },
-      "Detail": {
         "titleBarText": "查询结果"
       },
+      "Detail": {
+        "titleBarText": "详情",
+        "menu": false
+      },
       "About": {
+        "titleBarText": "关于",
+        "menu": false
+      },
+      "Settings": {
+        "titleBarText": "设置",
         "menu": false
       }
     }

@@ -1,0 +1,19 @@
+<style lang="less">
+    @import '../Common/css/index.less';
+</style>
+
+<template>
+    <div></div>
+</template>
+
+<script>
+    import {investTable, maxProfitTable, apiUrl, iconList, apiCollection} from '../Common/js/data';
+    import device from '@system.device'
+    import prompt from '@system.prompt';
+    import fetch from '@system.fetch';
+    import router from '@system.router';
+
+    export default {
+        private: {}
+    }
+</script>

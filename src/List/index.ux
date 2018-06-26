@@ -6,11 +6,10 @@
     <div class="container" style="padding-bottom: 24px;">
         <stack style="height: 100%;flex-direction: row;">
             <!--数据列表-->
-            <list class="box" onswipe="listRightSwipeEventHandler" onscrollbottom="loadMoreData">
+            <list class="box" onscrollbottom="loadMoreData">
                 <block for="{{(index,row) in list}}">
-
                     <!--表行数据-->
-                    <list-item type="data" class="margin_top" onlongpress="investDataLongPress(row.period)">
+                    <list-item type="data" class="margin_top" onclick="investDataLongPress(row.period)">
 
                         <stack style="height: 100%;">
 
@@ -58,7 +57,7 @@
             </list>
 
             <!--左侧菜单-->
-            <list show="{{isShowLeftMenu}}" onswipe="leftMenuSwipeEventHandler">
+            <list show="{{isShowLeftMenu}}">
                 <!--常规菜单项-->
                 <block for="{{(ix,apiItem) in apiCollection}}">
                     <list-item type="menuItem" style="flex-direction: row;">
@@ -71,6 +70,7 @@
                     </list-item>
                 </block>
             </list>
+
         </stack>
 
     </div>
@@ -101,7 +101,26 @@
             this.findList(this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList));
         },
         onMenuPress() {
-            this.$app.$def.showMenu();
+            prompt.showContextMenu({
+                itemList: [
+                    '菜单',
+                    '设置'
+                ],
+                success: (ret) => {
+                    switch (ret.index) {
+                        case 0:
+                            // 菜单
+                            this.isShowLeftMenu = true;
+                            break;
+                        case 1:
+                            // 设置
+                            router.push({
+                                uri: '/Settings'
+                            });
+                            break;
+                    }
+                }
+            });
         },
 
         findList(url) {
@@ -227,22 +246,8 @@
             this.renderPageData();
         },
         clickMaskEventHandler(evt) {
+            //隐藏左侧菜单
             this.isShowLeftMenu = false;
-        },
-        leftMenuSwipeEventHandler(evt) {
-            let direction = evt.direction;
-            if (direction === "left") {
-                this.isShowLeftMenu = false;
-            }
-        },
-        listRightSwipeEventHandler(evt) {
-            //向右滑动显示菜单
-            if (evt.direction === "right") {
-                this.isShowLeftMenu = true;
-            } else {
-                //隐藏菜单
-                this.isShowLeftMenu = false;
-            }
         },
         investDataLongPress(period, evt) {
             router.push({
