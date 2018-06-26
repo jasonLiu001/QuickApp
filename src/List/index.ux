@@ -36,7 +36,7 @@
                             </div>
 
                             <!--isWin图标-->
-                            <div style="margin-left: 400px;margin-top:20px;opacity:0.7;height: 70%;width: 100px;">
+                            <div show="{{isShowWinIcon()}}" style="margin-left: 400px;margin-top:20px;opacity:0.7;height: 70%;width: 100px;">
                                 <image show="{{row.isWin===1&&row.status===1}}"
                                        src="{{icons.icon_completed_right}}"></image>
                                 <image show="{{row.isWin===0&&row.status===1}}"
@@ -103,7 +103,7 @@
         onMenuPress() {
             prompt.showContextMenu({
                 itemList: [
-                    '菜单',
+                    '查询条件',
                     '设置'
                 ],
                 success: (ret) => {
@@ -123,6 +123,24 @@
             });
         },
 
+        isShowWinIcon() {
+            let isShow = true;
+            switch (this.selectedMenuName) {
+                case "plan01_before22":
+                case "plan01_before02":
+                case "plan02_before22":
+                case "plan02_before02":
+                case "plan03_before22":
+                case "plan03_before02":
+                case "plan04_before22":
+                case "plan04_before02":
+                    isShow = false;
+                    break;
+                default:
+                    isShow = true;
+            }
+            return isShow;
+        },
         findList(url) {
             //console.log(`title: ${JSON.parse(data.data).title}`)
             fetch.fetch({
