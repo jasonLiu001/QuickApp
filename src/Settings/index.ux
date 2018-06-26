@@ -9,12 +9,18 @@
                 <list-item type="settingItem"
                            style="justify-content: space-between;height: 100px;justify-content: space-between;border-bottom-color: #ffffff;border-bottom-width: 1px;">
                     <text>{{settingItem.key}}</text>
-                    <input type="text" onchange="valueChangeEventHandler"
+                    <input type="text" onchange="onChangeEventHandler(settingItem)" id="{{settingItem.key}}"
                            value="{{settingItem.value}}"></input>
                     <a onclick="btnSaveEventHandler(settingItem)"
                        style="color: #ffffff;background-color: #4286f5;">更新</a>
                 </list-item>
             </block>
+
+            <!--加载更多-->
+            <list-item show="{{isShowLoading}}" type="loadMore" style="flex-direction: row;justify-content: center;">
+                <progress type="circular"></progress>
+                <text>正在载入...</text>
+            </list-item>
         </list>
     </div>
 </template>
@@ -28,13 +34,14 @@
 
     export default {
         private: {
-            isShowEdit: false,
+            isShowLoading: true,
             list: []
         },
         protected: {},
         onInit() {
         },
         onShow() {
+            this.isShowLoading = true;
             this.findList(apiUrl.getAllSettings);
         },
 
@@ -58,6 +65,7 @@
 
                         //所有的设置项
                         this.list = serverData.data;
+                        this.isShowLoading = false;
                     }
                 },
                 fail: (data, code) => {
@@ -96,16 +104,13 @@
                 }
             });
         },
-        valueChangeEventHandler(evt) {
-            let newValue = evt.value;
-            console.log(this);
+        onChangeEventHandler(settingItem, evt) {
+            this.$element(settingItem.key).attr.value = evt.value;
         },
         btnSaveEventHandler(settingItem, evt) {
-            prompt.showToast({
-                message: settingItem.value
-            });
-            let url = apiUrl.updateSettingsById + "?id=" + settingItem.id + "&value=" + settingItem.value;
-            //this.updateSettingsById(url);
+            let keyValue = this.$element(settingItem.key).attr.value;
+            let url = apiUrl.updateSettingsById + "?id=" + settingItem.id + "&value=" + keyValue;
+            this.updateSettingsById(url);
         }
     }
 </script>
