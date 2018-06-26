@@ -118,18 +118,7 @@
             //重置列表数据
             this.list = [];
             //加载新数据
-            switch (this.selectedMenuName) {
-                case "plan01":
-                case "plan02":
-                case "plan03":
-                case "plan04":
-                    this.findInvestInfoList(this.getInvestInfoRequestUrl(dataUrl));
-                    break;
-                case "before22":
-                    break;
-                case "before02":
-                    break;
-            }
+            this.renderPageData();
         },
         clickMaskEventHandler(evt) {
             this.isShowLeftMenu = false;
@@ -154,7 +143,7 @@
             }
             return url;
         },
-        findInvestInfoList(url) {
+        findList(url) {
             //console.log(`title: ${JSON.parse(data.data).title}`)
             fetch.fetch({
                 url: url,
@@ -191,27 +180,28 @@
             })
         },
         onShow() {
-            let url = apiUrl.findInvestInfoList + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1";
-            this.findInvestInfoList(url);
+            this.findList(this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList));
         },
         onMenuPress() {
             this.$app.$def.showMenu();
         },
-        loadMoreData() {
-            this.pageIndex++;
-
+        renderPageData() {
             switch (this.selectedMenuName) {
                 case "plan01":
                 case "plan02":
                 case "plan03":
                 case "plan04":
-                    this.findInvestInfoList(this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList));
+                    this.findList(this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList));
                     break;
                 case "before22":
                     break;
                 case "before02":
                     break;
             }
+        },
+        loadMoreData() {
+            this.pageIndex++;
+            this.renderPageData();
         },
         leftMenuSwipeEventHandler(evt) {
             let direction = evt.direction;
