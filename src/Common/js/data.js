@@ -5,8 +5,46 @@ const apiUrl = {
     findMaxProfitInfoList: 'https://www.cnlands.cn/service/lottery/findMaxProfitInfoList',
     findPlanInfoList: 'https://www.cnlands.cn/service/lottery/findPlanInfoList',
     findPlanResultInfoList: 'https://www.cnlands.cn/service/lottery/findPlanResultInfoList',
-    findInvestNumbersInfoList: 'https://www.cnlands.cn/service/lottery/findInvestNumbersInfoList'
+    findInvestNumbersInfoList: 'https://www.cnlands.cn/service/lottery/findInvestNumbersInfoList',
+    getInvestInfoByPeriod: "https://www.cnlands.cn/service/lottery/findInvestNumbersInfoList",
+    findInvestInfoListBeforeTime: "https://www.cnlands.cn/service/lottery/findInvestInfoListBeforeTime",
+    getAllSettings: "https://www.cnlands.cn/service/lottery/getAllSettings",
+    updateSettingsByKey: "https://www.cnlands.cn/service/lottery/updateSettingsByKey",
+    getSettingsByKey: "https://www.cnlands.cn/service/lottery/getSettingsByKey"
 };
+
+const apiCollection = [
+    {
+        name: 'plan01',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案1'
+    },
+    {
+        name: 'plan02',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案2'
+    },
+    {
+        name: 'plan03',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案3'
+    },
+    {
+        name: 'plan04',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案4'
+    },
+    {
+        name: 'before22',
+        url: apiUrl.findInvestInfoListBeforeTime,
+        desc: '22点前'
+    },
+    {
+        name: 'before02',
+        url: apiUrl.findInvestInfoListBeforeTime,
+        desc: '02点前'
+    }
+];
 
 // 图标列表
 const iconList = {
@@ -76,5 +114,6 @@ export {
     investTable,
     maxProfitTable,
     apiUrl,
-    iconList
+    iconList,
+    apiCollection
 }

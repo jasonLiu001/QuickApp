@@ -59,13 +59,12 @@
 
             <!--左侧菜单-->
             <list show="{{isShowLeftMenu}}" onswipe="leftMenuSwipeEventHandler">
-
-                <!--菜单项-->
-                <block for="{{(ix,item) in getTestArray()}}">
+                <!--常规菜单项-->
+                <block for="{{(ix,apiItem) in apiCollection}}">
                     <list-item type="menuItem" style="flex-direction: row;">
                         <div style="background-color: #f5f5f5;width: 80%;">
                             <a style="height: 120px;width:100%;border-bottom-width: 1px;border-bottom-color: #ffffff;"
-                               href="">菜单{{item}}</a>
+                               onclick="clickMenuItemEventHandler(apiItem.name,apiItem.url)">{{apiItem.desc}}</a>
                         </div>
                         <div onclick="clickMaskEventHandler"
                              style="width: 20%;height: 100%;opacity:0.7;background-color: #f5f5f5;"></div>
@@ -78,20 +77,23 @@
 </template>
 
 <script>
-    import {investTable, maxProfitTable, apiUrl, iconList} from '../Common/js/data';
+    import {investTable, maxProfitTable, apiUrl, iconList, apiCollection} from '../Common/js/data';
     import device from '@system.device'
     import prompt from '@system.prompt';
     import fetch from '@system.fetch';
 
     export default {
         private: {
-            screenHeight: 0,
+            list: [],
+            pageIndex: 1,
+            selectedMenuName: 'plan01',
             isShowLeftMenu: false,
             hasMoreData: true,
-            pageIndex: 1,
+
             icons: iconList,
             displayColumns: [{id: 1, name: 'currentAccountBalance', des: '账号余额'}],
-            list: []
+            apiCollection: apiCollection,
+            screenHeight: 0
         },
         protected: {
             //上个页面传递的参数
@@ -104,13 +106,58 @@
             }
             return arr;
         },
+        clickMenuItemEventHandler(apiName, dataUrl, evt) {
+            //重置页索引
+            this.pageIndex = 1;
+            //重置加载更多
+            this.hasMoreData = true;
+            //重置当前选择的菜单名称
+            this.selectedMenuName = apiName;
+            //重置菜单隐藏状态
+            this.isShowLeftMenu = false;
+            //重置列表数据
+            this.list = [];
+            //加载新数据
+            switch (this.selectedMenuName) {
+                case "plan01":
+                case "plan02":
+                case "plan03":
+                case "plan04":
+                    this.findInvestInfoList(this.getInvestInfoRequestUrl(dataUrl));
+                    break;
+                case "before22":
+                    break;
+                case "before02":
+                    break;
+            }
+        },
         clickMaskEventHandler(evt) {
             this.isShowLeftMenu = false;
         },
-        findInvestInfoList() {
+        getInvestInfoRequestUrl(dataUrl) {
+            let url;
+            switch (this.selectedMenuName) {
+                case "plan01":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1";
+                    break;
+                case "plan02":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=2";
+                    break;
+                case "plan03":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=3";
+                    break;
+                case "plan04":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=4";
+                    break;
+                default:
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1";
+            }
+            return url;
+        },
+        findInvestInfoList(url) {
             //console.log(`title: ${JSON.parse(data.data).title}`)
             fetch.fetch({
-                url: apiUrl.findInvestInfoList + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1",
+                url: url,
                 method: 'POST',
                 success: (data) => {
                     if (data) {
@@ -144,14 +191,27 @@
             })
         },
         onShow() {
-            this.findInvestInfoList();
+            let url = apiUrl.findInvestInfoList + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1";
+            this.findInvestInfoList(url);
         },
         onMenuPress() {
             this.$app.$def.showMenu();
         },
         loadMoreData() {
             this.pageIndex++;
-            this.findInvestInfoList();
+
+            switch (this.selectedMenuName) {
+                case "plan01":
+                case "plan02":
+                case "plan03":
+                case "plan04":
+                    this.findInvestInfoList(this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList));
+                    break;
+                case "before22":
+                    break;
+                case "before02":
+                    break;
+            }
         },
         leftMenuSwipeEventHandler(evt) {
             let direction = evt.direction;
