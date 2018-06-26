@@ -9,7 +9,8 @@
                 <list-item type="settingItem"
                            style="justify-content: space-between;height: 100px;justify-content: space-between;border-bottom-color: #ffffff;border-bottom-width: 1px;">
                     <text>{{settingItem.key}}</text>
-                    <input type="text" value="{{settingItem.value}}"></input>
+                    <input type="text" onchange="valueChangeEventHandler"
+                           value="{{settingItem.value}}"></input>
                     <a onclick="btnSaveEventHandler(settingItem)"
                        style="color: #ffffff;background-color: #4286f5;">更新</a>
                 </list-item>
@@ -66,14 +67,45 @@
                 }
             })
         },
+        updateSettingsById(url) {
+            fetch.fetch({
+                url: url,
+                method: 'POST',
+                success: (data) => {
+                    if (data) {
+                        //解析 服务器端接口数据
+                        let serverData = JSON.parse(data.data);
 
-        updateSettingsByKey() {
+                        //全部加载完成 隐藏正在载入...
+                        if (serverData.data === null || serverData.data === undefined) {
+                            prompt.showToast({
+                                message: `服务器返回数据格式错误`
+                            });
+                            return;
+                        }
 
+                        prompt.showToast({
+                            message: `数据更新成功`
+                        });
+                    }
+                },
+                fail: (data, code) => {
+                    prompt.showToast({
+                        message: `请求数据超时, code = ${code}`
+                    });
+                }
+            });
+        },
+        valueChangeEventHandler(evt) {
+            let newValue = evt.value;
+            console.log(this);
         },
         btnSaveEventHandler(settingItem, evt) {
             prompt.showToast({
-                message: `${settingItem.key}`
+                message: settingItem.value
             });
+            let url = apiUrl.updateSettingsById + "?id=" + settingItem.id + "&value=" + settingItem.value;
+            //this.updateSettingsById(url);
         }
     }
 </script>
