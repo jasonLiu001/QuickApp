@@ -4,7 +4,19 @@
 
 <template>
     <div class="container">
-        
+        <div style="justify-content: space-between;">
+            <text style="width: 200px;">期号:</text>
+            <text>{{investInfo.period}}</text>
+        </div>
+        <div style="justify-content: space-between;">
+            <text style="width: 200px;">数量:</text>
+            <text>{{investInfo.investNumberCount}}</text>
+        </div>
+        <div style="justify-content: space-between;">
+            <text style="width: 200px;">购买号码:</text>
+            <textarea style="width: 90%;height:200px;background-color: #ffffff;">{{investInfo.investNumbers}}</textarea>
+        </div>
+        <a class="btn margin_top" onclick="clickBtnCopy">复制</a>
     </div>
 </template>
 
@@ -17,7 +29,61 @@
     import clipboard from '@system.clipboard';
 
     export default {
-        private: {},
-        protected: {}
+        private: {
+            investInfo: {}
+        },
+        protected: {
+            period: '',
+            planType: 1
+        },
+        onInit() {
+        },
+        onShow() {
+            let url = apiUrl.getInvestInfoByPeriod + "?period=" + this.period + "&planType=" + this.planType;
+            this.getData(url);
+        },
+        clickBtnCopy(evt) {
+            if (!this.investInfo.investNumbers) {
+                prompt.showToast({
+                    message: `没有可复制的数据`
+                });
+                return;
+            }
+
+            clipboard.set({
+                text: this.investInfo.investNumbers,
+                success: () => {
+                    prompt.showToast({
+                        message: `复制成功`
+                    });
+                }
+            });
+        },
+        getData(url) {
+            fetch.fetch({
+                url: url,
+                method: 'POST',
+                success: (data) => {
+                    if (data) {
+                        console.log(data);
+                        //解析 服务器端接口数据
+                        let serverData = JSON.parse(data.data);
+
+                        if (serverData.data === null || serverData.data === undefined) {
+                            prompt.showToast({
+                                message: `服务器返回数据格式错误`
+                            });
+                        } else {
+                            this.investInfo = serverData.data;
+                        }
+                    }
+                },
+                fail: (data, code) => {
+                    prompt.showToast({
+                        message: `请求数据超时, code = ${code}`
+                    });
+                }
+            });
+        }
     }
 </script>

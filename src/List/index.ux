@@ -10,7 +10,7 @@
                 <block for="{{(index,row) in list}}">
 
                     <!--表行数据-->
-                    <list-item type="data" class="margin_top" onlongpress="investDataLongPress">
+                    <list-item type="data" class="margin_top" onlongpress="investDataLongPress(row.period)">
 
                         <stack style="height: 100%;">
 
@@ -244,9 +244,12 @@
                 this.isShowLeftMenu = false;
             }
         },
-        investDataLongPress() {
+        investDataLongPress(period, evt) {
             router.push({
-                uri: '/Detail'
+                uri: '/Detail',
+                params: {
+                    period: period
+                }
             });
         },
     }
