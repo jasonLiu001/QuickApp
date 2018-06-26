@@ -23,6 +23,9 @@
     },
     {
       "name": "system.device"
+    },
+    {
+      "name": "system.clipboard"
     }
   ],
   "permissions": [
@@ -35,7 +38,7 @@
     "designWidth": 640
   },
   "router": {
-    "entry": "Detail",
+    "entry": "List",
     "pages": {
       "Home": {
         "component": "index"
