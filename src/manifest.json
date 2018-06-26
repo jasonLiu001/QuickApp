@@ -38,7 +38,7 @@
     "designWidth": 640
   },
   "router": {
-    "entry": "Settings",
+    "entry": "List",
     "pages": {
       "Home": {
         "component": "index"
