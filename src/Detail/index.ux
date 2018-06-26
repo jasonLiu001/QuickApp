@@ -4,63 +4,86 @@
 
 <template>
     <div class="container" style="padding-bottom: 24px;">
-        <list class="box" onscrollbottom="loadMoreData">
-            <block for="{{(index,row) in list}}">
-                <!--表行数据-->
-                <list-item type="data" class="margin_top">
+        <stack style="height: 100%;flex-direction: row;">
+            <!--数据列表-->
+            <list class="box" onswipe="listRightSwipeEventHandler" onscrollbottom="loadMoreData">
+                <block for="{{(index,row) in list}}">
 
-                    <stack>
+                    <!--表行数据-->
+                    <list-item type="data" class="margin_top">
 
-                        <!--列表正常数据-->
-                        <div style="width: 100%;padding:10px;flex-direction: column;border-radius:10px;background-color: #ffffff">
-                            <div style="justify-content: space-between">
-                                <text>{{row.period}}</text>
-                                <text>{{row.investTime}}</text>
+                        <stack style="height: 100%;">
+
+                            <!--列表正常数据-->
+                            <div style="width: 100%;padding:10px;flex-direction: column;border-radius:10px;background-color: #ffffff">
+                                <div style="justify-content: space-between">
+                                    <text>{{row.period}}</text>
+                                    <text>{{row.investTime}}</text>
+                                </div>
+
+                                <!--表各列数据-->
+                                <block for="{{(columnIndex,columnItem) in displayColumns}}">
+                                    <div style="justify-content: space-between">
+                                        <text>{{columnItem.des}}:</text>
+                                        <text>{{row[columnItem.name]}}</text>
+                                    </div>
+                                </block>
                             </div>
 
-                            <!--表各列数据-->
-                            <block for="{{(columnIndex,columnItem) in displayColumns}}">
-                                <div style="justify-content: space-between">
-                                    <text>{{columnItem.des}}:</text>
-                                    <text>{{row[columnItem.name]}}</text>
-                                </div>
-                            </block>
-                        </div>
+                            <!--status图标-->
+                            <div style="margin-left: 300px;margin-top:40px;opacity:0.5;height: 50px;width: 100px;">
+                                <text show="{{row.status===1}}" style="color: #f76160;">已完成</text>
+                                <text show="{{row.status===0}}" style="color: #27f730;">进行中</text>
+                            </div>
 
-                        <!--status图标-->
-                        <div style="margin-left: 300px;margin-top:40px;opacity:0.5;height: 50px;width: 100px;">
-                            <text show="{{row.status===1}}" style="color: #f76160;">已完成</text>
-                            <text show="{{row.status===0}}" style="color: #27f730;">进行中</text>
-                        </div>
+                            <!--isWin图标-->
+                            <div style="margin-left: 400px;margin-top:20px;opacity:0.7;height: 70%;width: 100px;">
+                                <image show="{{row.isWin===1&&row.status===1}}"
+                                       src="{{icons.icon_completed_right}}"></image>
+                                <image show="{{row.isWin===0&&row.status===1}}"
+                                       src="{{icons.icon_completed_wrong}}"></image>
+                            </div>
 
-                        <!--isWin图标-->
-                        <div style="margin-left: 400px;margin-top:20px;opacity:0.7;height: 70%;width: 100px;">
-                            <image show="{{row.isWin===1&&row.status===1}}" src="{{icons.icon_completed_right}}"></image>
-                            <image show="{{row.isWin===0&&row.status===1}}" src="{{icons.icon_completed_wrong}}"></image>
-                        </div>
+                        </stack>
+                    </list-item>
+                </block>
 
-                    </stack>
-
+                <!--加载更多-->
+                <list-item type="loadMore" style="flex-direction: row;justify-content: center;">
+                    <progress type="circular" show="{{hasMoreData}}"></progress>
+                    <text show="{{hasMoreData}}">正在载入...</text>
+                    <text show="{{!hasMoreData}}">已加载全部</text>
                 </list-item>
-            </block>
 
-            <!--加载更多-->
-            <list-item type="loadMore" style="flex-direction: row;justify-content: center;">
-                <progress type="circular" show="{{hasMoreData}}"></progress>
-                <text show="{{hasMoreData}}">正在载入...</text>
-                <text show="{{!hasMoreData}}">已加载全部</text>
-            </list-item>
+            </list>
 
-        </list>
+            <!--左侧菜单-->
+            <list show="{{isShowLeftMenu}}" onswipe="leftMenuSwipeEventHandler">
+
+                <block for="{{(ix,item) in getTestArray()}}">
+                    <list-item type="menuItem" style="flex-direction: row;">
+                        <div style="background-color: #f5f5f5;width: 80%;height: 50px;">
+                            <text>菜单{{item}}</text>
+                        </div>
+                        <div style="width: 20%;height: 100%;opacity:0.7;background-color: #f5f5f5;"></div>
+                    </list-item>
+                </block>
+            </list>
+        </stack>
+
     </div>
 </template>
 
 <script>
     import {investTable, maxProfitTable, apiUrl, iconList} from '../Common/js/data';
+    import device from '@system.device'
+    import prompt from '@system.prompt';
     import fetch from '@system.fetch';
 
     export default {
         private: {
+            screenHeight: 0,
+            isShowLeftMenu: false,
             hasMoreData: true,
             pageIndex: 1,
             icons: iconList,
@@ -70,6 +93,13 @@
         protected: {
             //上个页面传递的参数
             tableName: ''
+        },
+        getTestArray() {
+            let arr = [];
+            for (let i = 0; i < 100; i++) {
+                arr.push(i + 1);
+            }
+            return arr;
         },
         findInvestInfoList() {
             //console.log(`title: ${JSON.parse(data.data).title}`)
@@ -100,7 +130,12 @@
             })
         },
         onInit() {
-
+            device.getInfo({
+                success: (ret) => {
+                    //console.log(`handling success， screenHeight = ${ret.screenHeight}，screenWith=${ret.screenWidth}`);
+                    this.screenHeight = ret.screenHeight - 240;
+                }
+            })
         },
         onShow() {
             this.findInvestInfoList();
@@ -111,6 +146,21 @@
         loadMoreData() {
             this.pageIndex++;
             this.findInvestInfoList();
+        },
+        leftMenuSwipeEventHandler(evt) {
+            let direction = evt.direction;
+            if (direction === "left") {
+                this.isShowLeftMenu = false;
+            }
+        },
+        listRightSwipeEventHandler(evt) {
+            //向右滑动显示菜单
+            if (evt.direction === "right") {
+                this.isShowLeftMenu = true;
+            } else {
+                //隐藏菜单
+                this.isShowLeftMenu = false;
+            }
         }
     }
 </script>
