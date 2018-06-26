@@ -103,8 +103,8 @@
         onMenuPress() {
             prompt.showContextMenu({
                 itemList: [
-                    '查询条件',
-                    '设置'
+                    '快速查询',
+                    '参数设置'
                 ],
                 success: (ret) => {
                     switch (ret.index) {

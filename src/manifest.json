@@ -70,7 +70,7 @@
         "titleBarText": "查询结果"
       },
       "Detail": {
-        "titleBarText": "详情",
+        "titleBarText": "号码详情",
         "menu": false
       },
       "About": {
@@ -78,7 +78,7 @@
         "menu": false
       },
       "Settings": {
-        "titleBarText": "设置",
+        "titleBarText": "参数设置",
         "menu": false
       }
     }
