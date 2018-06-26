@@ -35,14 +35,44 @@ const apiCollection = [
         desc: '方案4'
     },
     {
-        name: 'before22',
+        name: 'plan01_before22',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '22点前'
+        desc: '方案1-22点前'
     },
     {
-        name: 'before02',
+        name: 'plan01_before02',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '02点前'
+        desc: '方案1-02点前'
+    },
+    {
+        name: 'plan02_before22',
+        url: apiUrl.findInvestInfoListBeforeTime,
+        desc: '方案2-22点前'
+    },
+    {
+        name: 'plan02_before02',
+        url: apiUrl.findInvestInfoListBeforeTime,
+        desc: '方案2-02点前'
+    },
+    {
+        name: 'plan03_before22',
+        url: apiUrl.findInvestInfoListBeforeTime,
+        desc: '方案3-22点前'
+    },
+    {
+        name: 'plan03_before02',
+        url: apiUrl.findInvestInfoListBeforeTime,
+        desc: '方案3-02点前'
+    },
+    {
+        name: 'plan04_before22',
+        url: apiUrl.findInvestInfoListBeforeTime,
+        desc: '方案4-22点前'
+    },
+    {
+        name: 'plan04_before02',
+        url: apiUrl.findInvestInfoListBeforeTime,
+        desc: '方案4-02点前'
     }
 ];
 

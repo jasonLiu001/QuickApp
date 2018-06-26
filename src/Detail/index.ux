@@ -92,57 +92,17 @@
 
             icons: iconList,
             displayColumns: [{id: 1, name: 'currentAccountBalance', des: '账号余额'}],
-            apiCollection: apiCollection,
-            screenHeight: 0
+            apiCollection: apiCollection
         },
-        protected: {
-            //上个页面传递的参数
-            tableName: ''
+        onInit() {
         },
-        getTestArray() {
-            let arr = [];
-            for (let i = 0; i < 100; i++) {
-                arr.push(i + 1);
-            }
-            return arr;
+        onShow() {
+            this.findList(this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList));
         },
-        clickMenuItemEventHandler(apiName, dataUrl, evt) {
-            //重置页索引
-            this.pageIndex = 1;
-            //重置加载更多
-            this.hasMoreData = true;
-            //重置当前选择的菜单名称
-            this.selectedMenuName = apiName;
-            //重置菜单隐藏状态
-            this.isShowLeftMenu = false;
-            //重置列表数据
-            this.list = [];
-            //加载新数据
-            this.renderPageData();
+        onMenuPress() {
+            this.$app.$def.showMenu();
         },
-        clickMaskEventHandler(evt) {
-            this.isShowLeftMenu = false;
-        },
-        getInvestInfoRequestUrl(dataUrl) {
-            let url;
-            switch (this.selectedMenuName) {
-                case "plan01":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1";
-                    break;
-                case "plan02":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=2";
-                    break;
-                case "plan03":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=3";
-                    break;
-                case "plan04":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=4";
-                    break;
-                default:
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1";
-            }
-            return url;
-        },
+
         findList(url) {
             //console.log(`title: ${JSON.parse(data.data).title}`)
             fetch.fetch({
@@ -167,23 +127,64 @@
                     }
                 },
                 fail: (data, code) => {
-                    console.log(`handling fail, code = ${code}`)
+                    prompt.showToast({
+                        message: `handling fail, code = ${code}`
+                    });
                 }
             })
         },
-        onInit() {
-            device.getInfo({
-                success: (ret) => {
-                    //console.log(`handling success， screenHeight = ${ret.screenHeight}，screenWith=${ret.screenWidth}`);
-                    this.screenHeight = ret.screenHeight - 240;
-                }
-            })
+
+        getInvestInfoRequestUrl(dataUrl) {
+            let url;
+            switch (this.selectedMenuName) {
+                case "plan01":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1";
+                    break;
+                case "plan02":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=2";
+                    break;
+                case "plan03":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=3";
+                    break;
+                case "plan04":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=4";
+                    break;
+                default:
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1";
+            }
+            return url;
         },
-        onShow() {
-            this.findList(this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList));
-        },
-        onMenuPress() {
-            this.$app.$def.showMenu();
+        getInvestInfoBeforeTimeRequestUrl(dataUrl) {
+            let url;
+            switch (this.selectedMenuName) {
+                case "plan01_before22":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1&beforeTimeStr=22:00:00";
+                    break;
+                case "plan01_before02":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1&beforeTimeStr=02:00:00";
+                    break;
+                case "plan02_before22":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=2&beforeTimeStr=22:00:00";
+                    break;
+                case "plan02_before02":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=2&beforeTimeStr=02:00:00";
+                    break;
+                case "plan03_before22":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=3&beforeTimeStr=22:00:00";
+                    break;
+                case "plan03_before02":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=3&beforeTimeStr=02:00:00";
+                    break;
+                case "plan04_before22":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=4&beforeTimeStr=22:00:00";
+                    break;
+                case "plan04_before02":
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=4&beforeTimeStr=02:00:00";
+                    break;
+                default:
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1&beforeTimeStr=22:00:00";
+            }
+            return url;
         },
         renderPageData() {
             switch (this.selectedMenuName) {
@@ -193,15 +194,39 @@
                 case "plan04":
                     this.findList(this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList));
                     break;
-                case "before22":
-                    break;
-                case "before02":
+                case "plan01_before22":
+                case "plan01_before02":
+                case "plan02_before22":
+                case "plan02_before02":
+                case "plan03_before22":
+                case "plan03_before02":
+                case "plan04_before22":
+                case "plan04_before02":
+                    this.findList(this.getInvestInfoBeforeTimeRequestUrl(apiUrl.findInvestInfoListBeforeTime));
                     break;
             }
         },
         loadMoreData() {
             this.pageIndex++;
             this.renderPageData();
+        },
+
+        clickMenuItemEventHandler(apiName, dataUrl, evt) {
+            //重置页索引
+            this.pageIndex = 1;
+            //重置加载更多
+            this.hasMoreData = true;
+            //重置当前选择的菜单名称
+            this.selectedMenuName = apiName;
+            //重置菜单隐藏状态
+            this.isShowLeftMenu = false;
+            //重置列表数据
+            this.list = [];
+            //加载新数据
+            this.renderPageData();
+        },
+        clickMaskEventHandler(evt) {
+            this.isShowLeftMenu = false;
         },
         leftMenuSwipeEventHandler(evt) {
             let direction = evt.direction;
