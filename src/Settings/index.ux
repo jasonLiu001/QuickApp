@@ -3,7 +3,19 @@
 </style>
 
 <template>
-    <div></div>
+    <div class="container">
+        <list>
+            <block for="{{(settingIndex,settingItem) in list}}">
+                <list-item type="settingItem"
+                           style="justify-content: space-between;height: 100px;justify-content: space-between;border-bottom-color: #ffffff;border-bottom-width: 1px;">
+                    <text>{{settingItem.key}}</text>
+                    <input type="text" value="{{settingItem.value}}"></input>
+                    <a onclick="btnSaveEventHandler(settingItem)"
+                       style="color: #ffffff;background-color: #4286f5;">更新</a>
+                </list-item>
+            </block>
+        </list>
+    </div>
 </template>
 
 <script>
@@ -14,6 +26,54 @@
     import router from '@system.router';
 
     export default {
-        private: {}
+        private: {
+            isShowEdit: false,
+            list: []
+        },
+        protected: {},
+        onInit() {
+        },
+        onShow() {
+            this.findList(apiUrl.getAllSettings);
+        },
+
+        findList(url) {
+            //console.log(`title: ${JSON.parse(data.data).title}`)
+            fetch.fetch({
+                url: url,
+                method: 'GET',
+                success: (data) => {
+                    if (data) {
+                        //解析 服务器端接口数据
+                        let serverData = JSON.parse(data.data);
+
+                        //全部加载完成 隐藏正在载入...
+                        if (serverData.data === null || serverData.data === undefined) {
+                            prompt.showToast({
+                                message: `服务器返回数据格式错误`
+                            });
+                            return;
+                        }
+
+                        //所有的设置项
+                        this.list = serverData.data;
+                    }
+                },
+                fail: (data, code) => {
+                    prompt.showToast({
+                        message: `请求数据超时, code = ${code}`
+                    });
+                }
+            })
+        },
+
+        updateSettingsByKey() {
+
+        },
+        btnSaveEventHandler(settingItem, evt) {
+            prompt.showToast({
+                message: `${settingItem.key}`
+            });
+        }
     }
 </script>

@@ -16,7 +16,7 @@
             <text style="width: 200px;">购买号码:</text>
             <textarea style="width: 90%;height:200px;background-color: #ffffff;">{{investInfo.investNumbers}}</textarea>
         </div>
-        <a class="btn margin_top" onclick="clickBtnCopy">复制</a>
+        <a class="btn margin_top" onclick="clickBtnCopy">复制号码</a>
     </div>
 </template>
 
