@@ -75,7 +75,7 @@
                 }
             })
         },
-        updateSettingsById(url) {
+        updateSettingsByKey(url) {
             fetch.fetch({
                 url: url,
                 method: 'POST',
@@ -109,8 +109,8 @@
         },
         btnSaveEventHandler(settingItem, evt) {
             let keyValue = this.$element(settingItem.key).attr.value;
-            let url = apiUrl.updateSettingsById + "?id=" + settingItem.id + "&key=" + settingItem.key + "&value=" + keyValue;
-            this.updateSettingsById(url);
+            let url = apiUrl.updateSettingsByKey + "?id=" + settingItem.id + "&key=" + settingItem.key + "&value=" + keyValue;
+            this.updateSettingsByKey(url);
         }
     }
 </script>

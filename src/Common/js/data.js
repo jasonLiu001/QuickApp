@@ -9,7 +9,7 @@ const apiUrl = {
     getInvestInfoByPeriod: "https://www.cnlands.cn/service/lottery/getInvestInfoByPeriod",
     findInvestInfoListBeforeTime: "https://www.cnlands.cn/service/lottery/findInvestInfoListBeforeTime",
     getAllSettings: "https://www.cnlands.cn/service/lottery/getAllSettings",
-    updateSettingsById: "https://www.cnlands.cn/service/lottery/updateSettingsById",
+    updateSettingsByKey: "https://www.cnlands.cn/service/lottery/updateSettingsByKey",
     getSettingsByKey: "https://www.cnlands.cn/service/lottery/getSettingsByKey"
 };
 
