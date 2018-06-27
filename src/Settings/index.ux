@@ -109,7 +109,7 @@
         },
         btnSaveEventHandler(settingItem, evt) {
             let keyValue = this.$element(settingItem.key).attr.value;
-            let url = apiUrl.updateSettingsByKey + "?id=" + settingItem.id + "&key=" + settingItem.key + "&value=" + keyValue;
+            let url = apiUrl.updateSettingsByKey + "?key=" + settingItem.key + "&value=" + keyValue;
             this.updateSettingsByKey(url);
         }
     }
