@@ -7,12 +7,16 @@
         <list>
             <block for="{{(settingIndex,settingItem) in list}}">
                 <list-item type="settingItem"
-                           style="justify-content: space-between;height: 100px;justify-content: space-between;border-bottom-color: #ffffff;border-bottom-width: 1px;">
-                    <text>{{settingItem.key}}</text>
-                    <input type="text" onchange="onChangeEventHandler(settingItem)" id="{{settingItem.key}}"
+                           style="justify-content: space-between;align-items:center;height: 100px;border-bottom-color: #ffffff;border-bottom-width: 1px;">
+                    <div style="flex-direction: column;justify-content: center;width: 50%;">
+                        <text style="font-size: 24px;">{{settingItem.key}}</text>
+                        <text style="font-size: 20px;">{{getDescription(settingItem)}}</text>
+                    </div>
+                    <input style="width: 25%;" type="text" onchange="onChangeEventHandler(settingItem)"
+                           id="{{settingItem.key}}"
                            value="{{settingItem.value}}"></input>
                     <a onclick="btnSaveEventHandler(settingItem)"
-                       style="color: #ffffff;background-color: #4286f5;">更新</a>
+                       style="height: 90%;color: #ffffff;background-color: #4286f5;width: 25%;text-align: center;">更新</a>
                 </list-item>
             </block>
 
@@ -43,6 +47,20 @@
         onShow() {
             this.isShowLoading = true;
             this.findList(apiUrl.getAllSettings);
+        },
+
+        getDescription(settingItem) {
+            let desc = '';
+            switch (settingItem.key) {
+                case 'originAccountBalance'://初始余额
+                    desc = "运行时设置无效，启动时有效";
+                    break;
+                case '':
+                    break;
+                default:
+                    desc = "运行时有效，" + settingItem.desc;
+            }
+            return desc;
         },
 
         findList(url) {
