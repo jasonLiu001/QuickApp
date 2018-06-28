@@ -49,13 +49,15 @@ a {
 
 /*主容器*/
 .container {
-  .flex_column_center;
+  flex: 1;
+  flex-direction: column;
   padding-left: @padding;
   padding-right: @padding;
   background-color: @background-color;
 
   .box {
-    .flex_column_center;
+    flex: 1;
+    flex-direction: column;
     align-items: center;
   }
 }
