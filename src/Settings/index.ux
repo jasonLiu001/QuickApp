@@ -10,7 +10,8 @@
                            style="justify-content: space-between;align-items:center;height: 120px;border-bottom-color: #ffffff;border-bottom-width: 1px;">
                     <div style="flex-direction: column;justify-content: center;width: 50%;">
                         <text style="font-size: 24px;">{{settingItem.key}}</text>
-                        <text style="font-size: 20px;">{{getDescription(settingItem)}}</text>
+                        <text style="font-size: 20px;">{{getDescription(settingItem).desc}}</text>
+                        <text style="font-size: 20px;color:{{getDescription(settingItem).mark_fontColor}};">{{getDescription(settingItem).mark}}</text>
                     </div>
                     <input style="width: 25%;" type="text" onchange="onChangeEventHandler(settingItem)"
                            id="{{settingItem.key}}"
@@ -50,17 +51,26 @@
         },
 
         getDescription(settingItem) {
+            let descriptions = {
+                desc: '',
+                mark: '',
+                mark_fontColor: ''
+            };
             let desc = '';
             switch (settingItem.key) {
                 case 'originAccountBalance'://初始余额
-                    desc = "运行时无效，启动时有效，配置文件和数据库需要同时设置";
-                    break;
-                case '':
+                    descriptions.desc = '初始余额，数据库及配置文件需同时设置且必须一致';
+                    descriptions.mark = "运行时无效，启动时有效";
+                    //备注字显示成红色
+                    descriptions.mark_fontColor = '#f76160';
                     break;
                 default:
-                    desc = "运行时有效，" + settingItem.desc;
+                    //默认备注字显示绿色
+                    descriptions.mark_fontColor = '#27f730';
+                    descriptions.desc = settingItem.desc;
+                    descriptions.mark = "运行时有效，数据库配置优先";
             }
-            return desc;
+            return descriptions;
         },
 
         findList(url) {
