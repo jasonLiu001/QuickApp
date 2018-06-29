@@ -53,7 +53,7 @@
             let desc = '';
             switch (settingItem.key) {
                 case 'originAccountBalance'://初始余额
-                    desc = "运行时设置无效，启动时有效";
+                    desc = "运行时无效，启动时有效，配置文件和数据库需要同时设置";
                     break;
                 case '':
                     break;
