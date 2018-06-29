@@ -58,8 +58,8 @@
     }
   },
   "display": {
-    "titleBarBackgroundColor": "#FFFFFF",
-    "titleBarTextColor": "#1d1d1d",
+    "titleBarBackgroundColor": "#4286f5",
+    "titleBarTextColor": "#ffffff",
     "menu": true,
     "pages": {
       "Home": {
