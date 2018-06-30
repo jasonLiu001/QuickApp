@@ -94,9 +94,9 @@
             apiCollection: apiCollection
         },
         onInit() {
+            this.findList(this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList));
         },
         onShow() {
-            this.findList(this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList));
         },
         onMenuPress() {
             prompt.showContextMenu({

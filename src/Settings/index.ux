@@ -44,10 +44,10 @@
         },
         protected: {},
         onInit() {
-        },
-        onShow() {
             this.isShowLoading = true;
             this.findList(apiUrl.getAllSettings);
+        },
+        onShow() {
         },
 
         getDescription(settingItem) {

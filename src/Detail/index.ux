@@ -65,11 +65,11 @@
             planType: 1
         },
         onInit() {
-        },
-        onShow() {
             this.isShowLoading = true;
             let url = apiUrl.getInvestInfoByPeriod + "?period=" + this.period + "&planType=" + this.planType;
             this.getData(url);
+        },
+        onShow() {
         },
         clickBtnCopy(evt) {
             if (!this.investInfo.investNumbers) {
