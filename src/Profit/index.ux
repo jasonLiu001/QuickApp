@@ -55,6 +55,51 @@
         },
         onShow() {
         },
+        getProfitType() {
+            let profitType = "wholeday_maxprofit";
+            switch (this.apiName) {
+                case "plan01_wholeday_maxprofit":
+                case "plan02_wholeday_maxprofit":
+                case "plan03_wholeday_maxprofit":
+                case "plan04_wholeday_maxprofit":
+                    profitType = "wholeday_maxprofit";
+                    break;
+                case "plan01_wholeday_minprofit":
+                case "plan02_wholeday_minprofit":
+                case "plan03_wholeday_minprofit":
+                case "plan04_wholeday_minprofit":
+                    profitType = "wholeday_minprofit";
+                    break;
+                case "plan01_before22_maxprofit":
+                case "plan02_before22_maxprofit":
+                case "plan03_before22_maxprofit":
+                case "plan04_before22_maxprofit":
+                    profitType = "before22_maxprofit";
+                    break;
+                case "plan01_before22_minprofit":
+                case "plan02_before22_minprofit":
+                case "plan03_before22_minprofit":
+                case "plan04_before22_minprofit":
+                    profitType = "before22_minprofit";
+                    break;
+                case "plan01_wholeday_fixedprofit":
+                case "plan02_wholeday_fixedprofit":
+                case "plan03_wholeday_fixedprofit":
+                case "plan04_wholeday_fixedprofit":
+                    profitType = "wholeday_fixedprofit";
+                    break;
+                case "plan01_before22_fixedprofit":
+                case "plan02_before22_fixedprofit":
+                case "plan03_before22_fixedprofit":
+                case "plan04_before22_fixedprofit":
+                    profitType = "before22_fixedprofit";
+                    break;
+                default:
+                    profitType = "wholeday_maxprofit";
+            }
+
+            return profitType;
+        },
         getProfitRequestUrl(dataUrl, fixedProfit) {
             let url;
             switch (this.apiName) {
@@ -64,7 +109,7 @@
                 case "plan01_before22_minprofit":
                 case "plan01_wholeday_fixedprofit":
                 case "plan01_before22_fixedprofit":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=30&planType=1&fixedProfit=" + fixedProfit;
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=30&planType=1&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
                     break;
                 case "plan02_wholeday_maxprofit":
                 case "plan02_before22_maxprofit":
@@ -72,7 +117,7 @@
                 case "plan02_before22_minprofit":
                 case "plan02_wholeday_fixedprofit":
                 case "plan02_before22_fixedprofit":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=30&planType=2&fixedProfit=" + fixedProfit;
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=30&planType=2&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
                     break;
                 case "plan03_wholeday_maxprofit":
                 case "plan03_before22_maxprofit":
@@ -80,7 +125,7 @@
                 case "plan03_before22_minprofit":
                 case "plan03_wholeday_fixedprofit":
                 case "plan03_before22_fixedprofit":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=30&planType=3&fixedProfit=" + fixedProfit;
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=30&planType=3&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
                     break;
                 case "plan04_wholeday_maxprofit":
                 case "plan04_before22_maxprofit":
@@ -88,10 +133,10 @@
                 case "plan04_before22_minprofit":
                 case "plan04_wholeday_fixedprofit":
                 case "plan04_before22_fixedprofit":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=30&planType=4&fixedProfit=" + fixedProfit;
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=30&planType=4&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
                     break;
                 default:
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=30&planType=1&fixedProfit=" + fixedProfit;
+                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=30&planType=1&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
             }
             return url;
         },
