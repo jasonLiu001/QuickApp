@@ -69,17 +69,19 @@ function createShortcut() {
 /**
  *
  * 获取列表数据
+ * @param {String} method
  * @param {Array} list
  * @param {String} url
- * @param {Function} noData
+ * @param {Function} noDataCallback
+ * @param {Function} everySinglePageDataCallback
  */
-function findList(list, url, noData) {
+function findList(method, list, url, noDataCallback, everySinglePageDataCallback) {
     const prompt = require('@system.prompt');
     const fetch = require('@system.fetch');
     //console.log(`title: ${JSON.parse(data.data).title}`)
     fetch.fetch({
         url: url,
-        method: 'POST',
+        method: method,
         success: (data) => {
             if (data) {
                 //解析 服务器端接口数据
@@ -87,7 +89,10 @@ function findList(list, url, noData) {
 
                 //全部加载完成 隐藏正在载入...
                 if (serverData.data === null || serverData.data === undefined) {
-                    noData();
+                    if (noDataCallback && typeof (noDataCallback) === 'function') {
+                        noDataCallback();
+                    }
+
                     return;
                 }
 
@@ -95,8 +100,11 @@ function findList(list, url, noData) {
                 for (let key in serverData.data) {
                     list.push(serverData.data[key]);
                 }
-
             }
+            if (everySinglePageDataCallback && typeof (everySinglePageDataCallback) === 'function') {
+                everySinglePageDataCallback();
+            }
+
         },
         fail: (data, code) => {
             prompt.showToast({
@@ -110,9 +118,9 @@ function findList(list, url, noData) {
  *
  * 获取单条数据
  * @param {String} url
- * @param {Function} success
+ * @param {Function} completeCallback
  */
-function getData(url, success) {
+function getData(url, completeCallback) {
     const prompt = require('@system.prompt');
     const fetch = require('@system.fetch');
     fetch.fetch({
@@ -130,7 +138,45 @@ function getData(url, success) {
                     });
                     return;
                 }
-                success(serverData.data);
+                if (completeCallback && typeof (completeCallback) === 'function') {
+                    completeCallback(serverData.data);
+                }
+            }
+        },
+        fail: (data, code) => {
+            prompt.showToast({
+                message: `请求数据超时, code = ${code}`
+            });
+        }
+    });
+}
+
+/**
+ *
+ * 更新数据
+ */
+function updateData(url) {
+    const prompt = require('@system.prompt');
+    const fetch = require('@system.fetch');
+    fetch.fetch({
+        url: url,
+        method: 'POST',
+        success: (data) => {
+            if (data) {
+                //解析 服务器端接口数据
+                let serverData = JSON.parse(data.data);
+
+                //全部加载完成 隐藏正在载入...
+                if (serverData.data === null || serverData.data === undefined) {
+                    prompt.showToast({
+                        message: `服务器返回数据格式错误`
+                    });
+                    return;
+                }
+
+                prompt.showToast({
+                    message: `数据更新成功`
+                });
             }
         },
         fail: (data, code) => {

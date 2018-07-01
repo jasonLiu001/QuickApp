@@ -175,7 +175,7 @@
                 case "plan02":
                 case "plan03":
                 case "plan04":
-                    this.$app.$def.findList(this.list, this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList), () => {
+                    this.$app.$def.findList('POST', this.list, this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList), () => {
                         this.hasMoreData = false;
                     });
                     break;
@@ -187,7 +187,7 @@
                 case "plan03_before02":
                 case "plan04_before22":
                 case "plan04_before02":
-                    this.$app.$def.findList(this.list, this.getInvestInfoBeforeTimeRequestUrl(apiUrl.findInvestInfoListBeforeTime), () => {
+                    this.$app.$def.findList('POST', this.list, this.getInvestInfoBeforeTimeRequestUrl(apiUrl.findInvestInfoListBeforeTime), () => {
                         this.hasMoreData = false;
                     });
                     break;

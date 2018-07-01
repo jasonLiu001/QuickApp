@@ -11,7 +11,9 @@
                     <div style="flex-direction: column;justify-content: center;width: 50%;">
                         <text style="font-size: 24px;">{{settingItem.key}}</text>
                         <text style="font-size: 20px;">{{getDescription(settingItem).desc}}</text>
-                        <text style="font-size: 20px;color:{{getDescription(settingItem).mark_fontColor}};">{{getDescription(settingItem).mark}}</text>
+                        <text style="font-size: 20px;color:{{getDescription(settingItem).mark_fontColor}};">
+                            {{getDescription(settingItem).mark}}
+                        </text>
                     </div>
                     <input style="width: 25%;" type="text" onchange="onChangeEventHandler(settingItem)"
                            id="{{settingItem.key}}"
@@ -45,7 +47,11 @@
         protected: {},
         onInit() {
             this.isShowLoading = true;
-            this.findList(apiUrl.getAllSettings);
+            this.$app.$def.findList('GET', this.list, apiUrl.getAllSettings, () => {
+                this.isShowLoading = false;
+            }, () => {
+                this.isShowLoading = false;
+            });
         },
         onShow() {
         },
@@ -72,73 +78,13 @@
             }
             return descriptions;
         },
-
-        findList(url) {
-            //console.log(`title: ${JSON.parse(data.data).title}`)
-            fetch.fetch({
-                url: url,
-                method: 'GET',
-                success: (data) => {
-                    if (data) {
-                        //解析 服务器端接口数据
-                        let serverData = JSON.parse(data.data);
-
-                        //全部加载完成 隐藏正在载入...
-                        if (serverData.data === null || serverData.data === undefined) {
-                            prompt.showToast({
-                                message: `服务器返回数据格式错误`
-                            });
-                            return;
-                        }
-
-                        //所有的设置项
-                        this.list = serverData.data;
-                        this.isShowLoading = false;
-                    }
-                },
-                fail: (data, code) => {
-                    prompt.showToast({
-                        message: `请求数据超时, code = ${code}`
-                    });
-                }
-            })
-        },
-        updateSettingsByKey(url) {
-            fetch.fetch({
-                url: url,
-                method: 'POST',
-                success: (data) => {
-                    if (data) {
-                        //解析 服务器端接口数据
-                        let serverData = JSON.parse(data.data);
-
-                        //全部加载完成 隐藏正在载入...
-                        if (serverData.data === null || serverData.data === undefined) {
-                            prompt.showToast({
-                                message: `服务器返回数据格式错误`
-                            });
-                            return;
-                        }
-
-                        prompt.showToast({
-                            message: `数据更新成功`
-                        });
-                    }
-                },
-                fail: (data, code) => {
-                    prompt.showToast({
-                        message: `请求数据超时, code = ${code}`
-                    });
-                }
-            });
-        },
         onChangeEventHandler(settingItem, evt) {
             this.$element(settingItem.key).attr.value = evt.value;
         },
         btnSaveEventHandler(settingItem, evt) {
             let keyValue = this.$element(settingItem.key).attr.value;
             let url = apiUrl.updateSettingsByKey + "?key=" + settingItem.key + "&value=" + keyValue;
-            this.updateSettingsByKey(url);
+            this.$app.$def.updateData(url);
         }
     }
 </script>
