@@ -203,7 +203,8 @@
             router.push({
                 uri: '/Detail',
                 params: {
-                    period: row.period
+                    period: row.period,
+                    planType: row.planType
                 }
             });
         },
