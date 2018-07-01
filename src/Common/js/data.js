@@ -44,67 +44,85 @@ const apiCollection = [
     {
         name: 'plan01_before22',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案1-22点前',
+        desc: '方案1-截止22点',
         group: 2
     },
     {
         name: 'plan01_before02',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案1-02点前',
+        desc: '方案1-截止2点',
         group: 2
     },
     {
         name: 'plan02_before22',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案2-22点前',
+        desc: '方案2-截止22点',
         group: 2
     },
     {
         name: 'plan02_before02',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案2-02点前',
+        desc: '方案2-截止2点',
         group: 2
     },
     {
         name: 'plan03_before22',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案3-22点前',
+        desc: '方案3-截止22点',
         group: 2
     },
     {
         name: 'plan03_before02',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案3-02点前',
+        desc: '方案3-截止2点',
         group: 2
     },
     {
         name: 'plan04_before22',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案4-22点前',
+        desc: '方案4-截止22点',
         group: 2
     },
     {
         name: 'plan04_before02',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案4-02点前',
+        desc: '方案4-截止2点',
         group: 2
     },
     {
         name: 'plan01_maxprofit',
         url: apiUrl.findInvestInfoListMaxProfit,
-        desc: '方案1-最大利润',
+        desc: '方案1-全天最大利润',
+        group: 3
+    },
+    {
+        name: 'plan01_maxprofit',
+        url: apiUrl.findInvestInfoListMaxProfit,
+        desc: '方案1-截止22点最大利润',
         group: 3
     },
     {
         name: 'plan01_minprofit',
         url: apiUrl.findInvestInfoListMinProfit,
-        desc: '方案1-最小利润',
+        desc: '方案1-全天最小利润',
+        group: 3
+    },
+    {
+        name: 'plan01_minprofit',
+        url: apiUrl.findInvestInfoListMinProfit,
+        desc: '方案1-截止22点最小利润',
         group: 3
     },
     {
         name: 'plan01_fixedprofit',
         url: apiUrl.findInvestInfoListFixedProfit,
-        desc: '方案1-特定利润',
+        desc: '方案1-全天特定利润',
+        group: 3
+    },
+    {
+        name: 'plan01_fixedprofit',
+        url: apiUrl.findInvestInfoListFixedProfit,
+        desc: '方案1-截止22点特定利润',
         group: 3
     }
 ];

@@ -32,7 +32,7 @@
              class="margin_top">
             <block for="{{(ix,apiItem) in apiCollection}}">
                 <block if="{{apiItem.group===3}}">
-                    <a style="justify-content:space-between;text-align:center;height: 50px;width: 40%;margin-top:24px;margin-right:24px;background-color: #17d5f5;color:#ffffff;"
+                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #17d5f5;color:#ffffff;"
                        onclick="clickQueryProfitConditionHandler(apiItem)">{{apiItem.desc}}</a>
                 </block>
             </block>
