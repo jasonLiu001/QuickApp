@@ -8,6 +8,7 @@
         showMenu: util.showMenu,
         createShortcut: util.createShortcut,
         findList: util.findList,
-        getData: util.getData
+        getData: util.getData,
+        updateData: util.updateData
     }
 </script>

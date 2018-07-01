@@ -191,5 +191,6 @@ export default {
     showMenu,
     createShortcut,
     findList,
-    getData
+    getData,
+    updateData
 }
