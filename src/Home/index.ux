@@ -4,9 +4,44 @@
 
 <template>
     <div class="container">
-        <div class="box">
-            <a class="btn" href="/List?tableName=invest">Invest</a>
-            <a class="btn margin_top" href="/List?tableName=max_profit">MaxProfit</a>
-        </div>
+        <!--操作菜单-->
+        <list class="box">
+            <!--常规菜单项-->
+            <block for="{{(ix,apiItem) in apiCollection}}">
+                <list-item type="menuItem"
+                           style="flex-direction: row;justify-content:center;background-color: #f5f5f5;">
+                    <a style="height: 120px;width:90%;margin-top:24px;text-align:center;color: #ffffff;background-color: #4286f5;border-radius: 15px;"
+                       onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
+                </list-item>
+            </block>
+        </list>
     </div>
 </template>
+
+<script>
+    import {apiUrl, iconList, apiCollection} from '../Common/js/data';
+    import device from '@system.device'
+    import prompt from '@system.prompt';
+    import fetch from '@system.fetch';
+    import router from '@system.router';
+
+    export default {
+        private: {
+            apiCollection: apiCollection
+        },
+        onMenuPress() {
+            // 设置
+            router.push({
+                uri: '/Settings'
+            });
+        },
+        clickQueryConditionHandler(apiItem, evt) {
+            router.push({
+                uri: '/List',
+                params: {
+                    apiName: apiItem.name
+                }
+            })
+        }
+    }
+</script>

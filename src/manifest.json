@@ -38,7 +38,7 @@
     "designWidth": 640
   },
   "router": {
-    "entry": "List",
+    "entry": "Home",
     "pages": {
       "Home": {
         "component": "index"
@@ -63,11 +63,11 @@
     "menu": true,
     "pages": {
       "Home": {
-        "titleBarText": "选择表",
-        "menu": false
+        "titleBarText": "快速查询"
       },
       "List": {
-        "titleBarText": "查询结果"
+        "titleBarText": "查询结果",
+        "menu": false
       },
       "Detail": {
         "titleBarText": "号码详情",
