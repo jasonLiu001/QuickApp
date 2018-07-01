@@ -43,7 +43,7 @@
       "Home": {
         "component": "index"
       },
-      "List": {
+      "Invest": {
         "component": "index"
       },
       "Profit": {
@@ -68,7 +68,7 @@
       "Home": {
         "titleBarText": "查询"
       },
-      "List": {
+      "Invest": {
         "titleBarText": "查询结果",
         "menu": false
       },

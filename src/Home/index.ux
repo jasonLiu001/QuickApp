@@ -59,7 +59,7 @@
         },
         clickQueryConditionHandler(apiItem, evt) {
             router.push({
-                uri: '/List',
+                uri: '/Invest',
                 params: {
                     apiName: apiItem.name,
                     apiDesc: apiItem.desc
