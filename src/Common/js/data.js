@@ -10,7 +10,10 @@ const apiUrl = {
     findInvestInfoListBeforeTime: "https://www.cnlands.cn/service/lottery/findInvestInfoListBeforeTime",
     getAllSettings: "https://www.cnlands.cn/service/lottery/getAllSettings",
     updateSettingsByKey: "https://www.cnlands.cn/service/lottery/updateSettingsByKey",
-    getSettingsByKey: "https://www.cnlands.cn/service/lottery/getSettingsByKey"
+    getSettingsByKey: "https://www.cnlands.cn/service/lottery/getSettingsByKey",
+    findInvestInfoListMaxProfit: "https://www.cnlands.cn/service/lottery/findInvestInfoListMaxProfit",
+    findInvestInfoListFixedProfit: "https://www.cnlands.cn/service/lottery/findInvestInfoListFixedProfit",
+    findInvestInfoListMinProfit: "https://www.cnlands.cn/service/lottery/findInvestInfoListMinProfit"
 };
 
 const apiCollection = [
@@ -85,6 +88,24 @@ const apiCollection = [
         url: apiUrl.findInvestInfoListBeforeTime,
         desc: '方案4-02点前',
         group: 2
+    },
+    {
+        name: 'plan01_maxprofit',
+        url: apiUrl.findInvestInfoListMaxProfit,
+        desc: '方案1-最大利润',
+        group: 3
+    },
+    {
+        name: 'plan01_minprofit',
+        url: apiUrl.findInvestInfoListMinProfit,
+        desc: '方案1-最小利润',
+        group: 3
+    },
+    {
+        name: 'plan01_fixedprofit',
+        url: apiUrl.findInvestInfoListFixedProfit,
+        desc: '方案1-特定利润',
+        group: 3
     }
 ];
 

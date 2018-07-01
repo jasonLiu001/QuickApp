@@ -46,6 +46,9 @@
       "List": {
         "component": "index"
       },
+      "Profit": {
+        "component": "index"
+      },
       "Detail": {
         "component": "index"
       },
@@ -63,10 +66,14 @@
     "menu": true,
     "pages": {
       "Home": {
-        "titleBarText": "快速查询"
+        "titleBarText": "查询"
       },
       "List": {
         "titleBarText": "查询结果",
+        "menu": false
+      },
+      "Profit": {
+        "titleBarText": "利润查询",
         "menu": false
       },
       "Detail": {

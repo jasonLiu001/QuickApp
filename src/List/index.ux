@@ -112,36 +112,6 @@
             }
             return isShow;
         },
-        findList(url) {
-            //console.log(`title: ${JSON.parse(data.data).title}`)
-            fetch.fetch({
-                url: url,
-                method: 'POST',
-                success: (data) => {
-                    if (data) {
-                        //解析 服务器端接口数据
-                        let serverData = JSON.parse(data.data);
-
-                        //全部加载完成 隐藏正在载入...
-                        if (serverData.data === null || serverData.data === undefined) {
-                            this.hasMoreData = false;
-                            return;
-                        }
-
-                        //遍历数组数据
-                        for (let key in serverData.data) {
-                            this.list.push(serverData.data[key]);
-                        }
-
-                    }
-                },
-                fail: (data, code) => {
-                    prompt.showToast({
-                        message: `请求数据超时, code = ${code}`
-                    });
-                }
-            })
-        },
 
         getInvestInfoRequestUrl(dataUrl) {
             let url;
@@ -205,7 +175,9 @@
                 case "plan02":
                 case "plan03":
                 case "plan04":
-                    this.findList(this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList));
+                    this.$app.$def.findList(this.list, this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList), () => {
+                        this.hasMoreData = false;
+                    });
                     break;
                 case "plan01_before22":
                 case "plan01_before02":
@@ -215,7 +187,9 @@
                 case "plan03_before02":
                 case "plan04_before22":
                 case "plan04_before02":
-                    this.findList(this.getInvestInfoBeforeTimeRequestUrl(apiUrl.findInvestInfoListBeforeTime));
+                    this.$app.$def.findList(this.list, this.getInvestInfoBeforeTimeRequestUrl(apiUrl.findInvestInfoListBeforeTime), () => {
+                        this.hasMoreData = false;
+                    });
                     break;
             }
         },

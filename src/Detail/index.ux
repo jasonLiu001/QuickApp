@@ -67,7 +67,10 @@
         onInit() {
             this.isShowLoading = true;
             let url = apiUrl.getInvestInfoByPeriod + "?period=" + this.period + "&planType=" + this.planType;
-            this.getData(url);
+            this.$app.$def.getData(url, (data) => {
+                this.investInfo = data;
+                this.isShowLoading = false;
+            });
         },
         onShow() {
         },
@@ -84,34 +87,6 @@
                 success: () => {
                     prompt.showToast({
                         message: `复制成功`
-                    });
-                }
-            });
-        },
-        getData(url) {
-            fetch.fetch({
-                url: url,
-                method: 'POST',
-                success: (data) => {
-                    if (data) {
-                        console.log(data);
-                        //解析 服务器端接口数据
-                        let serverData = JSON.parse(data.data);
-
-                        if (serverData.data === null || serverData.data === undefined) {
-                            prompt.showToast({
-                                message: `服务器返回数据格式错误`
-                            });
-                            return;
-                        }
-
-                        this.investInfo = serverData.data;
-                        this.isShowLoading = false;
-                    }
-                },
-                fail: (data, code) => {
-                    prompt.showToast({
-                        message: `请求数据超时, code = ${code}`
                     });
                 }
             });

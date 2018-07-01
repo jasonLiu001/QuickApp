@@ -27,6 +27,16 @@
                 </block>
             </block>
         </div>
+
+        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
+             class="margin_top">
+            <block for="{{(ix,apiItem) in apiCollection}}">
+                <block if="{{apiItem.group===3}}">
+                    <a style="justify-content:space-between;text-align:center;height: 50px;width: 40%;margin-top:24px;margin-right:24px;background-color: #17d5f5;color:#ffffff;"
+                       onclick="clickQueryProfitConditionHandler(apiItem)">{{apiItem.desc}}</a>
+                </block>
+            </block>
+        </div>
     </div>
 </template>
 
@@ -54,7 +64,20 @@
                     apiName: apiItem.name,
                     apiDesc: apiItem.desc
                 }
-            })
+            });
+        },
+        /**
+         *
+         * 利润查询
+         */
+        clickQueryProfitConditionHandler(apiItem, evt) {
+            router.push({
+                uri: '/Profit',
+                params: {
+                    apiName: apiItem.name,
+                    apiDesc: apiItem.desc
+                }
+            });
         }
     }
 </script>

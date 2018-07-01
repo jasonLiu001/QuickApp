@@ -66,7 +66,84 @@ function createShortcut() {
     })
 }
 
+/**
+ *
+ * 获取列表数据
+ * @param {Array} list
+ * @param {String} url
+ * @param {Function} noData
+ */
+function findList(list, url, noData) {
+    const prompt = require('@system.prompt');
+    const fetch = require('@system.fetch');
+    //console.log(`title: ${JSON.parse(data.data).title}`)
+    fetch.fetch({
+        url: url,
+        method: 'POST',
+        success: (data) => {
+            if (data) {
+                //解析 服务器端接口数据
+                let serverData = JSON.parse(data.data);
+
+                //全部加载完成 隐藏正在载入...
+                if (serverData.data === null || serverData.data === undefined) {
+                    noData();
+                    return;
+                }
+
+                //遍历数组数据
+                for (let key in serverData.data) {
+                    list.push(serverData.data[key]);
+                }
+
+            }
+        },
+        fail: (data, code) => {
+            prompt.showToast({
+                message: `请求数据超时, code = ${code}`
+            });
+        }
+    })
+}
+
+/**
+ *
+ * 获取单条数据
+ * @param {String} url
+ * @param {Function} success
+ */
+function getData(url, success) {
+    const prompt = require('@system.prompt');
+    const fetch = require('@system.fetch');
+    fetch.fetch({
+        url: url,
+        method: 'POST',
+        success: (data) => {
+            if (data) {
+                console.log(data);
+                //解析 服务器端接口数据
+                let serverData = JSON.parse(data.data);
+
+                if (serverData.data === null || serverData.data === undefined) {
+                    prompt.showToast({
+                        message: `服务器返回数据格式错误`
+                    });
+                    return;
+                }
+                success(serverData.data);
+            }
+        },
+        fail: (data, code) => {
+            prompt.showToast({
+                message: `请求数据超时, code = ${code}`
+            });
+        }
+    });
+}
+
 export default {
     showMenu,
-    createShortcut
+    createShortcut,
+    findList,
+    getData
 }
