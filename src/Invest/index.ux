@@ -4,60 +4,57 @@
 
 <template>
     <div class="container" style="padding-bottom: 24px;">
-        <stack style="height: 100%;flex-direction: row;">
-            <!--数据列表-->
-            <list class="box" onscrollbottom="loadMoreData">
-                <block for="{{(index,row) in list}}">
-                    <!--表行数据-->
-                    <list-item type="data" class="margin_top" onclick="clickRowTabHandler(row)">
+        <!--数据列表-->
+        <list class="box" onscrollbottom="loadMoreData">
+            <block for="{{(index,row) in list}}">
+                <!--表行数据-->
+                <list-item type="data" class="margin_top" onclick="clickRowTabHandler(row)">
 
-                        <stack style="height: 100%;">
+                    <stack style="height: 100%;">
 
-                            <!--列表正常数据-->
-                            <div style="width: 100%;padding:10px;flex-direction: column;border-radius:10px;background-color: #ffffff">
+                        <!--列表正常数据-->
+                        <div style="width: 100%;padding:10px;flex-direction: column;border-radius:10px;background-color: #ffffff">
+                            <div style="justify-content: space-between">
+                                <text>{{row.period}}</text>
+                                <text>{{row.investTime}}</text>
+                            </div>
+
+                            <!--表各列数据-->
+                            <block for="{{(columnIndex,columnItem) in displayColumns}}">
                                 <div style="justify-content: space-between">
-                                    <text>{{row.period}}</text>
-                                    <text>{{row.investTime}}</text>
+                                    <text>{{columnItem.des}}:</text>
+                                    <text>{{row[columnItem.name]}}</text>
                                 </div>
+                            </block>
+                        </div>
 
-                                <!--表各列数据-->
-                                <block for="{{(columnIndex,columnItem) in displayColumns}}">
-                                    <div style="justify-content: space-between">
-                                        <text>{{columnItem.des}}:</text>
-                                        <text>{{row[columnItem.name]}}</text>
-                                    </div>
-                                </block>
-                            </div>
+                        <!--status图标-->
+                        <div style="margin-left: 300px;margin-top:40px;opacity:0.5;height: 50px;width: 100px;">
+                            <text show="{{row.status===1}}" style="color: #f76160;">已完成</text>
+                            <text show="{{row.status===0}}" style="color: #27f730;">进行中</text>
+                        </div>
 
-                            <!--status图标-->
-                            <div style="margin-left: 300px;margin-top:40px;opacity:0.5;height: 50px;width: 100px;">
-                                <text show="{{row.status===1}}" style="color: #f76160;">已完成</text>
-                                <text show="{{row.status===0}}" style="color: #27f730;">进行中</text>
-                            </div>
+                        <!--isWin图标-->
+                        <div show="{{isShowWinIcon()}}"
+                             style="margin-left: 400px;margin-top:20px;opacity:0.7;height: 70%;width: 100px;">
+                            <image show="{{row.isWin===1&&row.status===1}}"
+                                   src="{{icons.icon_completed_right}}"></image>
+                            <image show="{{row.isWin===0&&row.status===1}}"
+                                   src="{{icons.icon_completed_wrong}}"></image>
+                        </div>
 
-                            <!--isWin图标-->
-                            <div show="{{isShowWinIcon()}}"
-                                 style="margin-left: 400px;margin-top:20px;opacity:0.7;height: 70%;width: 100px;">
-                                <image show="{{row.isWin===1&&row.status===1}}"
-                                       src="{{icons.icon_completed_right}}"></image>
-                                <image show="{{row.isWin===0&&row.status===1}}"
-                                       src="{{icons.icon_completed_wrong}}"></image>
-                            </div>
-
-                        </stack>
-                    </list-item>
-                </block>
-
-                <!--加载更多-->
-                <list-item type="loadMore" style="flex-direction: row;justify-content: center;">
-                    <progress type="circular" show="{{hasMoreData}}"></progress>
-                    <text show="{{hasMoreData}}">正在载入...</text>
-                    <text show="{{!hasMoreData}}">已加载全部</text>
+                    </stack>
                 </list-item>
+            </block>
 
-            </list>
+            <!--加载更多-->
+            <list-item type="loadMore" style="flex-direction: row;justify-content: center;">
+                <progress type="circular" show="{{hasMoreData}}"></progress>
+                <text show="{{hasMoreData}}">正在载入...</text>
+                <text show="{{!hasMoreData}}">已加载全部</text>
+            </list-item>
 
-        </stack>
+        </list>
 
     </div>
 </template>
