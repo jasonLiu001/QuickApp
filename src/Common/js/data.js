@@ -11,9 +11,7 @@ const apiUrl = {
     getAllSettings: "https://www.cnlands.cn/service/lottery/getAllSettings",
     updateSettingsByKey: "https://www.cnlands.cn/service/lottery/updateSettingsByKey",
     getSettingsByKey: "https://www.cnlands.cn/service/lottery/getSettingsByKey",
-    findInvestInfoListMaxProfit: "https://www.cnlands.cn/service/lottery/findInvestInfoListMaxProfit",
-    findInvestInfoListFixedProfit: "https://www.cnlands.cn/service/lottery/findInvestInfoListFixedProfit",
-    findInvestInfoListMinProfit: "https://www.cnlands.cn/service/lottery/findInvestInfoListMinProfit"
+    findInvestInfoListProfit: "https://www.cnlands.cn/service/lottery/findInvestInfoListProfit"
 };
 
 const apiCollection = [
@@ -90,38 +88,38 @@ const apiCollection = [
         group: 2
     },
     {
-        name: 'plan01_maxprofit',
-        url: apiUrl.findInvestInfoListMaxProfit,
+        name: 'plan01_before22_maxprofit',
+        url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-截止22点最大利润',
         group: 3
     },
     {
-        name: 'plan01_maxprofit',
-        url: apiUrl.findInvestInfoListMaxProfit,
+        name: 'plan01_wholeday_maxprofit',
+        url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-全天最大利润',
         group: 3
     },
     {
-        name: 'plan01_minprofit',
-        url: apiUrl.findInvestInfoListMinProfit,
+        name: 'plan01_before22_minprofit',
+        url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-截止22点最小利润',
         group: 3
     },
     {
-        name: 'plan01_minprofit',
-        url: apiUrl.findInvestInfoListMinProfit,
+        name: 'plan01_wholeday_minprofit',
+        url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-全天最小利润',
         group: 3
     },
     {
-        name: 'plan01_fixedprofit',
-        url: apiUrl.findInvestInfoListFixedProfit,
+        name: 'plan01_before22_fixedprofit',
+        url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-截止22点特定利润',
         group: 3
     },
     {
-        name: 'plan01_fixedprofit',
-        url: apiUrl.findInvestInfoListFixedProfit,
+        name: 'plan01_wholeday_fixedprofit',
+        url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-全天特定利润',
         group: 3
     }
