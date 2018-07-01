@@ -3,18 +3,30 @@
 </style>
 
 <template>
-    <div class="container">
-        <!--操作菜单-->
-        <list class="box">
-            <!--常规菜单项-->
+    <div class="container" style="background-color: #ffffff;">
+
+        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
+             class="margin_top">
+            <!--分组1-->
             <block for="{{(ix,apiItem) in apiCollection}}">
-                <list-item type="menuItem"
-                           style="flex-direction: row;justify-content:center;background-color: #f5f5f5;">
-                    <a style="height: 120px;width:90%;margin-top:24px;text-align:center;color: #ffffff;background-color: #4286f5;border-radius: 15px;"
+
+                <block if="{{apiItem.group===1}}">
+                    <a style="justify-content:space-between;text-align:center;height: 50px;width: 20%;margin-right:24px;background-color: #6f8ef5;color:#ffffff;"
                        onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
-                </list-item>
+                </block>
+
             </block>
-        </list>
+        </div>
+
+        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
+             class="margin_top">
+            <block for="{{(ix,apiItem) in apiCollection}}">
+                <block if="{{apiItem.group===2}}">
+                    <a style="justify-content:space-between;text-align:center;height: 50px;width: 40%;margin-top:24px;margin-right:24px;background-color: #74caf5;color:#ffffff;"
+                       onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
+                </block>
+            </block>
+        </div>
     </div>
 </template>
 
@@ -39,7 +51,8 @@
             router.push({
                 uri: '/List',
                 params: {
-                    apiName: apiItem.name
+                    apiName: apiItem.name,
+                    apiDesc: apiItem.desc
                 }
             })
         }

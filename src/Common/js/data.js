@@ -17,62 +17,74 @@ const apiCollection = [
     {
         name: 'plan01',
         url: apiUrl.findInvestInfoList,
-        desc: '方案1'
+        desc: '方案1',
+        group: 1
     },
     {
         name: 'plan02',
         url: apiUrl.findInvestInfoList,
-        desc: '方案2'
+        desc: '方案2',
+        group: 1
     },
     {
         name: 'plan03',
         url: apiUrl.findInvestInfoList,
-        desc: '方案3'
+        desc: '方案3',
+        group: 1
     },
     {
         name: 'plan04',
         url: apiUrl.findInvestInfoList,
-        desc: '方案4'
+        desc: '方案4',
+        group: 1
     },
     {
         name: 'plan01_before22',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案1-22点前'
+        desc: '方案1-22点前',
+        group: 2
     },
     {
         name: 'plan01_before02',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案1-02点前'
+        desc: '方案1-02点前',
+        group: 2
     },
     {
         name: 'plan02_before22',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案2-22点前'
+        desc: '方案2-22点前',
+        group: 2
     },
     {
         name: 'plan02_before02',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案2-02点前'
+        desc: '方案2-02点前',
+        group: 2
     },
     {
         name: 'plan03_before22',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案3-22点前'
+        desc: '方案3-22点前',
+        group: 2
     },
     {
         name: 'plan03_before02',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案3-02点前'
+        desc: '方案3-02点前',
+        group: 2
     },
     {
         name: 'plan04_before22',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案4-22点前'
+        desc: '方案4-22点前',
+        group: 2
     },
     {
         name: 'plan04_before02',
         url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案4-02点前'
+        desc: '方案4-02点前',
+        group: 2
     }
 ];
 

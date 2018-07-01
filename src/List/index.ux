@@ -80,12 +80,19 @@
         },
         protected: {
             //页面参数
-            apiName: ''
+            apiName: '',
+            apiDesc: ''
         },
         onInit() {
             this.renderPageData();
+            this.setTitleBarTextOnInit();
         },
         onShow() {
+        },
+        setTitleBarTextOnInit() {
+            this.$page.setTitleBar({
+                text: this.apiDesc
+            });
         },
         isShowWinIcon() {
             let isShow = true;
