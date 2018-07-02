@@ -122,7 +122,31 @@ const apiCollection = [
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-截止0点特定利润1200',
         group: 5
-    }
+    },
+    {
+        name: 'plan01_all_before22',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案1-截止22点所有记录',
+        group: 6
+    },
+    {
+        name: 'plan02_all_before22',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案2-截止22点所有记录',
+        group: 6
+    },
+    {
+        name: 'plan03_all_before22',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案3-截止22点所有记录',
+        group: 6
+    },
+    {
+        name: 'plan04_all_before22',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案4-截止22点所有记录',
+        group: 6
+    },
 ];
 
 // 图标列表
