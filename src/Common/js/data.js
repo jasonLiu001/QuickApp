@@ -96,7 +96,7 @@ const apiCollection = [
     {
         name: 'plan01_wholeday_maxprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案1-全天最大利润',
+        desc: '方案1-截止0点最大利润',
         group: 3
     },
     {
@@ -108,7 +108,7 @@ const apiCollection = [
     {
         name: 'plan01_wholeday_minprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案1-全天最小利润',
+        desc: '方案1-截止0点最小利润',
         group: 3
     },
     {
@@ -120,7 +120,7 @@ const apiCollection = [
     {
         name: 'plan01_wholeday_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案1-全天特定利润1200',
+        desc: '方案1-截止0点特定利润1200',
         group: 3
     }
 ];
