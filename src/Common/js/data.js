@@ -114,13 +114,13 @@ const apiCollection = [
     {
         name: 'plan01_before22_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案1-截止22点特定利润1200',
+        desc: '方案1-截止22点最大利润>1200',
         group: 4
     },
     {
         name: 'plan01_wholeday_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案1-截止0点特定利润1200',
+        desc: '方案1-截止0点最大利润>1200',
         group: 5
     },
     {

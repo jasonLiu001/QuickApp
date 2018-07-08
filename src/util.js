@@ -85,7 +85,15 @@ function findList(method, list, url, noDataCallback, everySinglePageDataCallback
         success: (data) => {
             if (data) {
                 //解析 服务器端接口数据
-                let serverData = JSON.parse(data.data);
+                let serverData;
+                try {
+                    serverData = JSON.parse(data.data);
+                } catch (e) {
+                    prompt.showToast({
+                        message: `服务器返回数据格式错误或无响应`
+                    });
+                    return;
+                }
 
                 //全部加载完成 隐藏正在载入...
                 if (serverData.data === null || serverData.data === undefined) {
@@ -130,7 +138,15 @@ function getData(url, completeCallback) {
             if (data) {
                 console.log(data);
                 //解析 服务器端接口数据
-                let serverData = JSON.parse(data.data);
+                let serverData;
+                try {
+                    serverData = JSON.parse(data.data);
+                } catch (e) {
+                    prompt.showToast({
+                        message: `服务器返回数据格式错误或无响应`
+                    });
+                    return;
+                }
 
                 if (serverData.data === null || serverData.data === undefined) {
                     prompt.showToast({
@@ -164,7 +180,15 @@ function updateData(url) {
         success: (data) => {
             if (data) {
                 //解析 服务器端接口数据
-                let serverData = JSON.parse(data.data);
+                let serverData;
+                try {
+                    serverData = JSON.parse(data.data);
+                } catch (e) {
+                    prompt.showToast({
+                        message: `服务器返回数据格式错误或无响应`
+                    });
+                    return;
+                }
 
                 //全部加载完成 隐藏正在载入...
                 if (serverData.data === null || serverData.data === undefined) {
