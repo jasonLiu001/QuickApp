@@ -108,10 +108,6 @@
             });
             this.$app.$def.findList('POST', this.plan04_list, this.getInvestInfoRequestUrl(apiUrl.findInvestTotalInfoList, 4), () => {
                 this.hasMoreData = false;
-            }, () => {
-                if (this.plan04_list.length <= this.pageSize) {
-                    this.hasMoreData = false;
-                }
             });
         },
 

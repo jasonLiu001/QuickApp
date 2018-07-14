@@ -144,10 +144,6 @@
         renderPageData() {
             this.$app.$def.findList('POST', this.list, this.getProfitRequestUrl(apiUrl.findInvestInfoListProfit, 1200), () => {
                 this.hasMoreData = false;
-            }, () => {
-                if (this.list.length <= this.pageSize) {
-                    this.hasMoreData = false;
-                }
             });
         },
         /**
