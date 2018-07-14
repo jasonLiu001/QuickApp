@@ -46,6 +46,12 @@
       "Invest": {
         "component": "index"
       },
+      "InvestTotal": {
+        "component": "index"
+      },
+      "InvestTotalDetail": {
+        "component": "index"
+      },
       "Profit": {
         "component": "index"
       },
@@ -70,6 +76,14 @@
       },
       "Invest": {
         "titleBarText": "查询结果",
+        "menu": false
+      },
+      "InvestTotal": {
+        "titleBarText": "所有方案列表",
+        "menu": false
+      },
+      "InvestTotalDetail": {
+        "titleBarText": "号码详情",
         "menu": false
       },
       "Profit": {

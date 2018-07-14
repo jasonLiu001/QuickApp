@@ -1,0 +1,95 @@
+<style lang="less">
+    @import '../Common/css/index.less';
+
+    .investItemRow {
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        border-bottom-color: #ffffff;
+        border-bottom-width: 1px;
+    }
+</style>
+
+<template>
+    <div class="container">
+        <div show="{{isShowLoading}}" style="flex-direction: row;justify-content: center;">
+            <progress type="circular"></progress>
+            <text>正在载入...</text>
+        </div>
+
+        <div class="investItemRow">
+            <text style="width: 200px;">期号:</text>
+            <text>{{investInfo.period}}</text>
+        </div>
+        <div class="investItemRow">
+            <text style="width: 200px;">时间:</text>
+            <text>{{investInfo.investTime}}</text>
+        </div>
+        <div class="investItemRow">
+            <text style="width: 200px;">状态:</text>
+            <text show="{{investInfo.status===1}}" style="color: #f76160;">已完成</text>
+            <text show="{{investInfo.status===0}}" style="color: #27f730;">进行中</text>
+        </div>
+        <div class="investItemRow">
+            <text style="width: 200px;">账号余额:</text>
+            <text>{{investInfo.currentAccountBalance}}</text>
+        </div>
+        <div class="investItemRow">
+            <text style="width: 200px;">数量:</text>
+            <text>{{investInfo.investNumberCount}}</text>
+        </div>
+        <div class="investItemRow" style="height: 300px;">
+            <text style="width: 200px;">购买号码:</text>
+            <textarea
+                    style="width: 100%;height:250px;background-color: #ffffff;">{{investInfo.investNumbers}}</textarea>
+        </div>
+        <a class="btn margin_top" onclick="clickBtnCopy">复制号码</a>
+    </div>
+</template>
+
+<script>
+    import {apiUrl, iconList, apiCollection} from '../Common/js/data';
+    import device from '@system.device'
+    import prompt from '@system.prompt';
+    import fetch from '@system.fetch';
+    import router from '@system.router';
+    import clipboard from '@system.clipboard';
+
+    export default {
+        private: {
+            isShowLoading: true,
+            investInfo: {}
+        },
+        protected: {
+            period: '',
+            planType: 1
+        },
+        onInit() {
+            this.isShowLoading = true;
+            let url = apiUrl.getInvestTotalInfoByPeriod + "?period=" + this.period + "&planType=" + this.planType;
+            this.$app.$def.getData(url, (data) => {
+                this.investInfo = data;
+                this.isShowLoading = false;
+            });
+        },
+        onShow() {
+        },
+        clickBtnCopy(evt) {
+            if (!this.investInfo.investNumbers) {
+                prompt.showToast({
+                    message: `没有可复制的数据`
+                });
+                return;
+            }
+
+            clipboard.set({
+                text: this.investInfo.investNumbers,
+                success: () => {
+                    prompt.showToast({
+                        message: `复制成功`
+                    });
+                }
+            });
+        }
+    }
+</script>

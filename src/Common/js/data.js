@@ -2,11 +2,12 @@
 const apiUrl = {
     findAwardInfoList: 'https://www.cnlands.cn/service/lottery/findAwardInfoList',
     findInvestInfoList: 'https://www.cnlands.cn/service/lottery/findInvestInfoList',
-    findMaxProfitInfoList: 'https://www.cnlands.cn/service/lottery/findMaxProfitInfoList',
     findPlanInfoList: 'https://www.cnlands.cn/service/lottery/findPlanInfoList',
+    findInvestTotalInfoList: 'https://www.cnlands.cn/service/lottery/findInvestTotalInfoList',
     findPlanResultInfoList: 'https://www.cnlands.cn/service/lottery/findPlanResultInfoList',
     findInvestNumbersInfoList: 'https://www.cnlands.cn/service/lottery/findInvestNumbersInfoList',
     getInvestInfoByPeriod: "https://www.cnlands.cn/service/lottery/getInvestInfoByPeriod",
+    getInvestTotalInfoByPeriod: "https://www.cnlands.cn/service/lottery/getInvestTotalInfoByPeriod",
     findInvestInfoListBeforeTime: "https://www.cnlands.cn/service/lottery/findInvestInfoListBeforeTime",
     getAllSettings: "https://www.cnlands.cn/service/lottery/getAllSettings",
     updateSettingsByKey: "https://www.cnlands.cn/service/lottery/updateSettingsByKey",
