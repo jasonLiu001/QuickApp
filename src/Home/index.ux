@@ -47,6 +47,16 @@
                 </block>
             </block>
         </div>
+
+        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
+             class="margin_top">
+            <block for="{{(ix,apiItem) in apiCollection}}">
+                <block if="{{apiItem.group===7}}">
+                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #312bf5;color:#ffffff;"
+                       onclick="redirectToAllPlanList()">{{apiItem.desc}}</a>
+                </block>
+            </block>
+        </div>
     </div>
 </template>
 
@@ -65,6 +75,11 @@
             // 设置
             router.push({
                 uri: '/Settings'
+            });
+        },
+        redirectToAllPlanList() {// 所有方案结果列表页
+            router.push({
+                uri: '/InvestTotal'
             });
         },
         clickQueryConditionHandler(apiItem, evt) {

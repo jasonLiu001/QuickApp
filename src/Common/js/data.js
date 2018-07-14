@@ -148,6 +148,12 @@ const apiCollection = [
         desc: '方案4-截止22点所有记录',
         group: 6
     },
+    {
+        name: 'all_plan',
+        url: apiUrl.findInvestTotalInfoList,
+        desc: '所有方案结果',
+        group: 7
+    }
 ];
 
 // 图标列表
