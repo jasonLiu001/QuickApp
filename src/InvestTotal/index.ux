@@ -15,7 +15,10 @@
 
     export default {
         private: {
-            list: [],
+            plan01_list: [],
+            plan02_list: [],
+            plan03_list: [],
+            plan04_list: [],
             pageIndex: 1,
             hasMoreData: true,
 
@@ -28,21 +31,34 @@
         },
         onShow() {
         },
+        protected: {
+            //页面参数
+            apiName: '',
+            apiDesc: ''
+        },
         setTitleBarTextOnInit() {
             this.$page.setTitleBar({
                 text: this.apiDesc
             });
         },
         getInvestInfoRequestUrl(dataUrl) {
-            let url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1";
-            return url;
+            return dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=20&planType=1";
         },
 
         /**
          * 加载单页数据
          */
         renderPageData() {
-            this.$app.$def.findList('POST', this.list, this.getInvestInfoRequestUrl(apiUrl.findInvestTotalInfoList), () => {
+            this.$app.$def.findList('POST', this.plan01_list, this.getInvestInfoRequestUrl(apiUrl.findInvestTotalInfoList), () => {
+                this.hasMoreData = false;
+            });
+            this.$app.$def.findList('POST', this.plan02_list, this.getInvestInfoRequestUrl(apiUrl.findInvestTotalInfoList), () => {
+                this.hasMoreData = false;
+            });
+            this.$app.$def.findList('POST', this.plan03_list, this.getInvestInfoRequestUrl(apiUrl.findInvestTotalInfoList), () => {
+                this.hasMoreData = false;
+            });
+            this.$app.$def.findList('POST', this.plan04_list, this.getInvestInfoRequestUrl(apiUrl.findInvestTotalInfoList), () => {
                 this.hasMoreData = false;
             });
         },

@@ -53,7 +53,7 @@
             <block for="{{(ix,apiItem) in apiCollection}}">
                 <block if="{{apiItem.group===7}}">
                     <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #312bf5;color:#ffffff;"
-                       onclick="redirectToAllPlanList()">{{apiItem.desc}}</a>
+                       onclick="redirectToAllPlanList(apiItem)">{{apiItem.desc}}</a>
                 </block>
             </block>
         </div>
@@ -77,9 +77,13 @@
                 uri: '/Settings'
             });
         },
-        redirectToAllPlanList() {// 所有方案结果列表页
+        redirectToAllPlanList(apiItem, evt) {// 所有方案结果列表页
             router.push({
-                uri: '/InvestTotal'
+                uri: '/InvestTotal',
+                params: {
+                    apiName: apiItem.name,
+                    apiDesc: apiItem.desc
+                }
             });
         },
         clickQueryConditionHandler(apiItem, evt) {
