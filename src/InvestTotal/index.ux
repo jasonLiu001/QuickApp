@@ -3,7 +3,13 @@
 </style>
 
 <template>
-    <web id="web" src="http://www.baidu.com/"></web>
+    <div style="flex-direction: column;">
+        <div style="justify-content: center;">
+            <progress type="circular" show="{{hasMoreData}}"></progress>
+            <text show="{{hasMoreData}}">正在载入...</text>
+        </div>
+        <web id="web" onpagefinish="onPageFinish" onerror="showLoading" onpagestart="showLoading" src="http://www.baidu.com/"></web>
+    </div>
 </template>
 
 <script>
@@ -28,6 +34,12 @@
             this.setTitleBarTextOnInit();
         },
         onShow() {
+        },
+        onPageFinish(evt) {
+            this.hasMoreData = false;
+        },
+        showLoading(evt) {
+            this.hasMoreData = true;
         },
         protected: {
             //页面参数
