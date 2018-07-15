@@ -8,7 +8,7 @@
             <progress type="circular" show="{{hasMoreData}}"></progress>
             <text show="{{hasMoreData}}">正在载入...</text>
         </div>
-        <web id="web" onpagefinish="onPageFinish" onerror="showLoading" onpagestart="showLoading" src="http://www.baidu.com/"></web>
+        <web id="web" onpagefinish="onPageFinish" onerror="showLoading" onpagestart="showLoading" src="https://www.cnlands.cn/pages/invest/invest-total-list.html"></web>
     </div>
 </template>
 
