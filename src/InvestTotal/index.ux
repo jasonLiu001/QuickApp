@@ -3,42 +3,7 @@
 </style>
 
 <template>
-    <div class="container" style="padding-bottom: 24px;">
-        <!--数据列表-->
-        <list class="box" onscrollbottom="loadMoreData">
-            <block for="{{(index,row) in plan01_list}}">
-                <!--表行数据-->
-                <list-item type="data" class="margin_top">
-                    <!--列表正常数据-->
-                    <div style="width: 100%;padding:10px;flex-direction: column;border-radius:10px;background-color: #ffffff">
-                        <div style="justify-content: space-between">
-                            <text>{{row.period}}</text>
-                            <text>{{row.investTime}}</text>
-                        </div>
-
-                        <!--表各列数据-->
-                        <block for="{{(columnIndex,columnItem) in displayColumns}}">
-                            <div style="justify-content: space-between">
-                                <text>{{columnItem.des}}:</text>
-                                <text>{{row[columnItem.name]}}</text>
-                            </div>
-                        </block>
-                    </div>
-
-
-                </list-item>
-            </block>
-
-            <!--加载更多-->
-            <list-item type="loadMore" style="flex-direction: row;justify-content: center;">
-                <progress type="circular" show="{{hasMoreData}}"></progress>
-                <text show="{{hasMoreData}}">正在载入...</text>
-                <text show="{{!hasMoreData}}">已加载全部</text>
-            </list-item>
-
-        </list>
-
-    </div>
+    <web id="web" src="http://www.baidu.com/"></web>
 </template>
 
 <script>
@@ -50,10 +15,7 @@
 
     export default {
         private: {
-            plan01_list: [],
-            plan02_list: [],
-            plan03_list: [],
-            plan04_list: [],
+            list: [],
             pageSize: 20,
             pageIndex: 1,
             hasMoreData: true,
@@ -77,36 +39,15 @@
                 text: this.apiDesc
             });
         },
-        getInvestInfoRequestUrl(dataUrl, planType) {
-            return dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=" + planType;
+        getInvestInfoRequestUrl(dataUrl) {
+            return dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize;
         },
 
         /**
          * 加载单页数据
          */
         renderPageData() {
-            this.$app.$def.findList('POST', this.plan01_list, this.getInvestInfoRequestUrl(apiUrl.findInvestTotalInfoList, 1), () => {
-                this.hasMoreData = false;
-            }, () => {
-                if (this.plan01_list.length <= this.pageSize) {
-                    this.hasMoreData = false;
-                }
-            });
-            this.$app.$def.findList('POST', this.plan02_list, this.getInvestInfoRequestUrl(apiUrl.findInvestTotalInfoList, 2), () => {
-                this.hasMoreData = false;
-            }, () => {
-                if (this.plan02_list.length <= this.pageSize) {
-                    this.hasMoreData = false;
-                }
-            });
-            this.$app.$def.findList('POST', this.plan03_list, this.getInvestInfoRequestUrl(apiUrl.findInvestTotalInfoList, 3), () => {
-                this.hasMoreData = false;
-            }, () => {
-                if (this.plan03_list.length <= this.pageSize) {
-                    this.hasMoreData = false;
-                }
-            });
-            this.$app.$def.findList('POST', this.plan04_list, this.getInvestInfoRequestUrl(apiUrl.findInvestTotalInfoList, 4), () => {
+            this.$app.$def.findList('POST', this.list, this.getInvestInfoRequestUrl(apiUrl.findInvestTotalInfoList), () => {
                 this.hasMoreData = false;
             });
         },
