@@ -18,6 +18,10 @@
         </div>
 
         <div class="investItemRow">
+            <text style="width: 200px;">方案:</text>
+            <text>{{investInfo.planType}}</text>
+        </div>
+        <div class="investItemRow">
             <text style="width: 200px;">期号:</text>
             <text>{{investInfo.period}}</text>
         </div>
