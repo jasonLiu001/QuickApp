@@ -21,7 +21,7 @@ const apiCollection = [
         url: apiUrl.findInvestInfoList,
         desc: '方案1',
         group: 1,
-        enable: 0
+        enable: 1
     },
     {
         name: 'plan02',
