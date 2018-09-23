@@ -119,7 +119,7 @@ const apiCollection = [
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-截止22点利润',
         group: 4,
-        enable: 1
+        enable: 0
     },
     {
         name: 'plan01_wholeday_minprofit',
