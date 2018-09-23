@@ -8,11 +8,11 @@
             <!-- 表头数据 -->
             <list-item type="header" class="margin_top">
                 <div style="width: 100%;padding:10px;border-radius:10px;background-color: #ffffff">
-                    <div>
-                        <text style="width: 30%; text-align: center;">日期</text>
-                        <text style="width: 20%; text-align: right;">周</text>
-                        <text style="width: 20%; text-align: right;">最大值</text>
-                        <text style="width: 20%; text-align: right;">最小值</text>
+                    <div style="flex-direction: row;justify-content: space-between;">
+                        <text style="width: 30%;text-align: center;">日期</text>
+                        <text style="width: 20%;text-align: right;">周</text>
+                        <text style="width: 20%;text-align: right;">最大</text>
+                        <text style="width: 20%;text-align: right;">最小</text>
                     </div>
                 </div>
             </list-item>
@@ -20,8 +20,8 @@
             <block for="{{(index,row) in list}}">
                 <!--表行数据-->
                 <list-item type="data" class="margin_top">
-                    <div style="width: 100%;padding:10px;flex-direction: column;border-radius:10px;background-color: #ffffff">
-                        <div>
+                    <div style="width: 100%;padding:10px;border-radius:10px;background-color: #ffffff">
+                        <div style="flex-direction: row;justify-content: space-between;">
                             <text style="width: 30%; text-align: left;">{{row.investDate}}</text>
                             <text style="width: 20%; text-align: right;">{{getWeekInfo(row.investDate)}}</text>
                             <text style="width: 20%; text-align: right; color:{{row.maxprofit<1000?'#f91e1e':''}}">
