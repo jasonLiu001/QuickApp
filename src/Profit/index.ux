@@ -9,16 +9,13 @@
                 <!--表行数据-->
                 <list-item type="data" class="margin_top">
 
-                    <stack style="height: 100%;">
-
-                        <div style="width: 100%;padding:10px;flex-direction: column;border-radius:10px;background-color: #ffffff">
-                            <div style="justify-content: space-between">
-                                <text>{{row.investDate}}</text>
-                                <text>{{row.maxporfit}}</text>
-                            </div>
+                    <div style="width: 100%;padding:10px;flex-direction: column;border-radius:10px;background-color: #ffffff">
+                        <div style="justify-content: space-between">
+                            <text>{{row.investDate}}</text>
+                            <text>{{row.minprofit}}</text>
+                            <text>{{row.maxprofit}}</text>
                         </div>
-
-                    </stack>
+                    </div>
                 </list-item>
             </block>
 
