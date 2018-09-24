@@ -70,7 +70,7 @@ const apiCollection = [
         url: apiUrl.findInvestInfoListBeforeTime,
         desc: '方案4-截止22点最近1条',
         group: 2,
-        enable: 1
+        enable: 0
     },
     {
         name: 'plan01_before02',
@@ -126,7 +126,7 @@ const apiCollection = [
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案4-截止22点利润',
         group: 4,
-        enable: 1
+        enable: 0
     },
     {
         name: 'plan01_before22_minprofit',
@@ -161,7 +161,7 @@ const apiCollection = [
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案4-截止22点利润>1200',
         group: 5,
-        enable: 1
+        enable: 0
     },
     {
         name: 'plan01_wholeday_maxprofit',
