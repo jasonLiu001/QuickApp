@@ -139,84 +139,84 @@ const apiCollection = [
         name: 'plan01_before22_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-截止22点利润>1200',
-        group: 4,
+        group: 5,
         enable: 1
     },
     {
         name: 'plan02_before22_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案2-截止22点利润>1200',
-        group: 4,
+        group: 5,
         enable: 1
     },
     {
         name: 'plan03_before22_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案3-截止22点利润>1200',
-        group: 4,
+        group: 5,
         enable: 1
     },
     {
         name: 'plan04_before22_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案4-截止22点利润>1200',
-        group: 4,
+        group: 5,
         enable: 1
     },
     {
         name: 'plan01_wholeday_maxprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-截止0点利润',
-        group: 5,
+        group: 6,
         enable: 1
     },
     {
         name: 'plan01_wholeday_minprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-截止0点利润',
-        group: 5,
+        group: 6,
         enable: 1
     },
     {
         name: 'plan01_wholeday_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-截止0点利润>1200',
-        group: 5,
+        group: 6,
         enable: 1
     },
     {
         name: 'plan01_all_before22',
         url: apiUrl.findInvestInfoList,
         desc: '方案1-截止22点所有记录',
-        group: 6,
+        group: 7,
         enable: 1
     },
     {
         name: 'plan02_all_before22',
         url: apiUrl.findInvestInfoList,
         desc: '方案2-截止22点所有记录',
-        group: 6,
+        group: 7,
         enable: 1
     },
     {
         name: 'plan03_all_before22',
         url: apiUrl.findInvestInfoList,
         desc: '方案3-截止22点所有记录',
-        group: 6,
+        group: 7,
         enable: 1
     },
     {
         name: 'plan04_all_before22',
         url: apiUrl.findInvestInfoList,
         desc: '方案4-截止22点所有记录',
-        group: 6,
+        group: 7,
         enable: 1
     },
     {
         name: 'all_plan',
         url: apiUrl.findInvestTotalInfoList,
         desc: '所有方案结果',
-        group: 7,
+        group: 8,
         enable: 1
     }
 ];
