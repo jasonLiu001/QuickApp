@@ -52,24 +52,10 @@ const apiCollection = [
         enable: 1
     },
     {
-        name: 'plan01_before02',
-        url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案1-截止2点最近1条',
-        group: 3,
-        enable: 1
-    },
-    {
         name: 'plan02_before22',
         url: apiUrl.findInvestInfoListBeforeTime,
         desc: '方案2-截止22点最近1条',
         group: 2,
-        enable: 1
-    },
-    {
-        name: 'plan02_before02',
-        url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案2-截止2点最近1条',
-        group: 3,
         enable: 1
     },
     {
@@ -80,17 +66,31 @@ const apiCollection = [
         enable: 1
     },
     {
-        name: 'plan03_before02',
-        url: apiUrl.findInvestInfoListBeforeTime,
-        desc: '方案3-截止2点最近1条',
-        group: 3,
-        enable: 1
-    },
-    {
         name: 'plan04_before22',
         url: apiUrl.findInvestInfoListBeforeTime,
         desc: '方案4-截止22点最近1条',
         group: 2,
+        enable: 1
+    },
+    {
+        name: 'plan01_before02',
+        url: apiUrl.findInvestInfoListBeforeTime,
+        desc: '方案1-截止2点最近1条',
+        group: 3,
+        enable: 1
+    },
+    {
+        name: 'plan02_before02',
+        url: apiUrl.findInvestInfoListBeforeTime,
+        desc: '方案2-截止2点最近1条',
+        group: 3,
+        enable: 1
+    },
+    {
+        name: 'plan03_before02',
+        url: apiUrl.findInvestInfoListBeforeTime,
+        desc: '方案3-截止2点最近1条',
+        group: 3,
         enable: 1
     },
     {
@@ -108,10 +108,24 @@ const apiCollection = [
         enable: 1
     },
     {
-        name: 'plan01_wholeday_maxprofit',
+        name: 'plan02_before22_maxprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案1-截止0点利润',
-        group: 5,
+        desc: '方案2-截止22点利润',
+        group: 4,
+        enable: 1
+    },
+    {
+        name: 'plan03_before22_maxprofit',
+        url: apiUrl.findInvestInfoListProfit,
+        desc: '方案3-截止22点利润',
+        group: 4,
+        enable: 1
+    },
+    {
+        name: 'plan04_before22_maxprofit',
+        url: apiUrl.findInvestInfoListProfit,
+        desc: '方案4-截止22点利润',
+        group: 4,
         enable: 1
     },
     {
@@ -122,17 +136,45 @@ const apiCollection = [
         enable: 0
     },
     {
-        name: 'plan01_wholeday_minprofit',
+        name: 'plan01_before22_fixedprofit',
+        url: apiUrl.findInvestInfoListProfit,
+        desc: '方案1-截止22点利润>1200',
+        group: 4,
+        enable: 1
+    },
+    {
+        name: 'plan02_before22_fixedprofit',
+        url: apiUrl.findInvestInfoListProfit,
+        desc: '方案2-截止22点利润>1200',
+        group: 4,
+        enable: 1
+    },
+    {
+        name: 'plan03_before22_fixedprofit',
+        url: apiUrl.findInvestInfoListProfit,
+        desc: '方案3-截止22点利润>1200',
+        group: 4,
+        enable: 1
+    },
+    {
+        name: 'plan04_before22_fixedprofit',
+        url: apiUrl.findInvestInfoListProfit,
+        desc: '方案4-截止22点利润>1200',
+        group: 4,
+        enable: 1
+    },
+    {
+        name: 'plan01_wholeday_maxprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-截止0点利润',
         group: 5,
         enable: 1
     },
     {
-        name: 'plan01_before22_fixedprofit',
+        name: 'plan01_wholeday_minprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案1-截止22点利润>1200',
-        group: 4,
+        desc: '方案1-截止0点利润',
+        group: 5,
         enable: 1
     },
     {
