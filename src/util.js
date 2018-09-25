@@ -6,14 +6,20 @@ function showMenu() {
     const router = require('@system.router');
     const appInfo = require('@system.app').getInfo();
     prompt.showContextMenu({
-        itemList: ['保存桌面', '关于', '取消'],
+        itemList: ['参数设置', '保存桌面', '关于', '取消'],
         success: function (ret) {
             switch (ret.index) {
                 case 0:
+                    //参数设置
+                    router.push({
+                        uri: '/Settings'
+                    });
+                    break;
+                case 1:
                     // 保存桌面
                     createShortcut();
                     break;
-                case 1:
+                case 2:
                     // 关于
                     router.push({
                         uri: '/About',
@@ -23,7 +29,7 @@ function showMenu() {
                         }
                     });
                     break;
-                case 2:
+                case 3:
                     // 取消
                     break;
                 default:

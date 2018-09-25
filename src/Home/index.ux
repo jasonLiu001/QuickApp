@@ -90,10 +90,11 @@
             apiCollection: apiCollection
         },
         onMenuPress() {
-            // 设置
-            router.push({
-                uri: '/Settings'
-            });
+            // // 设置
+            // router.push({
+            //     uri: '/Settings'
+            // });
+            this.$app.$def.showMenu();
         },
         redirectToAllPlanList(apiItem, evt) {// 所有方案结果列表页
             router.push({
