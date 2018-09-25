@@ -28,14 +28,14 @@ const apiCollection = [
         url: apiUrl.findInvestInfoList,
         desc: '方案2',
         group: 1,
-        enable: 0
+        enable: 1
     },
     {
         name: 'plan03',
         url: apiUrl.findInvestInfoList,
         desc: '方案3',
         group: 1,
-        enable: 0
+        enable: 1
     },
     {
         name: 'plan04',
