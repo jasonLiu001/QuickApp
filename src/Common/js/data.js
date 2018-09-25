@@ -210,7 +210,7 @@ const apiCollection = [
         url: apiUrl.findInvestInfoList,
         desc: '方案4-截止22点所有记录',
         group: 7,
-        enable: 1
+        enable: 0
     },
     {
         name: 'all_plan',
