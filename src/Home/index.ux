@@ -5,14 +5,16 @@
 <template>
     <div class="container" style="background-color: #ffffff;">
 
-        <!--分组7-->
+        <!--分组1-->
         <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
              class="margin_top">
             <block for="{{(ix,apiItem) in apiCollection}}">
-                <block if="{{apiItem.group===7&&apiItem.enable===1}}">
-                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #13a6f5;color:#ffffff;"
+
+                <block if="{{apiItem.group===1&&apiItem.enable===1}}">
+                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #88b96e;color:#ffffff;"
                        onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
                 </block>
+
             </block>
         </div>
 
@@ -49,16 +51,14 @@
             </block>
         </div>
 
-        <!--分组1-->
+        <!--分组7-->
         <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
              class="margin_top">
             <block for="{{(ix,apiItem) in apiCollection}}">
-
-                <block if="{{apiItem.group===1&&apiItem.enable===1}}">
-                    <a style="justify-content:space-between;text-align:center;height: 50px;width: 20%;margin-right:24px;background-color: #88b96e;color:#ffffff;"
+                <block if="{{apiItem.group===7&&apiItem.enable===1}}">
+                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #13a6f5;color:#ffffff;"
                        onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
                 </block>
-
             </block>
         </div>
 
