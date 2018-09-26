@@ -19,28 +19,28 @@ const apiCollection = [
     {
         name: 'plan01',
         url: apiUrl.findInvestInfoList,
-        desc: '方案1',
+        desc: '方案1-截止0点所有记录',
         group: 1,
         enable: 1
     },
     {
         name: 'plan02',
         url: apiUrl.findInvestInfoList,
-        desc: '方案2',
+        desc: '方案2-截止0点所有记录',
         group: 1,
         enable: 1
     },
     {
         name: 'plan03',
         url: apiUrl.findInvestInfoList,
-        desc: '方案3',
+        desc: '方案3-截止0点所有记录',
         group: 1,
         enable: 1
     },
     {
         name: 'plan04',
         url: apiUrl.findInvestInfoList,
-        desc: '方案4',
+        desc: '方案4-截止0点所有记录',
         group: 1,
         enable: 0
     },
