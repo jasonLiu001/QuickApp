@@ -24,7 +24,7 @@
             <block for="{{(ix,apiItem) in apiCollection}}">
                 <block if="{{apiItem.group===2&&apiItem.enable===1}}">
                     <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #d4a1c5;color:#ffffff;"
-                       onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
+                       onclick="clickQueryProfitConditionHandler(apiItem)">{{apiItem.desc}}</a>
                 </block>
             </block>
         </div>
@@ -35,7 +35,7 @@
             <block for="{{(ix,apiItem) in apiCollection}}">
                 <block if="{{apiItem.group===4&&apiItem.enable===1}}">
                     <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #17d5f5;color:#ffffff;"
-                       onclick="clickQueryProfitConditionHandler(apiItem)">{{apiItem.desc}}</a>
+                       onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
                 </block>
             </block>
         </div>
@@ -90,10 +90,6 @@
             apiCollection: apiCollection
         },
         onMenuPress() {
-            // // 设置
-            // router.push({
-            //     uri: '/Settings'
-            // });
             this.$app.$def.showMenu();
         },
         redirectToAllPlanList(apiItem, evt) {// 所有方案结果列表页
