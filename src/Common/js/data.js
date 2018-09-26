@@ -17,65 +17,65 @@ const apiUrl = {
 
 const apiCollection = [
     {
-        name: 'plan01',
-        url: apiUrl.findInvestInfoList,
-        desc: '方案1-截止0点所有记录',
-        group: 1,
-        enable: 1
-    },
-    {
-        name: 'plan02',
-        url: apiUrl.findInvestInfoList,
-        desc: '方案2-截止0点所有记录',
-        group: 1,
-        enable: 1
-    },
-    {
-        name: 'plan03',
-        url: apiUrl.findInvestInfoList,
-        desc: '方案3-截止0点所有记录',
-        group: 1,
-        enable: 1
-    },
-    {
-        name: 'plan04',
-        url: apiUrl.findInvestInfoList,
-        desc: '方案4-截止0点所有记录',
-        group: 1,
-        enable: 0
-    },
-    {
         name: 'plan01_before22_maxprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案1-截止22点利润',
-        group: 2,
+        group: 1,
         enable: 1
     },
     {
         name: 'plan02_before22_maxprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案2-截止22点利润',
-        group: 2,
+        group: 1,
         enable: 1
     },
     {
         name: 'plan03_before22_maxprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案3-截止22点利润',
-        group: 2,
+        group: 1,
         enable: 1
     },
     {
         name: 'plan04_before22_maxprofit',
         url: apiUrl.findInvestInfoListProfit,
         desc: '方案4-截止22点利润',
-        group: 2,
+        group: 1,
         enable: 0
     },
     {
         name: 'plan01_before22_minprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案1-截止22点利润',
+        desc: '方案1-截止22点最小利润',
+        group: 1,
+        enable: 0
+    },
+    {
+        name: 'plan01',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案1-截止0点所有记录',
+        group: 2,
+        enable: 1
+    },
+    {
+        name: 'plan02',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案2-截止0点所有记录',
+        group: 2,
+        enable: 1
+    },
+    {
+        name: 'plan03',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案3-截止0点所有记录',
+        group: 2,
+        enable: 1
+    },
+    {
+        name: 'plan04',
+        url: apiUrl.findInvestInfoList,
+        desc: '方案4-截止0点所有记录',
         group: 2,
         enable: 0
     },

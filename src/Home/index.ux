@@ -12,7 +12,7 @@
 
                 <block if="{{apiItem.group===1&&apiItem.enable===1}}">
                     <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #88b96e;color:#ffffff;"
-                       onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
+                       onclick="clickQueryProfitConditionHandler(apiItem)">{{apiItem.desc}}</a>
                 </block>
 
             </block>
@@ -24,7 +24,7 @@
             <block for="{{(ix,apiItem) in apiCollection}}">
                 <block if="{{apiItem.group===2&&apiItem.enable===1}}">
                     <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #d4a1c5;color:#ffffff;"
-                       onclick="clickQueryProfitConditionHandler(apiItem)">{{apiItem.desc}}</a>
+                       onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
                 </block>
             </block>
         </div>
