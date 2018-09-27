@@ -1,0 +1,35 @@
+<style lang="less">
+    @import '../Common/css/index.less';
+</style>
+
+<template>
+    <div style="flex-direction: column;">
+        <div style="justify-content: center;">
+            <progress type="circular" show="{{hasMoreData}}"></progress>
+            <text show="{{hasMoreData}}">正在载入...</text>
+        </div>
+        <web id="web" onpagefinish="onPageFinish" onerror="showLoading" onpagestart="showLoading" src="https://www.cnlands.cn/service/web/index"></web>
+    </div>
+</template>
+
+<script>
+    import {apiUrl, iconList, apiCollection} from '../Common/js/data';
+    import device from '@system.device'
+    import prompt from '@system.prompt';
+    import fetch from '@system.fetch';
+    import router from '@system.router';
+
+    export default {
+        private: {
+            hasMoreData: true,
+        },
+        onInit() {},
+        onPageFinish(evt) {
+            this.hasMoreData = false;
+        },
+        showLoading(evt) {
+            this.hasMoreData = true;
+        },
+    }
+
+</script>

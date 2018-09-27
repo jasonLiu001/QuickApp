@@ -73,6 +73,17 @@
             </block>
         </div>
 
+        <!--分组9-->
+        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
+             class="margin_top">
+            <block for="{{(ix,apiItem) in apiCollection}}">
+                <block if="{{apiItem.group===9&&apiItem.enable===1}}">
+                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #3212bf;color:#ffffff;"
+                       onclick="redirectToH5WebSite(apiItem)">{{apiItem.desc}}</a>
+                </block>
+            </block>
+        </div>
+
         <div class="margin_top" style="height: 20px;width: 100%;"></div>
 
     </div>
@@ -95,6 +106,15 @@
         redirectToAllPlanList(apiItem, evt) {// 所有方案结果列表页
             router.push({
                 uri: '/InvestTotal',
+                params: {
+                    apiName: apiItem.name,
+                    apiDesc: apiItem.desc
+                }
+            });
+        },
+        redirectToH5WebSite(apiItem, evt) {// H5站点
+            router.push({
+                uri: '/WebSite',
                 params: {
                     apiName: apiItem.name,
                     apiDesc: apiItem.desc

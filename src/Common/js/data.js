@@ -218,6 +218,13 @@ const apiCollection = [
         desc: '所有方案结果',
         group: 8,
         enable: 1
+    },
+    {
+        name: 'all_plan',
+        url: apiUrl.findInvestTotalInfoList,
+        desc: '测试站点',
+        group: 9,
+        enable: 1
     }
 ];
 

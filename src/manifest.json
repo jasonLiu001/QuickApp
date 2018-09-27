@@ -63,6 +63,9 @@
       },
       "Settings": {
         "component": "index"
+      },
+      "WebSite": {
+        "component": "index"
       }
     }
   },
@@ -100,6 +103,10 @@
       },
       "Settings": {
         "titleBarText": "参数设置",
+        "menu": false
+      },
+      "WebSite": {
+        "titleBarText": "H5站点",
         "menu": false
       }
     }
