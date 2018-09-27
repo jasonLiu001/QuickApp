@@ -8,28 +8,36 @@
             <progress type="circular" show="{{hasMoreData}}"></progress>
             <text show="{{hasMoreData}}">正在载入...</text>
         </div>
-        <web id="web" onpagefinish="onPageFinish" onerror="showLoading" onpagestart="showLoading" src="https://www.cnlands.cn/service/web/index"></web>
+        <web id="web" onpagefinish="onPageFinish" onerror="showLoading" onpagestart="showLoading"
+             src="https://www.cnlands.cn/service/web/index"></web>
     </div>
 </template>
 
 <script>
-    import {apiUrl, iconList, apiCollection} from '../Common/js/data';
-    import device from '@system.device'
-    import prompt from '@system.prompt';
-    import fetch from '@system.fetch';
-    import router from '@system.router';
-
     export default {
         private: {
             hasMoreData: true,
         },
-        onInit() {},
+        protected: {
+            //页面参数
+            apiName: '',
+            apiDesc: ''
+        },
+        onInit() {
+        },
+        onShow() {
+        },
         onPageFinish(evt) {
             this.hasMoreData = false;
         },
         showLoading(evt) {
             this.hasMoreData = true;
         },
+        setTitleBarTextOnInit() {
+            this.$page.setTitleBar({
+                text: this.apiDesc
+            });
+        }
     }
 
 </script>
