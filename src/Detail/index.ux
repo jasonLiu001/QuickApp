@@ -47,7 +47,9 @@
             <textarea
                     style="width: 100%;height:250px;background-color: #ffffff;">{{investInfo.investNumbers}}</textarea>
         </div>
-        <a class="btn margin_top" onclick="clickBtnCopy">复制号码</a>
+        <a class="btn margin_top" onclick="clickBtnCopy">复制正向</a>
+        <a class="btn margin_top" onclick="clickBtnCopyOpposite">复制反向</a>
+        <a class="margin-bottom"></a>
     </div>
 </template>
 
@@ -78,7 +80,49 @@
         },
         onShow() {
         },
-        clickBtnCopy(evt) {
+        /**
+         *
+         * 产生1000注原始号码
+         */
+        getTotalNumberArray() {
+            let a = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+                b = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+                c = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            let totalArray = [];
+            for (let i = 0; i < a.length; i++) {
+                for (let j = 0; j < b.length; j++) {
+                    for (let k = 0; k < c.length; k++) {
+                        totalArray.push(a[i] + '' + b[j] + '' + c[k]);
+                    }
+                }
+            }
+            return totalArray;
+        },
+        clickBtnCopyOpposite(evt) {//反向号码
+            if (!this.investInfo.investNumbers) {
+                prompt.showToast({
+                    message: `没有可复制的数据`
+                });
+                return;
+            }
+            let totalNumbers = this.getTotalNumberArray();
+            let resultsNumbers = [];
+            totalNumbers.forEach((item, index) => {
+                if (this.investInfo.investNumbers.indexOf(item) === -1) {
+                    resultsNumbers.push(item);
+                }
+            });
+
+            clipboard.set({
+                text: resultsNumbers.join(','),
+                success: () => {
+                    prompt.showToast({
+                        message: `【反向】号码复制成功`
+                    });
+                }
+            });
+        },
+        clickBtnCopy(evt) {//正向号码
             if (!this.investInfo.investNumbers) {
                 prompt.showToast({
                     message: `没有可复制的数据`
@@ -90,7 +134,7 @@
                 text: this.investInfo.investNumbers,
                 success: () => {
                     prompt.showToast({
-                        message: `复制成功`
+                        message: `【正向】号码复制成功`
                     });
                 }
             });
