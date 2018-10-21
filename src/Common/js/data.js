@@ -138,28 +138,28 @@ const apiCollection = [
     {
         name: 'plan01_before22_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案1-截止22点利润>1200',
+        desc: '方案1-截止22点利润>6000',
         group: 5,
         enable: 1
     },
     {
         name: 'plan02_before22_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案2-截止22点利润>1200',
+        desc: '方案2-截止22点利润>6000',
         group: 5,
         enable: 1
     },
     {
         name: 'plan03_before22_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案3-截止22点利润>1200',
+        desc: '方案3-截止22点利润>6000',
         group: 5,
         enable: 1
     },
     {
         name: 'plan04_before22_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案4-截止22点利润>1200',
+        desc: '方案4-截止22点利润>6000',
         group: 5,
         enable: 0
     },
@@ -180,7 +180,7 @@ const apiCollection = [
     {
         name: 'plan01_wholeday_fixedprofit',
         url: apiUrl.findInvestInfoListProfit,
-        desc: '方案1-截止0点利润>1200',
+        desc: '方案1-截止0点利润>6000',
         group: 6,
         enable: 1
     },
