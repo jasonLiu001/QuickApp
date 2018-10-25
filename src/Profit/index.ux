@@ -190,7 +190,7 @@
             return url;
         },
         renderPageData() {
-            this.$app.$def.findList('POST', this.list, this.getProfitRequestUrl(apiUrl.findInvestInfoListProfit, 1200), () => {
+            this.$app.$def.findList('POST', this.list, this.getProfitRequestUrl(apiUrl.findInvestInfoListProfit, 6000), () => {
                 this.hasMoreData = false;
             });
         },
