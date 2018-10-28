@@ -15,7 +15,8 @@
                             {{getDescription(settingItem).mark}}
                         </text>
                     </div>
-                    <input style="width: {{settingItem.key=='siteUrl'?'55%':'30%'}};" type="text" onchange="onChangeEventHandler(settingItem)"
+                    <input style="width: {{settingItem.key=='siteUrl'?'55%':'30%'}};" type="text"
+                           onchange="onChangeEventHandler(settingItem)"
                            id="{{settingItem.key}}"
                            value="{{settingItem.value}}"></input>
                     <a onclick="btnSaveEventHandler(settingItem)"
@@ -80,10 +81,20 @@
         },
         onChangeEventHandler(settingItem, evt) {
             this.$element(settingItem.key).attr.value = evt.value;
+            if (settingItem.key === 'originAccountBalance') {
+                prompt.showToast({
+                    message: `该值只在启动时生效`
+                });
+            }
         },
         btnSaveEventHandler(settingItem, evt) {
             let keyValue = this.$element(settingItem.key).attr.value;
             let url = apiUrl.updateSettingsByKey + "?key=" + settingItem.key + "&value=" + keyValue;
+            if (settingItem.key === 'originAccountBalance') {
+                prompt.showToast({
+                    message: `该值只在启动时生效`
+                });
+            }
             this.$app.$def.updateData(url);
         }
     }
