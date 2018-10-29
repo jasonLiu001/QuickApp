@@ -39,6 +39,10 @@
             <text>{{investInfo.currentAccountBalance}}</text>
         </div>
         <div class="investItemRow">
+            <text style="width: 200px;">盈利:</text>
+            <text style="color:{{investInfo.winMoney>0?'#27f730':'#f76160'}}">{{investInfo.winMoney}}</text>
+        </div>
+        <div class="investItemRow">
             <text style="width: 200px;">数量:</text>
             <text>{{investInfo.investNumberCount}}</text>
         </div>
