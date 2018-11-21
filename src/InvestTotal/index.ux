@@ -9,7 +9,7 @@
             <text show="{{hasMoreData}}">正在载入...</text>
         </div>
         <web id="web" onpagefinish="onPageFinish" onerror="showLoading" onpagestart="showLoading"
-             src="https://www.cnlands.cn/pages/invest/invest-total-list.html"></web>
+             src="https://www.cnlands.cn/pages/invest/investTotalList.html"></web>
     </div>
 </template>
 
