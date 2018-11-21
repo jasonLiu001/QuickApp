@@ -49,9 +49,6 @@
       "InvestTotal": {
         "component": "index"
       },
-      "InvestTotalDetail": {
-        "component": "index"
-      },
       "Profit": {
         "component": "index"
       },

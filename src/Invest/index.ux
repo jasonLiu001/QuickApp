@@ -34,12 +34,18 @@
                             <text show="{{row.status===0}}" style="color: #27f730;">进行中</text>
                         </div>
 
+                        <!--反提示-->
+                        <div style="margin-left: 200px;margin-top:40px;opacity:0.5;height: 50px;width: 100px;">
+                            <text show="{{row.isUseReverseInvestNumbers===1&&row.isWin===1&&row.status===1}}" style="color: #f76160;">反向中</text>
+                            <text show="{{row.isUseReverseInvestNumbers===1&&row.isWin===0&&row.status===1}}" style="color: #27f730;">反向错</text>
+                        </div>
+
                         <!--isWin图标-->
                         <div show="{{isShowWinIcon()}}"
                              style="margin-left: 400px;margin-top:20px;opacity:0.7;height: 70%;width: 100px;">
-                            <image show="{{row.isWin===1&&row.status===1}}"
+                            <image show="{{(row.isUseReverseInvestNumbers===0&&row.isWin===1&&row.status===1)||(row.isUseReverseInvestNumbers===1&&row.isWin===0&&row.status===1)}}"
                                    src="{{icons.icon_completed_right}}"></image>
-                            <image show="{{row.isWin===0&&row.status===1}}"
+                            <image show="{{(row.isUseReverseInvestNumbers===0&&row.isWin===0&&row.status===1)||(row.isUseReverseInvestNumbers===1&&row.isWin===1&&row.status===1)}}"
                                    src="{{icons.icon_completed_wrong}}"></image>
                         </div>
 
