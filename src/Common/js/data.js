@@ -26,7 +26,14 @@ const iconList = {
     icon_completed_wrong: 'https://www.cnlands.cn/images/icon_error.png'
 };
 
+//投注表名
+const INVEST_TABLE_NAME = {
+    invest: 'invest',
+    investTotal: 'invest_total'
+};
+
 export {
     apiUrl,
-    iconList
+    iconList,
+    INVEST_TABLE_NAME
 }

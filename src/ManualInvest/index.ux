@@ -64,7 +64,7 @@
 </template>
 
 <script>
-    import {apiUrl} from '../Common/js/data';
+    import {apiUrl, INVEST_TABLE_NAME} from '../Common/js/data';
     import device from '@system.device'
     import prompt from '@system.prompt';
     import fetch from '@system.fetch';
@@ -79,11 +79,23 @@
         protected: {
             period: '',
             planType: 1,
-            investTableName: "invest"
+            investTableName: ''
         },
         onInit() {
             this.isShowLoading = true;
-            let url = apiUrl.getInvestInfoByPeriod + "?period=" + this.period + "&planType=" + this.planType;
+            let url;
+            switch (this.investTableName) {
+                case INVEST_TABLE_NAME.invest://invest表
+                    url = apiUrl.getInvestInfoByPeriod;
+                    break;
+                case INVEST_TABLE_NAME.investTotal://invest_total表
+                    url = apiUrl.getInvestTotalInfoByPeriod;
+                    break;
+                default:
+                    url = apiUrl.getInvestInfoByPeriod;
+                    break;
+            }
+            url = url + "?period=" + this.period + "&planType=" + this.planType;
             this.$app.$def.getData(url, 'POST', (data) => {
                 this.investInfo = data;
                 this.isShowLoading = false;

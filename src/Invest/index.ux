@@ -71,7 +71,7 @@
 </template>
 
 <script>
-    import {apiUrl, iconList} from '../Common/js/data';
+    import {apiUrl, iconList, INVEST_TABLE_NAME} from '../Common/js/data';
     import device from '@system.device'
     import prompt from '@system.prompt';
     import fetch from '@system.fetch';
@@ -91,7 +91,7 @@
             //页面参数
             apiName: '',
             apiDesc: '',
-            tableName: ''//表名 区分total和非total
+            investTableName: ''//表名 区分total和非total
         },
         onInit() {
             this.renderPageData();
@@ -202,11 +202,11 @@
                 case "plan03_all_before22":
                 case "plan04_all_before22":
                     let url;
-                    switch (this.tableName) {
-                        case 'invest'://invest表
+                    switch (this.investTableName) {
+                        case INVEST_TABLE_NAME.invest://invest表
                             url = apiUrl.findInvestInfoList;
                             break;
-                        case 'invest_total'://investTotal表
+                        case INVEST_TABLE_NAME.investTotal://investTotal表
                             url = apiUrl.findInvestTotalInfoList;
                             break;
                         default:
@@ -249,7 +249,8 @@
                 uri: '/Detail',
                 params: {
                     period: row.period,
-                    planType: row.planType
+                    planType: row.planType,
+                    investTableName: this.investTableName
                 }
             });
         },

@@ -135,7 +135,7 @@
                 params: {
                     apiName: apiItem.name,
                     apiDesc: apiItem.desc,
-                    tableName: apiItem.tableName || ''
+                    investTableName: apiItem.tableName || ''
                 }
             });
         },
