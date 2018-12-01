@@ -126,7 +126,6 @@
         },
         clickBtnManualStartApp(evt) {
             this.$app.$def.getData(apiUrl.manualStartApp,'GET', (res) => {
-                console.log(res.message);
                 prompt.showToast({
                     message: res.message
                 });
