@@ -203,10 +203,10 @@
                 case "plan04_all_before22":
                     let url;
                     switch (this.tableName) {
-                        case 'invest':
+                        case 'invest'://invest表
                             url = apiUrl.findInvestInfoList;
                             break;
-                        case 'invest_total':
+                        case 'invest_total'://investTotal表
                             url = apiUrl.findInvestTotalInfoList;
                             break;
                         default:
