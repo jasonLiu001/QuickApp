@@ -1,0 +1,148 @@
+<style lang="less">
+    @import '../Common/css/index.less';
+
+    .investItemRow {
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        border-bottom-color: #ffffff;
+        border-bottom-width: 1px;
+    }
+
+    .investInputItemRow {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        border-bottom-color: #ffffff;
+        border-bottom-width: 1px;
+    }
+</style>
+
+<template>
+    <div class="container">
+        <div show="{{isShowLoading}}" style="flex-direction: row;justify-content: center;">
+            <progress type="circular"></progress>
+            <text>正在载入...</text>
+        </div>
+
+        <div class="investItemRow">
+            <text style="width: 200px;">方案:</text>
+            <text>{{investInfo.planType}}</text>
+        </div>
+        <div class="investItemRow">
+            <text style="width: 200px;">期号:</text>
+            <text>{{investInfo.period}}</text>
+        </div>
+        <div class="investItemRow">
+            <text style="width: 200px;">时间:</text>
+            <text>{{investInfo.investTime}}</text>
+        </div>
+        <div class="investInputItemRow">
+            <text>元角分模式:</text>
+            <input type="text"
+                   onchange="onAwardModeChangeEventHandler(investInfo)"
+                   id="awardMode"
+                   value="{{investInfo.awardMode}}"/>
+        </div>
+        <div class="investInputItemRow">
+            <text>投注倍数:</text>
+            <input type="text"
+                   onchange="onTouZhuBeiShuChangeEventHandler(investInfo)"
+                   id="touZhuBeiShu"
+                   value="{{investInfo.touZhuBeiShu}}"/>
+        </div>
+        <div class="investItemRow">
+            <text style="width: 200px;">号码来源表:</text>
+            <text>{{investTableName}}</text>
+        </div>
+
+        <a class="btn margin_top" onclick="clickBtnOneInvest(investInfo)">一键正向投注</a>
+        <a class="btn margin_top" onclick="clickBtnOppositeOneInvest(investInfo)">一键反向投注</a>
+        <a class="margin-bottom"></a>
+    </div>
+</template>
+
+<script>
+    import {apiUrl, iconList, apiCollection} from '../Common/js/data';
+    import device from '@system.device'
+    import prompt from '@system.prompt';
+    import fetch from '@system.fetch';
+    import router from '@system.router';
+    import clipboard from '@system.clipboard';
+
+    export default {
+        private: {
+            isShowLoading: true,
+            investInfo: {}
+        },
+        protected: {
+            period: '',
+            planType: 1,
+            investTableName: "invest"
+        },
+        onInit() {
+            this.isShowLoading = true;
+            let url = apiUrl.getInvestInfoByPeriod + "?period=" + this.period + "&planType=" + this.planType;
+            this.$app.$def.getData(url, (data) => {
+                this.investInfo = data;
+                this.isShowLoading = false;
+            });
+        },
+        startInvest(investInfo, isUseOppositeNumbers) {
+            let self = this;
+            //号码取反
+            let oppositeNumbers = this.$app.$def.getRestNumbersFromSource(this.$app.$def.getTotalNumberArray(), this.investInfo.investNumbers);
+
+            let data = {
+                period: investInfo.period,
+                planType: investInfo.planType,
+                investNumbers: isUseOppositeNumbers ? oppositeNumbers : investInfo.investNumbers,
+                awardMode: self.$element("awardMode").attr.value,
+                touZhuBeiShu: self.$element("touZhuBeiShu").attr.value,
+                investTableName: self.investTableName
+            };
+            prompt.showDialog({
+                title: '提示',
+                message: '确定执行正向投注？',
+                buttons: [
+                    {
+                        text: '确定',
+                        color: '#33dd44'
+                    },
+                    {
+                        text: '取消',
+                        color: '#33dd44'
+                    }
+                ],
+                success: function (ret) {
+                    switch (ret.index) {
+                        case 0://确定
+                            self.$app.$def.updateData(apiUrl.manualInvest, data);
+                            break;
+                        case 1://取消
+                            break;
+                    }
+                },
+                cancel: function () {
+                    console.log('handling cancel')
+                },
+                fail: function (data, code) {
+                    console.log(`handling fail, code = ${code}`)
+                }
+            });
+        },
+        clickBtnOneInvest(investInfo, evt) {
+            this.startInvest(investInfo, false);
+        },
+        clickBtnOppositeOneInvest(investInfo, evt) {
+            this.startInvest(investInfo, true);
+        },
+        onAwardModeChangeEventHandler(investInfo, evt) {
+            this.$element("awardMode").attr.value = evt.value;
+        },
+        onTouZhuBeiShuChangeEventHandler(investInfo, evt) {
+            this.$element("touZhuBeiShu").attr.value = evt.value;
+        },
+    }
+</script>

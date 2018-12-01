@@ -46,6 +46,9 @@
       "Invest": {
         "component": "index"
       },
+      "ManualInvest": {
+        "component": "index"
+      },
       "InvestTotal": {
         "component": "index"
       },
@@ -76,6 +79,10 @@
       },
       "Invest": {
         "titleBarText": "查询结果",
+        "menu": false
+      },
+      "ManualInvest": {
+        "titleBarText": "手动投注",
         "menu": false
       },
       "InvestTotal": {

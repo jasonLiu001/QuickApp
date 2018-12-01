@@ -131,8 +131,8 @@ function findList(method, list, url, noDataCallback, everySinglePageDataCallback
 /**
  *
  * 获取单条数据
- * @param {String} url
- * @param {Function} completeCallback
+ * @param {String} url 数据请求url
+ * @param {Function} completeCallback 请求成功回调
  */
 function getData(url, completeCallback) {
     const prompt = require('@system.prompt');
@@ -174,14 +174,17 @@ function getData(url, completeCallback) {
 }
 
 /**
- *
  * 更新数据
+ * @param url 请求url
+ * @param data body体中的数据
+ * @param successMessage 数据更新成功消息
  */
-function updateData(url) {
+function updateData(url, data, successMessage) {
     const prompt = require('@system.prompt');
     const fetch = require('@system.fetch');
     fetch.fetch({
         url: url,
+        data: data || {},
         method: 'POST',
         success: (data) => {
             if (data) {
@@ -204,8 +207,9 @@ function updateData(url) {
                     return;
                 }
 
+                let toastMessage = successMessage || serverData.message;
                 prompt.showToast({
-                    message: `数据更新成功`
+                    message: toastMessage
                 });
             }
         },
@@ -217,10 +221,47 @@ function updateData(url) {
     });
 }
 
+/**
+ *
+ * 获取1000注原始号码
+ */
+function getTotalNumberArray() {
+    let a = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+        b = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+        c = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    let totalArray = [];
+    for (let i = 0; i < a.length; i++) {
+        for (let j = 0; j < b.length; j++) {
+            for (let k = 0; k < c.length; k++) {
+                totalArray.push(a[i] + '' + b[j] + '' + c[k]);
+            }
+        }
+    }
+    return totalArray;
+}
+
+/**
+ *
+ * 从源数组中得到剩余
+ * @param sourceNumberArray 需要操作的源数组
+ * @param needToBeDeleteNumberString  需要从源数组中被移除号码字符，用逗号分隔
+ */
+function getRestNumbersFromSource(sourceNumberArray, needToBeDeleteNumberString) {
+    let resultsNumbers = [];
+    sourceNumberArray.forEach((item, index) => {
+        if (needToBeDeleteNumberString.indexOf(item) === -1) {
+            resultsNumbers.push(item);
+        }
+    });
+    return resultsNumbers;
+}
+
 export default {
     showMenu,
     createShortcut,
     findList,
     getData,
-    updateData
+    updateData,
+    getTotalNumberArray,
+    getRestNumbersFromSource
 }

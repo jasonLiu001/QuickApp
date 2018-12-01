@@ -9,6 +9,8 @@
         createShortcut: util.createShortcut,
         findList: util.findList,
         getData: util.getData,
-        updateData: util.updateData
+        updateData: util.updateData,
+        getTotalNumberArray: util.getTotalNumberArray,
+        getRestNumbersFromSource: util.getRestNumbersFromSource
     }
 </script>

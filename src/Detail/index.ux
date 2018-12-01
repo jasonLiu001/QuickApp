@@ -46,13 +46,10 @@
             <text style="width: 200px;">数量:</text>
             <text>{{investInfo.investNumberCount}}</text>
         </div>
-        <div class="investItemRow" style="height: 300px;">
-            <text style="width: 200px;">购买号码:</text>
-            <textarea
-                    style="width: 100%;height:250px;background-color: #ffffff;">{{investInfo.investNumbers}}</textarea>
-        </div>
         <a class="btn margin_top" onclick="clickBtnCopy">复制正向</a>
         <a class="btn margin_top" onclick="clickBtnCopyOpposite">复制反向</a>
+        <a class="btn margin_top" onclick="clickBtnManualInvest(investInfo)">手动投注</a>
+        <a class="btn margin_top" onclick="clickBtnManualStartApp(investInfo)">手动启动APP</a>
         <a class="margin-bottom"></a>
     </div>
 </template>
@@ -84,24 +81,6 @@
         },
         onShow() {
         },
-        /**
-         *
-         * 产生1000注原始号码
-         */
-        getTotalNumberArray() {
-            let a = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-                b = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
-                c = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-            let totalArray = [];
-            for (let i = 0; i < a.length; i++) {
-                for (let j = 0; j < b.length; j++) {
-                    for (let k = 0; k < c.length; k++) {
-                        totalArray.push(a[i] + '' + b[j] + '' + c[k]);
-                    }
-                }
-            }
-            return totalArray;
-        },
         clickBtnCopyOpposite(evt) {//反向号码
             if (!this.investInfo.investNumbers) {
                 prompt.showToast({
@@ -109,13 +88,10 @@
                 });
                 return;
             }
-            let totalNumbers = this.getTotalNumberArray();
-            let resultsNumbers = [];
-            totalNumbers.forEach((item, index) => {
-                if (this.investInfo.investNumbers.indexOf(item) === -1) {
-                    resultsNumbers.push(item);
-                }
-            });
+            //原始的100注号码
+            let totalNumbers = this.$app.$def.getTotalNumberArray();
+            //取反后的号码
+            let resultsNumbers = this.$app.$def.getRestNumbersFromSource(totalNumbers, this.investInfo.investNumbers);
 
             clipboard.set({
                 text: resultsNumbers.join(','),
@@ -141,6 +117,24 @@
                         message: `【正向】号码复制成功`
                     });
                 }
+            });
+        },
+        clickBtnManualInvest(investInfo, evt) {
+            router.push({
+                uri: '/ManualInvest',
+                params: {
+                    period: investInfo.period,
+                    planType: investInfo.planType,
+                    investTableName: "invest"
+                }
+            });
+        },
+        clickBtnManualStartApp(investInfo, evt) {
+            this.$app.$def.getData(apiUrl.manualStartApp, (res) => {
+                console.log(res.message);
+                prompt.showToast({
+                    message: res.message
+                });
             });
         }
     }

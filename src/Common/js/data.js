@@ -12,7 +12,9 @@ const apiUrl = {
     getAllSettings: "https://www.cnlands.cn/service/lottery/getAllSettings",
     updateSettingsByKey: "https://www.cnlands.cn/service/lottery/updateSettingsByKey",
     getSettingsByKey: "https://www.cnlands.cn/service/lottery/getSettingsByKey",
-    findInvestInfoListProfit: "https://www.cnlands.cn/service/lottery/findInvestInfoListProfit"
+    findInvestInfoListProfit: "https://www.cnlands.cn/service/lottery/findInvestInfoListProfit",
+    manualInvest: "https://www.cnlands.cn/invest/manualInvest",
+    manualStartApp: "https://www.cnlands.cn/app/start"
 };
 
 const apiCollection = [

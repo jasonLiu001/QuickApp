@@ -17,7 +17,7 @@
                     <input style="width: {{settingItem.key=='siteUrl'?'55%':'30%'}};" type="text"
                            onchange="onChangeEventHandler(settingItem)"
                            id="{{settingItem.key}}"
-                           value="{{settingItem.value}}"></input>
+                           value="{{settingItem.value}}"/>
                     <a onclick="btnSaveEventHandler(settingItem)"
                        style="height: 90%;color: #ffffff;background-color: #4286f5;width: 20%;text-align: center;">更新</a>
                 </div>
@@ -90,7 +90,7 @@
         btnSaveEventHandler(settingItem, evt) {
             let keyValue = this.$element(settingItem.key).attr.value;
             let url = apiUrl.updateSettingsByKey + "?key=" + settingItem.key + "&value=" + keyValue;
-            this.$app.$def.updateData(url);
+            this.$app.$def.updateData(url, null, `数据更新成功`);
         }
     }
 </script>
