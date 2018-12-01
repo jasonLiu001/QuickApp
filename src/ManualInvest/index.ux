@@ -64,7 +64,7 @@
 </template>
 
 <script>
-    import {apiUrl, iconList, apiCollection} from '../Common/js/data';
+    import {apiUrl} from '../Common/js/data';
     import device from '@system.device'
     import prompt from '@system.prompt';
     import fetch from '@system.fetch';

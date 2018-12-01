@@ -1,76 +1,93 @@
 <style lang="less">
     @import '../Common/css/index.less';
+    @import '../Common/css/home/home.less';
 </style>
 
 <template>
-    <div class="container" style="background-color: #ffffff;">
+    <div class="container bg">
 
         <!--分组1-->
-        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
-             class="margin_top">
-            <block for="{{(ix,apiItem) in apiCollection}}">
-
-                <block if="{{apiItem.group===1&&apiItem.enable===1}}">
-                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #88b96e;color:#ffffff;"
-                       onclick="clickQueryProfitConditionHandler(apiItem)">{{apiItem.desc}}</a>
-                </block>
-
-            </block>
+        <div class="groupContainer margin_top">
+            <a class="btnGroup_88b96e"
+               onclick="clickQueryProfitConditionHandler({name: 'plan01_before22_maxprofit',desc: '方案1-截止22点利润'})">方案1-截止22点利润</a>
+            <a class="btnGroup_88b96e"
+               onclick="clickQueryProfitConditionHandler({name: 'plan02_before22_maxprofit',desc: '方案2-截止22点利润'})">方案2-截止22点利润</a>
+            <a class="btnGroup_88b96e"
+               onclick="clickQueryProfitConditionHandler({name: 'plan03_before22_maxprofit',desc: '方案3-截止22点利润'})">方案3-截止22点利润</a>
+            <a class="btnGroup_88b96e" if="false"
+               onclick="clickQueryProfitConditionHandler({name: 'plan04_before22_maxprofit',desc: '方案4-截止22点利润'})">方案4-截止22点利润</a>
         </div>
 
         <!--分组2-->
-        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
-             class="margin_top">
-            <block for="{{(ix,apiItem) in apiCollection}}">
-                <block if="{{apiItem.group===2&&apiItem.enable===1}}">
-                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #d4a1c5;color:#ffffff;"
-                       onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
-                </block>
-            </block>
+        <div class="groupContainer margin_top">
+            <a class="btnGroup_d4a1c5" onclick="clickQueryConditionHandler({name: 'plan01',desc: '方案1-截止0点所有记录'})">方案1-截止0点所有记录</a>
+            <a class="btnGroup_d4a1c5" onclick="clickQueryConditionHandler({name: 'plan02',desc: '方案2-截止0点所有记录'})">方案2-截止0点所有记录</a>
+            <a class="btnGroup_d4a1c5" onclick="clickQueryConditionHandler({name: 'plan03',desc: '方案3-截止0点所有记录'})">方案3-截止0点所有记录</a>
+            <a class="btnGroup_d4a1c5" if="false"
+               onclick="clickQueryConditionHandler({name: 'plan04',desc: '方案4-截止0点所有记录'})">方案4-截止0点所有记录</a>
+        </div>
+
+        <!--分组3-->
+        <div class="groupContainer margin_top" if="false">
+            <a class="btnGroup_13a6f5"
+               onclick="clickQueryConditionHandler({name: 'plan01_before02',desc: '方案1-截止2点最近1条'})">方案1-截止2点最近1条</a>
+            <a class="btnGroup_13a6f5"
+               onclick="clickQueryConditionHandler({name: 'plan02_before02',desc: '方案2-截止2点最近1条'})">方案2-截止2点最近1条</a>
+            <a class="btnGroup_13a6f5"
+               onclick="clickQueryConditionHandler({name: 'plan03_before02',desc: '方案3-截止2点最近1条'})">方案3-截止2点最近1条</a>
+            <a class="btnGroup_13a6f5"
+               onclick="clickQueryConditionHandler({name: 'plan04_before02',desc: '方案4-截止2点最近1条'})">方案4-截止2点最近1条</a>
         </div>
 
         <!--分组4-->
-        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
-             class="margin_top">
-            <block for="{{(ix,apiItem) in apiCollection}}">
-                <block if="{{apiItem.group===4&&apiItem.enable===1}}">
-                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #17d5f5;color:#ffffff;"
-                       onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
-                </block>
-            </block>
+        <div class="groupContainer margin_top">
+            <a class="btnGroup_17d5f5"
+               onclick="clickQueryConditionHandler({name: 'plan01_all_before22',desc: '方案1-截止22点所有记录'})">方案1-截止22点所有记录</a>
+            <a class="btnGroup_17d5f5"
+               onclick="clickQueryConditionHandler({name: 'plan02_all_before22',desc: '方案2-截止22点所有记录'})">方案2-截止22点所有记录</a>
+            <a class="btnGroup_17d5f5"
+               onclick="clickQueryConditionHandler({name: 'plan03_all_before22',desc: '方案3-截止22点所有记录'})">方案3-截止22点所有记录</a>
+            <a class="btnGroup_17d5f5" if="false"
+               onclick="clickQueryConditionHandler({name: 'plan04_all_before22',desc: '方案4-截止22点所有记录'})">方案4-截止22点所有记录</a>
         </div>
 
         <!--分组5-->
-        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
-             class="margin_top">
-            <block for="{{(ix,apiItem) in apiCollection}}">
-                <block if="{{apiItem.group===5&&apiItem.enable===1}}">
-                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #2c4767;color:#ffffff;"
-                       onclick="clickQueryProfitConditionHandler(apiItem)">{{apiItem.desc}}</a>
-                </block>
-            </block>
+        <div class="groupContainer margin_top">
+            <a class="btnGroup_2c4767"
+               onclick="clickQueryProfitConditionHandler({name: 'plan01_before22_fixedprofit',desc: '方案1-截止22点利润>6000'})">方案1-截止22点利润>6000</a>
+            <a class="btnGroup_2c4767"
+               onclick="clickQueryProfitConditionHandler({name: 'plan02_before22_fixedprofit',desc: '方案2-截止22点利润>6000'})">方案2-截止22点利润>6000</a>
+            <a class="btnGroup_2c4767"
+               onclick="clickQueryProfitConditionHandler({name: 'plan03_before22_fixedprofit',desc: '方案3-截止22点利润>6000'})">方案3-截止22点利润>6000</a>
+            <a class="btnGroup_2c4767" if="false"
+               onclick="clickQueryProfitConditionHandler({name: 'plan04_before22_fixedprofit',desc: '方案4-截止22点利润>6000'})">方案4-截止22点利润>6000</a>
+        </div>
+
+        <!--分组6-->
+        <div class="groupContainer margin_top" if="false">
+            <a class="btnGroup_3212bf"
+               onclick="clickQueryProfitConditionHandler({name: 'plan01_wholeday_maxprofit',desc: '方案1-截止0点利润'})">方案1-截止0点利润</a>
+            <a class="btnGroup_3212bf"
+               onclick="clickQueryProfitConditionHandler({name: 'plan01_wholeday_minprofit',desc: '方案1-截止0点利润'})">方案1-截止0点利润</a>
+            <a class="btnGroup_3212bf"
+               onclick="clickQueryProfitConditionHandler({name: 'plan01_wholeday_fixedprofit',desc: '方案1-截止0点利润>6000'})">方案1-截止0点利润>6000</a>
         </div>
 
         <!--分组7-->
-        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
-             class="margin_top">
-            <block for="{{(ix,apiItem) in apiCollection}}">
-                <block if="{{apiItem.group===7&&apiItem.enable===1}}">
-                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #13a6f5;color:#ffffff;"
-                       onclick="clickQueryConditionHandler(apiItem)">{{apiItem.desc}}</a>
-                </block>
-            </block>
+        <div class="groupContainer margin_top">
+            <a class="btnGroup_13a6f5"
+               onclick="clickQueryConditionHandler({name: 'plan01_before22',desc: '方案1-截止22点最近1条'})">方案1-截止22点最近1条</a>
+            <a class="btnGroup_13a6f5"
+               onclick="clickQueryConditionHandler({name: 'plan02_before22',desc: '方案2-截止22点最近1条'})">方案2-截止22点最近1条</a>
+            <a class="btnGroup_13a6f5"
+               onclick="clickQueryConditionHandler({name: 'plan03_before22',desc: '方案3-截止22点最近1条'})">方案3-截止22点最近1条</a>
         </div>
 
         <!--非组内按钮 可以随意加-->
-        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
-             class="margin_top">
-            <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #3212bf;color:#ffffff;"
-               onclick="clickBtnManualStartApp">启动App</a>
-            <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #312bf5;color:#ffffff;"
-               onclick="redirectToAllPlanList">所有方案结果</a>
-            <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #3212bf;color:#ffffff;"
-               onclick="redirectToH5WebSite">测试站点</a>
+        <div class="groupContainer margin_top">
+            <a class="btnGroup_3212bf" onclick="clickBtnManualStartApp">启动App</a>
+            <a class="btnGroup_3212bf" onclick="redirectToAllPlanList">所有方案结果</a>
+            <a class="btnGroup_3212bf" onclick="redirectToH5WebSite">测试站点</a>
         </div>
 
         <div class="margin_top" style="height: 20px;width: 100%;"></div>
@@ -79,16 +96,13 @@
 </template>
 
 <script>
-    import {apiUrl, iconList, apiCollection} from '../Common/js/data';
+    import {apiUrl} from '../Common/js/data';
     import device from '@system.device'
     import prompt from '@system.prompt';
     import fetch from '@system.fetch';
     import router from '@system.router';
 
     export default {
-        private: {
-            apiCollection: apiCollection
-        },
         onMenuPress() {
             this.$app.$def.showMenu();
         },
@@ -125,7 +139,7 @@
             });
         },
         clickBtnManualStartApp(evt) {
-            this.$app.$def.getData(apiUrl.manualStartApp,'GET', (data) => {
+            this.$app.$def.getData(apiUrl.manualStartApp, 'GET', (data) => {
                 prompt.showToast({
                     message: data
                 });
