@@ -125,9 +125,9 @@
             });
         },
         clickBtnManualStartApp(evt) {
-            this.$app.$def.getData(apiUrl.manualStartApp,'GET', (res) => {
+            this.$app.$def.getData(apiUrl.manualStartApp,'GET', (data) => {
                 prompt.showToast({
-                    message: res.message
+                    message: data
                 });
             });
         }
