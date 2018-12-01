@@ -116,7 +116,7 @@
             };
             prompt.showDialog({
                 title: '提示',
-                message: '确定执行正向投注？',
+                message: isUseOppositeNumbers ? '确定执行反向投注？' : '确定执行正向投注？',
                 buttons: [
                     {
                         text: '确定',
