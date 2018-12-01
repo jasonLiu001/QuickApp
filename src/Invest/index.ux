@@ -1,5 +1,6 @@
 <style lang="less">
     @import '../Common/css/index.less';
+    @import '../Common/css/invest/invest.less';
 </style>
 
 <template>
@@ -36,8 +37,12 @@
 
                         <!--反提示-->
                         <div style="margin-left: 200px;margin-top:40px;opacity:0.5;height: 50px;width: 100px;">
-                            <text show="{{row.isUseReverseInvestNumbers===1&&row.isWin===1&&row.status===1}}" style="color: #f76160;">反向中</text>
-                            <text show="{{row.isUseReverseInvestNumbers===1&&row.isWin===0&&row.status===1}}" style="color: #27f730;">反向错</text>
+                            <text show="{{row.isUseReverseInvestNumbers===1&&row.isWin===1&&row.status===1}}"
+                                  style="color: #f76160;">反向中
+                            </text>
+                            <text show="{{row.isUseReverseInvestNumbers===1&&row.isWin===0&&row.status===1}}"
+                                  style="color: #27f730;">反向错
+                            </text>
                         </div>
 
                         <!--isWin图标-->
@@ -85,7 +90,8 @@
         protected: {
             //页面参数
             apiName: '',
-            apiDesc: ''
+            apiDesc: '',
+            tableName: ''//表名 区分total和非total
         },
         onInit() {
             this.renderPageData();
@@ -195,7 +201,19 @@
                 case "plan02_all_before22":
                 case "plan03_all_before22":
                 case "plan04_all_before22":
-                    this.$app.$def.findList('POST', this.list, this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList), () => {
+                    let url;
+                    switch (this.tableName) {
+                        case 'invest':
+                            url = apiUrl.findInvestInfoList;
+                            break;
+                        case 'invest_total':
+                            url = apiUrl.findInvestTotalInfoList;
+                            break;
+                        default:
+                            url = apiUrl.findInvestInfoList;
+                            break;
+                    }
+                    this.$app.$def.findList('POST', this.list, this.getInvestInfoRequestUrl(url), () => {
                         this.hasMoreData = false;
                     });
                     break;
