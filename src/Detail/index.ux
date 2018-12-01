@@ -73,7 +73,7 @@
         onInit() {
             this.isShowLoading = true;
             let url = apiUrl.getInvestInfoByPeriod + "?period=" + this.period + "&planType=" + this.planType;
-            this.$app.$def.getData(url, (data) => {
+            this.$app.$def.getData(url,'POST', (data) => {
                 this.investInfo = data;
                 this.isShowLoading = false;
             });

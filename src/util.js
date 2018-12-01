@@ -132,14 +132,15 @@ function findList(method, list, url, noDataCallback, everySinglePageDataCallback
  *
  * 获取单条数据
  * @param {String} url 数据请求url
+ * @param httpMethod http请求方式 GET或者POST
  * @param {Function} completeCallback 请求成功回调
  */
-function getData(url, completeCallback) {
+function getData(url, httpMethod, completeCallback) {
     const prompt = require('@system.prompt');
     const fetch = require('@system.fetch');
     fetch.fetch({
         url: url,
-        method: 'POST',
+        method: httpMethod,
         success: (data) => {
             if (data) {
                 console.log(data);
