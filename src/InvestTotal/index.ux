@@ -20,8 +20,6 @@
         },
         protected: {
             //页面参数
-            apiName: '',
-            apiDesc: ''
         },
         onInit() {
         },

@@ -213,20 +213,6 @@ const apiCollection = [
         desc: '方案4-截止22点最近1条',
         group: 7,
         enable: 0
-    },
-    {
-        name: 'all_plan',
-        url: apiUrl.findInvestTotalInfoList,
-        desc: '所有方案结果',
-        group: 8,
-        enable: 1
-    },
-    {
-        name: 'all_plan',
-        url: apiUrl.findInvestTotalInfoList,
-        desc: '测试站点',
-        group: 9,
-        enable: 1
     }
 ];
 

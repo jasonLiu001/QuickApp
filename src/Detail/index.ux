@@ -49,7 +49,6 @@
         <a class="btn margin_top" onclick="clickBtnCopy">复制正向</a>
         <a class="btn margin_top" onclick="clickBtnCopyOpposite">复制反向</a>
         <a class="btn margin_top" onclick="clickBtnManualInvest(investInfo)">手动投注</a>
-        <a class="btn margin_top" onclick="clickBtnManualStartApp(investInfo)">手动启动APP</a>
         <a class="margin-bottom"></a>
     </div>
 </template>
@@ -127,14 +126,6 @@
                     planType: investInfo.planType,
                     investTableName: "invest"
                 }
-            });
-        },
-        clickBtnManualStartApp(investInfo, evt) {
-            this.$app.$def.getData(apiUrl.manualStartApp, (res) => {
-                console.log(res.message);
-                prompt.showToast({
-                    message: res.message
-                });
             });
         }
     }

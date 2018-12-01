@@ -62,26 +62,15 @@
             </block>
         </div>
 
-        <!--分组8-->
+        <!--非组内按钮 可以随意加-->
         <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
              class="margin_top">
-            <block for="{{(ix,apiItem) in apiCollection}}">
-                <block if="{{apiItem.group===8&&apiItem.enable===1}}">
-                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #312bf5;color:#ffffff;"
-                       onclick="redirectToAllPlanList(apiItem)">{{apiItem.desc}}</a>
-                </block>
-            </block>
-        </div>
-
-        <!--分组9-->
-        <div style="padding-left:24px;padding-right:24px;flex-direction: row;justify-content:space-between;flex-wrap: wrap;align-items:center;"
-             class="margin_top">
-            <block for="{{(ix,apiItem) in apiCollection}}">
-                <block if="{{apiItem.group===9&&apiItem.enable===1}}">
-                    <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #3212bf;color:#ffffff;"
-                       onclick="redirectToH5WebSite(apiItem)">{{apiItem.desc}}</a>
-                </block>
-            </block>
+            <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #3212bf;color:#ffffff;"
+               onclick="clickBtnManualStartApp">启动App</a>
+            <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #312bf5;color:#ffffff;"
+               onclick="redirectToAllPlanList">所有方案结果</a>
+            <a style="justify-content:space-between;text-align:center;height: 80px;width: 40%;margin-top:24px;margin-right:24px;background-color: #3212bf;color:#ffffff;"
+               onclick="redirectToH5WebSite">测试站点</a>
         </div>
 
         <div class="margin_top" style="height: 20px;width: 100%;"></div>
@@ -103,22 +92,14 @@
         onMenuPress() {
             this.$app.$def.showMenu();
         },
-        redirectToAllPlanList(apiItem, evt) {// 所有方案结果列表页
+        redirectToAllPlanList(evt) {// 所有方案结果列表页
             router.push({
-                uri: '/InvestTotal',
-                params: {
-                    apiName: apiItem.name,
-                    apiDesc: apiItem.desc
-                }
+                uri: '/InvestTotal'
             });
         },
-        redirectToH5WebSite(apiItem, evt) {// H5站点
+        redirectToH5WebSite(evt) {// H5站点
             router.push({
-                uri: '/WebSite',
-                params: {
-                    apiName: apiItem.name,
-                    apiDesc: apiItem.desc
-                }
+                uri: '/WebSite'
             });
         },
         clickQueryConditionHandler(apiItem, evt) {
@@ -141,6 +122,14 @@
                     apiName: apiItem.name,
                     apiDesc: apiItem.desc
                 }
+            });
+        },
+        clickBtnManualStartApp(evt) {
+            this.$app.$def.getData(apiUrl.manualStartApp, (res) => {
+                console.log(res.message);
+                prompt.showToast({
+                    message: res.message
+                });
             });
         }
     }
