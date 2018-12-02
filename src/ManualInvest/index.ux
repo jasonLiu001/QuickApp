@@ -89,6 +89,9 @@
             investTableName: ''
         },
         onInit() {
+            this.$page.setTitleBar({
+                text: `${this.investTableName}表${this.period}手动投注`
+            });
             this.isShowLoading = true;
             let url;
             switch (this.investTableName) {

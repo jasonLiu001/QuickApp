@@ -21,9 +21,11 @@
             <text style="width: 200px;">方案:</text>
             <text>{{investInfo.planType}}</text>
         </div>
-        <div class="investItemRow">
-            <text style="width: 200px;">期号:</text>
+        <div class="investItemRow flex_row_center">
+            <text>期号:</text>
             <text>{{investInfo.period}}</text>
+            <a style="height: 50px;background-color: #4286f5;color: #ffffff;padding: 5px;border-radius:10px"
+               onclick="clickBtnManualInvest(investInfo)">一键投注</a>
         </div>
         <div class="investItemRow">
             <text style="width: 200px;">时间:</text>
@@ -48,7 +50,6 @@
         </div>
         <a class="btn margin_top" onclick="clickBtnCopy">复制正向</a>
         <a class="btn margin_top" onclick="clickBtnCopyOpposite">复制反向</a>
-        <a class="btn margin_top" onclick="clickBtnManualInvest(investInfo)">手动投注</a>
         <a class="margin-bottom"></a>
     </div>
 </template>
@@ -72,6 +73,9 @@
             investTableName: ''//表名 区分total和非total
         },
         onInit() {
+            this.$page.setTitleBar({
+                text: `${this.period}期号码详情`
+            });
             this.isShowLoading = true;
             let url;
             switch (this.investTableName) {
