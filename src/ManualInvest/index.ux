@@ -67,6 +67,7 @@
         <a class="btn margin_top" onclick="clickBtnOneInvest(investInfo)">一键正向投注</a>
         <a class="btn margin_top" onclick="clickBtnOppositeOneInvest(investInfo)">一键反向投注</a>
         <a class="btn margin_top" onclick="clickBtnCancelInvest(investInfo)">一键撤单</a>
+        <a class="btn margin_top" onclick="clickBtnUpdateAward(investInfo)">一键更新奖号</a>
         <a class="margin-bottom"></a>
     </div>
 </template>
@@ -146,7 +147,17 @@
                 () => {
                     self.$app.$def.updateData(apiUrl.manualCancelInvest, {period: investInfo.period}, (res) => {
                         this.$app.$def.showAlert(res.message);
-                    })
+                    });
+                });
+        },
+        clickBtnUpdateAward(investInfo, evt) {
+            //确认提示
+            this.$app.$def.showConfirmDialog(`确定${investInfo.period}期奖号吗？`,
+                () => {
+                    let url = apiUrl.updateNextPeriodOpenNumber + "?period=" + investInfo.period + "&updateStatus=1";
+                    self.$app.$def.updateData(url, null, (res) => {
+                        this.$app.$def.showAlert(res.message);
+                    });
                 });
         },
         onAwardModeChangeEventHandler(investInfo, evt) {
