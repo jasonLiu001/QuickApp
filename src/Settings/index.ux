@@ -4,10 +4,10 @@
 
 <template>
     <div class="container">
-        <div style="flex-direction: column;justify-content: center;">
+        <div class="flex_column_center">
             <block for="{{(settingIndex,settingItem) in list}}">
                 <div style="justify-content: space-between;align-items:center;height: {{settingItem.key=='siteUrl'?'190px':'160px'}};border-bottom-color: #ffffff;border-bottom-width: 1px;">
-                    <div style="flex-direction: column;justify-content: center;width: {{settingItem.key=='siteUrl'?'15%':'50%'}};">
+                    <div class="flex_column_center" style="width: {{settingItem.key=='siteUrl'?'15%':'50%'}};">
                         <text style="font-size: 24px;">{{settingItem.key}}</text>
                         <text style="font-size: 20px;">{{getDescription(settingItem).desc}}</text>
                         <text style="font-size: 20px;color:{{getDescription(settingItem).mark_fontColor}};">
@@ -24,7 +24,7 @@
             </block>
 
             <!--加载更多-->
-            <div show="{{isShowLoading}}" style="flex-direction: row;justify-content: center;">
+            <div show="{{isShowLoading}}" class="flex_row_center">
                 <progress type="circular"></progress>
                 <text>正在载入...</text>
             </div>

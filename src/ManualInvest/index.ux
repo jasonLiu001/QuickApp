@@ -40,14 +40,16 @@
         </div>
         <div class="investInputItemRow">
             <text>元角分模式:</text>
-            <input type="text"
+            <input class="input_border"
+                   type="text"
                    onchange="onAwardModeChangeEventHandler(investInfo)"
                    id="awardMode"
                    value="{{investInfo.awardMode}}"/>
         </div>
         <div class="investInputItemRow">
             <text>投注倍数:</text>
-            <input type="text"
+            <input class="input_border"
+                   type="text"
                    onchange="onTouZhuBeiShuChangeEventHandler(investInfo)"
                    id="touZhuBeiShu"
                    value="{{investInfo.touZhuBeiShu}}"/>
