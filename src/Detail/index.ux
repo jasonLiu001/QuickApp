@@ -86,8 +86,8 @@
                     break;
             }
             url = url + "?period=" + this.period + "&planType=" + this.planType;
-            this.$app.$def.getData(url, 'POST', (data) => {
-                this.investInfo = data;
+            this.$app.$def.getData(url, 'POST', (res) => {
+                this.investInfo = res.data;
                 this.isShowLoading = false;
             });
         },

@@ -133,9 +133,9 @@ function findList(method, list, url, noDataCallback, everySinglePageDataCallback
  * 获取单条数据
  * @param {String} url 数据请求url
  * @param httpMethod http请求方式 GET或者POST
- * @param {Function} completeCallback 请求成功回调
+ * @param {Function} successCallback 请求成功回调
  */
-function getData(url, httpMethod, completeCallback) {
+function getData(url, httpMethod, successCallback) {
     const prompt = require('@system.prompt');
     const fetch = require('@system.fetch');
     fetch.fetch({
@@ -161,8 +161,8 @@ function getData(url, httpMethod, completeCallback) {
                     });
                     return;
                 }
-                if (completeCallback && typeof (completeCallback) === 'function') {
-                    completeCallback(serverData.data);
+                if (successCallback && typeof (successCallback) === 'function') {
+                    successCallback(serverData);
                 }
             }
         },
@@ -208,7 +208,7 @@ function updateData(url, data, successCallback) {
                     return;
                 }
 
-                if(successCallback&&typeof (successCallback)==='function'){
+                if (successCallback && typeof (successCallback) === 'function') {
                     successCallback(serverData);
                 }
             }
