@@ -54,7 +54,7 @@
         </div>
         <div class="investItemRow">
             <text style="width: 200px;">号码来源表:</text>
-            <text>{{investTableName}}</text>
+            <text class="red_txt">{{investTableName}}</text>
         </div>
 
         <a class="btn margin_top" onclick="clickBtnOneInvest(investInfo)">一键正向投注</a>

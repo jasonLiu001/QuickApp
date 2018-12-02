@@ -20,7 +20,8 @@
 /*文本对齐*/
 @text-align-center: center;
 /*文本红色*/
-@text_red:#f91e1e;
+@text_red: #f91e1e;
+@text_green: #27f730;
 
 a {
   text-decoration: none;
@@ -74,6 +75,14 @@ a {
   text-align: @text-align-center;
 }
 
+.red_txt {
+  color: @text_red;
+}
+
+.green_txt{
+  color: @text_green;
+}
+
 /*文本的默认样式*/
 .txt {
   font-size: @font-size;
@@ -87,11 +96,11 @@ a {
   color: @background-color;
 }
 
-.txt_align-right{
+.txt_align-right {
   text-align: right;
 }
 
-.txt_align_left{
+.txt_align_left {
   text-align: left;
 }
 
