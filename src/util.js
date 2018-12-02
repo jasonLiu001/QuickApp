@@ -257,6 +257,45 @@ function getRestNumbersFromSource(sourceNumberArray, needToBeDeleteNumberString)
     return resultsNumbers;
 }
 
+/**
+ *
+ * 显示操作确认提示
+ * @param message 提示内容
+ * @param btnConfirmCallback 确定按钮回调函数
+ */
+function showConfirmDialog(message, btnConfirmCallback) {
+    const prompt = require('@system.prompt');
+    prompt.showDialog({
+        title: '提示',
+        message: message,
+        buttons: [
+            {
+                text: '确定',
+                color: '#33dd44'
+            },
+            {
+                text: '取消',
+                color: '#33dd44'
+            }
+        ],
+        success: function (ret) {
+            switch (ret.index) {
+                case 0://确定
+                    btnConfirmCallback();
+                    break;
+                case 1://取消
+                    break;
+            }
+        },
+        cancel: function () {
+            console.log('handling cancel')
+        },
+        fail: function (data, code) {
+            console.log(`handling fail, code = ${code}`)
+        }
+    });
+}
+
 export default {
     showMenu,
     createShortcut,
@@ -264,5 +303,6 @@ export default {
     getData,
     updateData,
     getTotalNumberArray,
-    getRestNumbersFromSource
+    getRestNumbersFromSource,
+    showConfirmDialog
 }

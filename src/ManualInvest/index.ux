@@ -114,35 +114,11 @@
                 touZhuBeiShu: self.$element("touZhuBeiShu").attr.value,
                 investTableName: self.investTableName
             };
-            prompt.showDialog({
-                title: '提示',
-                message: isUseOppositeNumbers ? '确定执行反向投注？' : '确定执行正向投注？',
-                buttons: [
-                    {
-                        text: '确定',
-                        color: '#33dd44'
-                    },
-                    {
-                        text: '取消',
-                        color: '#33dd44'
-                    }
-                ],
-                success: function (ret) {
-                    switch (ret.index) {
-                        case 0://确定
-                            self.$app.$def.updateData(apiUrl.manualInvest, data);
-                            break;
-                        case 1://取消
-                            break;
-                    }
-                },
-                cancel: function () {
-                    console.log('handling cancel')
-                },
-                fail: function (data, code) {
-                    console.log(`handling fail, code = ${code}`)
-                }
-            });
+            //确认提示
+            this.$app.$def.showConfirmDialog(isUseOppositeNumbers ? '确定执行反向投注？' : '确定执行正向投注？',
+                () => {
+                    self.$app.$def.updateData(apiUrl.manualInvest, data)
+                });
         },
         clickBtnOneInvest(investInfo, evt) {
             this.startInvest(investInfo, false);
