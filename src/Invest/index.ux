@@ -101,7 +101,7 @@
         },
         setTitleBarTextOnInit() {
             this.$page.setTitleBar({
-                text: this.apiDesc
+                text: `${this.investTableName}表${this.apiDesc}`
             });
         },
         isShowWinIcon() {

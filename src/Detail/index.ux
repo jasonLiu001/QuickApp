@@ -12,7 +12,7 @@
 
 <template>
     <div class="container">
-        <div show="{{isShowLoading}}" style="flex-direction: row;justify-content: center;">
+        <div show="{{isShowLoading}}" class="flex_row_center">
             <progress type="circular"></progress>
             <text>正在载入...</text>
         </div>
@@ -124,7 +124,7 @@
             });
         },
         clickBtnManualInvest(investInfo, evt) {
-            router.push({
+            router.replace({
                 uri: '/ManualInvest',
                 params: {
                     period: investInfo.period,
