@@ -117,7 +117,9 @@
             //确认提示
             this.$app.$def.showConfirmDialog(isUseOppositeNumbers ? '确定执行反向投注？' : '确定执行正向投注？',
                 () => {
-                    self.$app.$def.updateData(apiUrl.manualInvest, data)
+                    self.$app.$def.updateData(apiUrl.manualInvest, data, (res) => {
+                        this.$app.$def.showAlert(res.message);
+                    })
                 });
         },
         clickBtnOneInvest(investInfo, evt) {

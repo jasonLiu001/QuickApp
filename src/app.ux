@@ -12,6 +12,7 @@
         updateData: util.updateData,
         getTotalNumberArray: util.getTotalNumberArray,
         getRestNumbersFromSource: util.getRestNumbersFromSource,
-        showConfirmDialog: util.showConfirmDialog
+        showConfirmDialog: util.showConfirmDialog,
+        showAlert: util.showAlert
     }
 </script>

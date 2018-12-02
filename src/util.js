@@ -178,9 +178,9 @@ function getData(url, httpMethod, completeCallback) {
  * 更新数据
  * @param url 请求url
  * @param data body体中的数据
- * @param successMessage 数据更新成功消息
+ * @param successCallback 数据更新成功消息
  */
-function updateData(url, data, successMessage) {
+function updateData(url, data, successCallback) {
     const prompt = require('@system.prompt');
     const fetch = require('@system.fetch');
     fetch.fetch({
@@ -208,10 +208,9 @@ function updateData(url, data, successMessage) {
                     return;
                 }
 
-                let toastMessage = successMessage || serverData.message;
-                prompt.showToast({
-                    message: toastMessage
-                });
+                if(successCallback&&typeof (successCallback)==='function'){
+                    successCallback(serverData);
+                }
             }
         },
         fail: (data, code) => {
@@ -296,6 +295,37 @@ function showConfirmDialog(message, btnConfirmCallback) {
     });
 }
 
+/**
+ *
+ * 显示提示
+ * @param message 提示消息
+ */
+function showAlert(message) {
+    const prompt = require('@system.prompt');
+    prompt.showDialog({
+        title: '提示',
+        message: message,
+        buttons: [
+            {
+                text: '确定',
+                color: '#33dd44'
+            }
+        ],
+        success: function (ret) {
+            switch (ret.index) {
+                case 0://确定
+                    break;
+            }
+        },
+        cancel: function () {
+            console.log('handling cancel')
+        },
+        fail: function (data, code) {
+            console.log(`handling fail, code = ${code}`)
+        }
+    });
+}
+
 export default {
     showMenu,
     createShortcut,
@@ -304,5 +334,6 @@ export default {
     updateData,
     getTotalNumberArray,
     getRestNumbersFromSource,
-    showConfirmDialog
+    showConfirmDialog,
+    showAlert
 }
