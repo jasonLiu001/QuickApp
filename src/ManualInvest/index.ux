@@ -53,6 +53,11 @@
                    value="{{investInfo.touZhuBeiShu}}"/>
         </div>
         <div class="investItemRow">
+            <text style="width: 200px;">状态:</text>
+            <text show="{{investInfo.status===1}}" class="red_txt">已完成</text>
+            <text show="{{investInfo.status===0}}" class="green_txt">进行中</text>
+        </div>
+        <div class="investItemRow">
             <text style="width: 200px;">号码来源表:</text>
             <text class="red_txt">{{investTableName}}</text>
         </div>
