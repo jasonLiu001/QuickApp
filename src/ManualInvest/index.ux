@@ -151,10 +151,12 @@
                 });
         },
         clickBtnUpdateAward(investInfo, evt) {
+            let self = this;
             //确认提示
             this.$app.$def.showConfirmDialog(`确定${investInfo.period}期奖号吗？`,
                 () => {
-                    let url = apiUrl.updateNextPeriodOpenNumber + "?period=" + investInfo.period + "&updateStatus=1";
+                    // updateStatus 值： 1：自动  2：手动
+                    let url = apiUrl.updateNextPeriodOpenNumber + "?period=" + investInfo.period + "&updateStatus=2";
                     self.$app.$def.updateData(url, null, (res) => {
                         this.$app.$def.showAlert(res.message);
                     });
