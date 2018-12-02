@@ -30,16 +30,6 @@
                onclick="clickQueryConditionHandler({name: 'plan04',desc: '方案4-截止0点所有记录',tableName:'invest'})">方案4-截止0点所有记录</a>
         </div>
 
-        <!--分组2-->
-        <div class="groupContainer margin_top">
-            <a class="btnGroup_3212bf"
-               onclick="clickQueryConditionHandler({name: 'plan01',desc: '方案1-ALL-截止0点所有记录',tableName:'invest_total'})">方案1-ALL-截止0点所有记录</a>
-            <a class="btnGroup_3212bf"
-               onclick="clickQueryConditionHandler({name: 'plan02',desc: '方案2-ALL-截止0点所有记录',tableName:'invest_total'})">方案2-ALL-截止0点所有记录</a>
-            <a class="btnGroup_3212bf"
-               onclick="clickQueryConditionHandler({name: 'plan03',desc: '方案3-ALL-截止0点所有记录',tableName:'invest_total'})">方案3-ALL-截止0点所有记录</a>
-        </div>
-
         <!--分组3-->
         <div class="groupContainer margin_top" if="false">
             <a class="btnGroup_13a6f5"
@@ -101,6 +91,15 @@
             <a class="btnGroup_3212bf" onclick="clickBtnManualStartApp">启动App</a>
             <a class="btnGroup_3212bf" onclick="redirectToAllPlanList">所有方案结果</a>
             <a class="btnGroup_3212bf" onclick="redirectToH5WebSite">测试站点</a>
+        </div>
+
+        <div class="groupContainer margin_top">
+            <a class="btnGroup_2c4767"
+               onclick="clickQueryConditionHandler({name: 'plan01',desc: '方案1-ALL-截止0点所有记录',tableName:'invest_total'})">方案1-ALL-截止0点所有记录</a>
+            <a class="btnGroup_2c4767"
+               onclick="clickQueryConditionHandler({name: 'plan02',desc: '方案2-ALL-截止0点所有记录',tableName:'invest_total'})">方案2-ALL-截止0点所有记录</a>
+            <a class="btnGroup_2c4767"
+               onclick="clickQueryConditionHandler({name: 'plan03',desc: '方案3-ALL-截止0点所有记录',tableName:'invest_total'})">方案3-ALL-截止0点所有记录</a>
         </div>
 
         <div class="margin_top" style="height: 20px;width: 100%;"></div>
