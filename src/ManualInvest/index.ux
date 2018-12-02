@@ -104,12 +104,12 @@
         startInvest(investInfo, isUseOppositeNumbers) {
             let self = this;
             //号码取反
-            let oppositeNumbers = this.$app.$def.getRestNumbersFromSource(this.$app.$def.getTotalNumberArray(), this.investInfo.investNumbers);
+            let oppositeNumberArray = this.$app.$def.getRestNumbersFromSource(this.$app.$def.getTotalNumberArray(), this.investInfo.investNumbers);
 
             let data = {
                 period: investInfo.period,
                 planType: investInfo.planType,
-                investNumbers: isUseOppositeNumbers ? oppositeNumbers : investInfo.investNumbers,
+                investNumbers: isUseOppositeNumbers ? oppositeNumberArray.join(',') : investInfo.investNumbers,
                 awardMode: self.$element("awardMode").attr.value,
                 touZhuBeiShu: self.$element("touZhuBeiShu").attr.value,
                 investTableName: self.investTableName

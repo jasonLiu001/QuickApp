@@ -101,12 +101,12 @@
                 return;
             }
             //原始的100注号码
-            let totalNumbers = this.$app.$def.getTotalNumberArray();
+            let totalNumberArray = this.$app.$def.getTotalNumberArray();
             //取反后的号码
-            let resultsNumbers = this.$app.$def.getRestNumbersFromSource(totalNumbers, this.investInfo.investNumbers);
+            let resultsNumberArray = this.$app.$def.getRestNumbersFromSource(totalNumberArray, this.investInfo.investNumbers);
 
             clipboard.set({
-                text: resultsNumbers.join(','),
+                text: resultsNumberArray.join(','),
                 success: () => {
                     prompt.showToast({
                         message: `【反向】号码复制成功`
