@@ -13,6 +13,7 @@
         getTotalNumberArray: util.getTotalNumberArray,
         getRestNumbersFromSource: util.getRestNumbersFromSource,
         showConfirmDialog: util.showConfirmDialog,
-        showAlert: util.showAlert
+        showAlert: util.showAlert,
+        showToast: util.showToast
     }
 </script>

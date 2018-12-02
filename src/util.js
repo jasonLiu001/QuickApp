@@ -326,6 +326,18 @@ function showAlert(message) {
     });
 }
 
+/**
+ *
+ * 显示Toast提示
+ * @param message 提示内容
+ */
+function showToast(message) {
+    const prompt = require('@system.prompt');
+    prompt.showToast({
+        message: message
+    });
+}
+
 export default {
     showMenu,
     createShortcut,
@@ -335,5 +347,6 @@ export default {
     getTotalNumberArray,
     getRestNumbersFromSource,
     showConfirmDialog,
-    showAlert
+    showAlert,
+    showToast
 }

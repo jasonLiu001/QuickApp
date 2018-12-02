@@ -95,9 +95,7 @@
         },
         clickBtnCopyOpposite(evt) {//反向号码
             if (!this.investInfo.investNumbers) {
-                prompt.showToast({
-                    message: `没有可复制的数据`
-                });
+                this.$app.$def.showAlert(`没有可复制的数据`);
                 return;
             }
             //原始的100注号码
@@ -108,26 +106,20 @@
             clipboard.set({
                 text: resultsNumberArray.join(','),
                 success: () => {
-                    prompt.showToast({
-                        message: `【反向】号码复制成功`
-                    });
+                    this.$app.$def.showAlert(`【反向】号码复制成功`);
                 }
             });
         },
         clickBtnCopy(evt) {//正向号码
             if (!this.investInfo.investNumbers) {
-                prompt.showToast({
-                    message: `没有可复制的数据`
-                });
+                this.$app.$def.showAlert(`没有可复制的数据`);
                 return;
             }
 
             clipboard.set({
                 text: this.investInfo.investNumbers,
                 success: () => {
-                    prompt.showToast({
-                        message: `【正向】号码复制成功`
-                    });
+                    this.$app.$def.showAlert(`【正向】号码复制成功`);
                 }
             });
         },
