@@ -154,7 +154,7 @@
         },
         clickBtnManualStartApp(evt) {
             this.$app.$def.showConfirmDialog('确定启动App?', () => {
-                this.$app.$def.getData(apiUrl.manualStartApp, 'GET', (res) => {
+                this.$app.$def.getData(apiUrl.manualStartApp, null, 'GET', (res) => {
                     this.$app.$def.showAlert(res.data);
                 });
             });

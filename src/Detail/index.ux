@@ -90,7 +90,7 @@
                     break;
             }
             url = url + "?period=" + this.period + "&planType=" + this.planType;
-            this.$app.$def.getData(url, 'POST', (res) => {
+            this.$app.$def.getData(url, null, 'POST', (res) => {
                 this.investInfo = res.data;
                 this.isShowLoading = false;
             });

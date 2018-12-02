@@ -15,6 +15,7 @@ const apiUrl = {
     getSettingsByKey: "https://www.cnlands.cn/service/lottery/getSettingsByKey",
     findInvestInfoListProfit: "https://www.cnlands.cn/service/lottery/findInvestInfoListProfit",
     manualInvest: "https://www.cnlands.cn/invest/manualInvest",
+    manualCancelInvest: "https://www.cnlands.cn/invest/manualCancelInvest",
     manualStartApp: "https://www.cnlands.cn/app/start"
 };
 
