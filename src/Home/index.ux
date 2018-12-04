@@ -93,7 +93,7 @@
             <a class="btnGroup_3212bf" onclick="redirectToH5WebSite">测试站点</a>
         </div>
 
-        <div class="groupContainer margin_top">
+        <div class="groupContainer margin_top" if="false">
             <a class="btnGroup_2c4767"
                onclick="clickQueryConditionHandler({name: 'plan01',desc: '方案1-ALL-截止0点所有记录',tableName:'invest_total'})">方案1-ALL-截止0点所有记录</a>
             <a class="btnGroup_2c4767"
