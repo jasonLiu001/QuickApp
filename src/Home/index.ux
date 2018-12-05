@@ -6,7 +6,6 @@
 <template>
     <div class="container bg">
 
-        <!--分组1-->
         <div class="groupContainer margin_top">
             <a class="btnGroup_88b96e"
                onclick="clickQueryProfitConditionHandler({name: 'plan01_before22_maxprofit',desc: '方案1-截止22点利润'})">方案1-截止22点利润</a>
@@ -18,31 +17,6 @@
                onclick="clickQueryProfitConditionHandler({name: 'plan04_before22_maxprofit',desc: '方案4-截止22点利润'})">方案4-截止22点利润</a>
         </div>
 
-        <!--分组2-->
-        <div class="groupContainer margin_top">
-            <a class="btnGroup_d4a1c5"
-               onclick="clickQueryConditionHandler({name: 'plan01',desc: '方案1-截止0点所有记录',tableName:'invest'})">方案1-截止0点所有记录</a>
-            <a class="btnGroup_d4a1c5"
-               onclick="clickQueryConditionHandler({name: 'plan02',desc: '方案2-截止0点所有记录',tableName:'invest'})">方案2-截止0点所有记录</a>
-            <a class="btnGroup_d4a1c5"
-               onclick="clickQueryConditionHandler({name: 'plan03',desc: '方案3-截止0点所有记录',tableName:'invest'})">方案3-截止0点所有记录</a>
-            <a class="btnGroup_d4a1c5" if="false"
-               onclick="clickQueryConditionHandler({name: 'plan04',desc: '方案4-截止0点所有记录',tableName:'invest'})">方案4-截止0点所有记录</a>
-        </div>
-
-        <!--分组3-->
-        <div class="groupContainer margin_top" if="false">
-            <a class="btnGroup_13a6f5"
-               onclick="clickQueryConditionHandler({name: 'plan01_before02',desc: '方案1-截止2点最近1条',tableName:'invest'})">方案1-截止2点最近1条</a>
-            <a class="btnGroup_13a6f5"
-               onclick="clickQueryConditionHandler({name: 'plan02_before02',desc: '方案2-截止2点最近1条',tableName:'invest'})">方案2-截止2点最近1条</a>
-            <a class="btnGroup_13a6f5"
-               onclick="clickQueryConditionHandler({name: 'plan03_before02',desc: '方案3-截止2点最近1条',tableName:'invest'})">方案3-截止2点最近1条</a>
-            <a class="btnGroup_13a6f5"
-               onclick="clickQueryConditionHandler({name: 'plan04_before02',desc: '方案4-截止2点最近1条',tableName:'invest'})">方案4-截止2点最近1条</a>
-        </div>
-
-        <!--分组4-->
         <div class="groupContainer margin_top">
             <a class="btnGroup_17d5f5"
                onclick="clickQueryConditionHandler({name: 'plan01_all_before22',desc: '方案1-截止22点所有记录',tableName:'invest'})">方案1-截止22点所有记录</a>
@@ -54,7 +28,28 @@
                onclick="clickQueryConditionHandler({name: 'plan04_all_before22',desc: '方案4-截止22点所有记录',tableName:'invest'})">方案4-截止22点所有记录</a>
         </div>
 
-        <!--分组5-->
+        <div class="groupContainer margin_top">
+            <a class="btnGroup_d4a1c5"
+               onclick="clickQueryConditionHandler({name: 'plan01',desc: '方案1-截止0点所有记录',tableName:'invest'})">方案1-截止0点所有记录</a>
+            <a class="btnGroup_d4a1c5"
+               onclick="clickQueryConditionHandler({name: 'plan02',desc: '方案2-截止0点所有记录',tableName:'invest'})">方案2-截止0点所有记录</a>
+            <a class="btnGroup_d4a1c5"
+               onclick="clickQueryConditionHandler({name: 'plan03',desc: '方案3-截止0点所有记录',tableName:'invest'})">方案3-截止0点所有记录</a>
+            <a class="btnGroup_d4a1c5" if="false"
+               onclick="clickQueryConditionHandler({name: 'plan04',desc: '方案4-截止0点所有记录',tableName:'invest'})">方案4-截止0点所有记录</a>
+        </div>
+
+        <div class="groupContainer margin_top" if="false">
+            <a class="btnGroup_13a6f5"
+               onclick="clickQueryConditionHandler({name: 'plan01_before02',desc: '方案1-截止2点最近1条',tableName:'invest'})">方案1-截止2点最近1条</a>
+            <a class="btnGroup_13a6f5"
+               onclick="clickQueryConditionHandler({name: 'plan02_before02',desc: '方案2-截止2点最近1条',tableName:'invest'})">方案2-截止2点最近1条</a>
+            <a class="btnGroup_13a6f5"
+               onclick="clickQueryConditionHandler({name: 'plan03_before02',desc: '方案3-截止2点最近1条',tableName:'invest'})">方案3-截止2点最近1条</a>
+            <a class="btnGroup_13a6f5"
+               onclick="clickQueryConditionHandler({name: 'plan04_before02',desc: '方案4-截止2点最近1条',tableName:'invest'})">方案4-截止2点最近1条</a>
+        </div>
+
         <div class="groupContainer margin_top">
             <a class="btnGroup_2c4767"
                onclick="clickQueryProfitConditionHandler({name: 'plan01_before22_fixedprofit',desc: '方案1-截止22点利润>6000'})">方案1-截止22点利润>6000</a>
@@ -66,7 +61,6 @@
                onclick="clickQueryProfitConditionHandler({name: 'plan04_before22_fixedprofit',desc: '方案4-截止22点利润>6000'})">方案4-截止22点利润>6000</a>
         </div>
 
-        <!--分组6-->
         <div class="groupContainer margin_top" if="false">
             <a class="btnGroup_3212bf"
                onclick="clickQueryProfitConditionHandler({name: 'plan01_wholeday_maxprofit',desc: '方案1-截止0点利润'})">方案1-截止0点利润</a>
@@ -76,7 +70,6 @@
                onclick="clickQueryProfitConditionHandler({name: 'plan01_wholeday_fixedprofit',desc: '方案1-截止0点利润>6000'})">方案1-截止0点利润>6000</a>
         </div>
 
-        <!--分组7-->
         <div class="groupContainer margin_top">
             <a class="btnGroup_13a6f5"
                onclick="clickQueryConditionHandler({name: 'plan01_before22',desc: '方案1-截止22点最近1条',tableName:'invest'})">方案1-截止22点最近1条</a>
@@ -86,14 +79,13 @@
                onclick="clickQueryConditionHandler({name: 'plan03_before22',desc: '方案3-截止22点最近1条',tableName:'invest'})">方案3-截止22点最近1条</a>
         </div>
 
-        <!--非组内按钮 可以随意加-->
         <div class="groupContainer margin_top">
             <a class="btnGroup_3212bf" onclick="clickBtnManualStartApp">启动App</a>
             <a class="btnGroup_3212bf" onclick="redirectToAllPlanList">所有方案结果</a>
             <a class="btnGroup_3212bf" onclick="redirectToH5WebSite">测试站点</a>
         </div>
 
-        <div class="groupContainer margin_top" if="false">
+        <div class="groupContainer margin_top">
             <a class="btnGroup_2c4767"
                onclick="clickQueryConditionHandler({name: 'plan01',desc: '方案1-ALL-截止0点所有记录',tableName:'invest_total'})">方案1-ALL-截止0点所有记录</a>
             <a class="btnGroup_2c4767"
