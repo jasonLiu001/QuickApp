@@ -126,8 +126,9 @@
                 touZhuBeiShu: self.$element("touZhuBeiShu").attr.value,
                 investTableName: self.investTableName
             };
+            let investRules = "\n投注规则如下：\n1.total表4连错或中时跟投\n2.invest表跟投";
             //确认提示
-            this.$app.$def.showConfirmDialog(isUseOppositeNumbers ? '确定执行反向投注？' : '确定执行正向投注？',
+            this.$app.$def.showConfirmDialog(isUseOppositeNumbers ? '确定执行反向投注？' + investRules : '确定执行正向投注？' + investRules,
                 () => {
                     self.$app.$def.updateData(apiUrl.manualInvest, data, (res) => {
                         this.$app.$def.showAlert(res.message);
