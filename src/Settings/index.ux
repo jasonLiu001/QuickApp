@@ -91,7 +91,7 @@
             let keyValue = this.$element(settingItem.key).attr.value;
             let url = apiUrl.updateSettingsByKey + "?key=" + settingItem.key + "&value=" + keyValue;
             this.$app.$def.updateData(url, null, (data) => {
-                this.$app.$def.showAlert(`数据更新成功`);
+                this.$app.$def.showAlert(`提示`, `数据更新成功`);
             });
         }
     }

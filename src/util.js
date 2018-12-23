@@ -302,10 +302,10 @@ function showConfirmDialog(message, btnConfirmCallback) {
  * 显示提示
  * @param message 提示消息
  */
-function showAlert(message) {
+function showAlert(title, message) {
     const prompt = require('@system.prompt');
     prompt.showDialog({
-        title: '提示',
+        title: title,
         message: message,
         buttons: [
             {

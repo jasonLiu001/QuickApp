@@ -131,7 +131,7 @@
             this.$app.$def.showConfirmDialog(isUseOppositeNumbers ? '确定执行反向投注？' + investRules : '确定执行正向投注？' + investRules,
                 () => {
                     self.$app.$def.updateData(apiUrl.manualInvest, data, (res) => {
-                        this.$app.$def.showAlert(res.message);
+                        this.$app.$def.showAlert(`提示`, res.message);
                     });
                 });
         },
@@ -147,7 +147,7 @@
             this.$app.$def.showConfirmDialog(`确定取消${investInfo.period}期投注吗？`,
                 () => {
                     self.$app.$def.updateData(apiUrl.manualCancelInvest, {period: investInfo.period}, (res) => {
-                        this.$app.$def.showAlert(res.message);
+                        this.$app.$def.showAlert(`提示`, res.message);
                     });
                 });
         },
@@ -159,7 +159,7 @@
                     // updateStatus 值： 1：自动  2：手动
                     let url = apiUrl.updateNextPeriodOpenNumber + "?period=" + investInfo.period + "&updateStatus=2";
                     self.$app.$def.updateData(url, null, (res) => {
-                        this.$app.$def.showAlert(res.message);
+                        this.$app.$def.showAlert(`提示`, res.message);
                     });
                 });
         },

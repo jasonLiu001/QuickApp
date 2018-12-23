@@ -107,6 +107,10 @@
     import router from '@system.router';
 
     export default {
+        onInit() {
+            let rules = "规则提醒：\n1.切记！控制情绪，机会无处不在\n2.看准时机再下手，冷静";
+            this.$app.$def.showAlert(`提示`, rules);
+        },
         onMenuPress() {
             this.$app.$def.showMenu();
         },
@@ -146,7 +150,7 @@
         clickBtnManualStartApp(evt) {
             this.$app.$def.showConfirmDialog('请首先检查isUseLastAccountBalance值是否设置正确，确定现在启动App?', () => {
                 this.$app.$def.getData(apiUrl.manualStartApp, null, 'GET', (res) => {
-                    this.$app.$def.showAlert(res.data);
+                    this.$app.$def.showAlert(`提示`, res.data);
                 });
             });
         }
