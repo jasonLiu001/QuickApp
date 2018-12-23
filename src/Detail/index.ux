@@ -116,7 +116,7 @@
         },
         clickBtnCopy(evt) {//正向号码
             if (!this.investInfo.investNumbers) {
-                this.$app.$def.showAlert(`提示`, `没有可复制的数据`);
+                this.$app.$def.showAlert(`提醒`, `没有可复制的数据`);
                 return;
             }
 
