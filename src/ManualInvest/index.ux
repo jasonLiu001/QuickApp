@@ -128,7 +128,7 @@
             };
             let investRules = "\n投注规则如下：\n1.total表4连错或中时跟投\n2.invest表跟投";
             //确认提示
-            this.$app.$def.showConfirmDialog(isUseOppositeNumbers ? '确定执行反向投注？' + investRules : '确定执行正向投注？' + investRules,
+            this.$app.$def.showConfirmDialog(`投注提醒`, isUseOppositeNumbers ? '确定执行反向投注？' + investRules : '确定执行正向投注？' + investRules,
                 () => {
                     self.$app.$def.updateData(apiUrl.manualInvest, data, (res) => {
                         this.$app.$def.showAlert(`提示`, res.message);
@@ -144,7 +144,7 @@
         clickBtnCancelInvest(investInfo, evt) {
             let self = this;
             //确认提示
-            this.$app.$def.showConfirmDialog(`确定取消${investInfo.period}期投注吗？`,
+            this.$app.$def.showConfirmDialog(`投注取消`, `确定取消${investInfo.period}期投注吗？`,
                 () => {
                     self.$app.$def.updateData(apiUrl.manualCancelInvest, {period: investInfo.period}, (res) => {
                         this.$app.$def.showAlert(`提示`, res.message);
@@ -154,7 +154,7 @@
         clickBtnUpdateAward(investInfo, evt) {
             let self = this;
             //确认提示
-            this.$app.$def.showConfirmDialog(`确定${investInfo.period}期奖号吗？`,
+            this.$app.$def.showConfirmDialog(`奖号更新`, `确定更新${investInfo.period}期奖号吗？`,
                 () => {
                     // updateStatus 值： 1：自动  2：手动
                     let url = apiUrl.updateNextPeriodOpenNumber + "?period=" + investInfo.period + "&updateStatus=2";

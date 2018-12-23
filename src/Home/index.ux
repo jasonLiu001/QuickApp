@@ -148,7 +148,7 @@
             });
         },
         clickBtnManualStartApp(evt) {
-            this.$app.$def.showConfirmDialog('请首先检查isUseLastAccountBalance值是否设置正确，确定现在启动App?', () => {
+            this.$app.$def.showConfirmDialog(`提示`, '请首先检查isUseLastAccountBalance值是否设置正确，确定现在启动App?', () => {
                 this.$app.$def.getData(apiUrl.manualStartApp, null, 'GET', (res) => {
                     this.$app.$def.showAlert(`提示`, res.data);
                 });

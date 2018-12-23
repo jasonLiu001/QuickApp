@@ -264,10 +264,10 @@ function getRestNumbersFromSource(sourceNumberArray, needToBeDeleteNumberString)
  * @param message 提示内容
  * @param btnConfirmCallback 确定按钮回调函数
  */
-function showConfirmDialog(message, btnConfirmCallback) {
+function showConfirmDialog(title, message, btnConfirmCallback) {
     const prompt = require('@system.prompt');
     prompt.showDialog({
-        title: '提示',
+        title: title,
         message: message,
         buttons: [
             {
