@@ -108,7 +108,7 @@
 
     export default {
         onInit() {
-            let rules = "1.切记！控制情绪，机会无处不在！\n2.看准时机再下手，保持冷静！";
+            let rules = "1.切记！控制情绪，机会无处不在！\n2.看准时机再下手，保持冷静！\n3.能隐忍、有耐心、懂得等待时机才会有收获！";
             this.$app.$def.showAlert(`盈利提醒`, rules);
         },
         onMenuPress() {
