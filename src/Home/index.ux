@@ -28,17 +28,6 @@
                onclick="clickQueryConditionHandler({name: 'plan04_all_before22',desc: '方案4-截止22点所有记录',tableName:'invest'})">方案4-截止22点所有记录</a>
         </div>
 
-        <div class="groupContainer margin_top">
-            <a class="btnGroup_d4a1c5"
-               onclick="clickQueryConditionHandler({name: 'plan01',desc: '方案1-截止0点所有记录',tableName:'invest'})">方案1-截止0点所有记录</a>
-            <a class="btnGroup_d4a1c5"
-               onclick="clickQueryConditionHandler({name: 'plan02',desc: '方案2-截止0点所有记录',tableName:'invest'})">方案2-截止0点所有记录</a>
-            <a class="btnGroup_d4a1c5"
-               onclick="clickQueryConditionHandler({name: 'plan03',desc: '方案3-截止0点所有记录',tableName:'invest'})">方案3-截止0点所有记录</a>
-            <a class="btnGroup_d4a1c5" if="false"
-               onclick="clickQueryConditionHandler({name: 'plan04',desc: '方案4-截止0点所有记录',tableName:'invest'})">方案4-截止0点所有记录</a>
-        </div>
-
         <div class="groupContainer margin_top" if="false">
             <a class="btnGroup_13a6f5"
                onclick="clickQueryConditionHandler({name: 'plan01_before02',desc: '方案1-截止2点最近1条',tableName:'invest'})">方案1-截止2点最近1条</a>
@@ -86,12 +75,23 @@
         </div>
 
         <div class="groupContainer margin_top">
+            <a class="btnGroup_d4a1c5"
+               onclick="clickQueryConditionHandler({name: 'plan01',desc: '方案1-Invest表所有记录',tableName:'invest'})">方案1-invest表所有记录</a>
+            <a class="btnGroup_d4a1c5"
+               onclick="clickQueryConditionHandler({name: 'plan02',desc: '方案2-Invest表所有记录',tableName:'invest'})">方案2-invest表所有记录</a>
+            <a class="btnGroup_d4a1c5"
+               onclick="clickQueryConditionHandler({name: 'plan03',desc: '方案3-Invest表所有记录',tableName:'invest'})">方案3-invest表所有记录</a>
+            <a class="btnGroup_d4a1c5" if="false"
+               onclick="clickQueryConditionHandler({name: 'plan04',desc: '方案4-Invest表所有记录',tableName:'invest'})">方案4-invest表所有记录</a>
+        </div>
+
+        <div class="groupContainer margin_top">
             <a class="btnGroup_2c4767"
-               onclick="clickQueryConditionHandler({name: 'plan01',desc: '方案1-ALL-截止0点所有记录',tableName:'invest_total'})">方案1-ALL-截止0点所有记录</a>
+               onclick="clickQueryConditionHandler({name: 'plan01',desc: '方案1-InvestTotal表全部记录',tableName:'invest_total'})">方案1-total表全部记录</a>
             <a class="btnGroup_2c4767"
-               onclick="clickQueryConditionHandler({name: 'plan02',desc: '方案2-ALL-截止0点所有记录',tableName:'invest_total'})">方案2-ALL-截止0点所有记录</a>
+               onclick="clickQueryConditionHandler({name: 'plan02',desc: '方案2-InvestTotal表全部记录',tableName:'invest_total'})">方案2-total表全部记录</a>
             <a class="btnGroup_2c4767"
-               onclick="clickQueryConditionHandler({name: 'plan03',desc: '方案3-ALL-截止0点所有记录',tableName:'invest_total'})">方案3-ALL-截止0点所有记录</a>
+               onclick="clickQueryConditionHandler({name: 'plan03',desc: '方案3-InvestTotal表全部记录',tableName:'invest_total'})">方案3-total表全部记录</a>
         </div>
 
         <div class="margin_top" style="height: 20px;width: 100%;"></div>
