@@ -108,8 +108,8 @@
 
     export default {
         onInit() {
-            let rules = "规则提醒：\n1.切记！控制情绪，机会无处不在\n2.看准时机再下手，冷静";
-            this.$app.$def.showAlert(`提示`, rules);
+            let rules = "1.切记！控制情绪，机会无处不在\n2.看准时机再下手，冷静";
+            this.$app.$def.showAlert(`盈利提醒`, rules);
         },
         onMenuPress() {
             this.$app.$def.showMenu();
