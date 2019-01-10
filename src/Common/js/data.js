@@ -17,7 +17,8 @@ const apiUrl = {
     updateNextPeriodOpenNumber: "https://www.cnlands.cn/service/lottery/updateNextPeriodOpenNumber",
     manualInvest: "https://www.cnlands.cn/invest/manualInvest",
     manualCancelInvest: "https://www.cnlands.cn/invest/manualCancelInvest",
-    manualStartApp: "https://www.cnlands.cn/app/start"
+    manualStartApp: "https://www.cnlands.cn/app/start",
+    manualCalculateWinMoney:"https://www.cnlands.cn/invest/manualCalculateWinMoney"
 };
 
 // 图标列表
