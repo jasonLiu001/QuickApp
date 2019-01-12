@@ -72,7 +72,7 @@
             <a class="btnGroup_3212bf" onclick="clickBtnManualStartApp">启动App</a>
             <a class="btnGroup_3212bf" onclick="redirectToAllPlanList">所有方案结果</a>
             <a class="btnGroup_3212bf" onclick="redirectToH5WebSite">测试站点</a>
-            <a class="btnGroup_3212bf" onclick="manualCalculateWinMoney">更新盈利</a>
+            <a class="btnGroup_3212bf" onclick="clickManualCalculateWinMoney">更新盈利</a>
         </div>
 
         <div class="groupContainer margin_top">
@@ -155,13 +155,15 @@
                 });
             });
         },
-        manualCalculateWinMoney(evt) {
+        clickManualCalculateWinMoney(evt) {
             let self = this;
-            this.$app.$def.showConfirmDialog(`提示`, '确定要手动更新盈利?', () => {
-                self.$app.$def.updateData(apiUrl.manualCalculateWinMoney, {}, (res) => {
-                    self.$app.$def.showAlert(`提示`, res.message);
+            //确认提示
+            this.$app.$def.showConfirmDialog(`提示`, '确定要手动更新盈利?',
+                () => {
+                    self.$app.$def.updateData(apiUrl.manualCalculateWinMoney, {}, (res) => {
+                        this.$app.$def.showAlert(`提示`, res.message);
+                    });
                 });
-            });
         }
     }
 </script>
