@@ -32,6 +32,14 @@
             <text>{{investInfo.investTime}}</text>
         </div>
         <div class="investItemRow">
+            <text style="width: 200px;">开奖号码:</text>
+            <text>{{investInfo.openNumber?investInfo.openNumber:'暂未开奖'}}</text>
+        </div>
+        <div class="investItemRow">
+            <text style="width: 200px;">开奖时间:</text>
+            <text>{{investInfo.openTime?investInfo.openTime:'暂未开奖'}}</text>
+        </div>
+        <div class="investItemRow">
             <text style="width: 200px;">状态:</text>
             <text show="{{investInfo.status===1}}" class="red_txt">已完成</text>
             <text show="{{investInfo.status===0}}" class="green_txt">进行中</text>
@@ -48,6 +56,7 @@
             <text style="width: 200px;">数量:</text>
             <text>{{investInfo.investNumberCount}}</text>
         </div>
+        <a class="btn margin_top" onclick="clickBtnUpdateAward(investInfo)">一键更新奖号</a>
         <a class="btn margin_top" onclick="clickBtnCopy">复制正向</a>
         <a class="btn margin_top" onclick="clickBtnCopyOpposite">复制反向</a>
         <a class="margin-bottom"></a>
@@ -126,6 +135,18 @@
                     this.$app.$def.showAlert(`提示`, `【正向】号码复制成功`);
                 }
             });
+        },
+        clickBtnUpdateAward(investInfo, evt) {
+            let self = this;
+            //确认提示
+            this.$app.$def.showConfirmDialog(`奖号更新`, `确定更新${investInfo.period}期奖号吗？`,
+                () => {
+                    // updateStatus 值： 1：自动  2：手动
+                    let url = apiUrl.updateNextPeriodOpenNumber + "?period=" + investInfo.period + "&updateStatus=2";
+                    self.$app.$def.updateData(url, null, (res) => {
+                        this.$app.$def.showAlert(`提示`, res.message);
+                    });
+                });
         },
         clickBtnManualInvest(investInfo, evt) {
             router.replace({
