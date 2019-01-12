@@ -156,9 +156,10 @@
             });
         },
         manualCalculateWinMoney(evt) {
+            let self = this;
             this.$app.$def.showConfirmDialog(`提示`, '确定要手动更新盈利?', () => {
-                this.$app.$def.getData(apiUrl.manualCalculateWinMoney, null, 'POST', (res) => {
-                    this.$app.$def.showAlert(`提示`, res.data);
+                self.$app.$def.updateData(apiUrl.manualCalculateWinMoney, {}, (res) => {
+                    self.$app.$def.showAlert(`提示`, res.message);
                 });
             });
         }

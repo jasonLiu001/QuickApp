@@ -56,9 +56,9 @@
             <text style="width: 200px;">数量:</text>
             <text>{{investInfo.investNumberCount}}</text>
         </div>
-        <a class="btn margin_top" onclick="clickBtnUpdateAward(investInfo)">一键更新奖号</a>
         <a class="btn margin_top" onclick="clickBtnCopy">复制正向</a>
         <a class="btn margin_top" onclick="clickBtnCopyOpposite">复制反向</a>
+        <a class="btn margin_top" onclick="clickBtnUpdateAward(investInfo)">一键更新奖号</a>
         <a class="margin-bottom"></a>
     </div>
 </template>
