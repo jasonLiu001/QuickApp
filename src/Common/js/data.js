@@ -18,7 +18,8 @@ const apiUrl = {
     manualInvest: "https://www.cnlands.cn/invest/manualInvest",
     manualCancelInvest: "https://www.cnlands.cn/invest/manualCancelInvest",
     manualStartApp: "https://www.cnlands.cn/app/start",
-    manualCalculateWinMoney:"https://www.cnlands.cn/invest/manualCalculateWinMoney"
+    manualCalculateWinMoney: "https://www.cnlands.cn/invest/manualCalculateWinMoney",
+    updateHistoryAward: "https://www.cnlands.cn/award/updateHistoryAward"
 };
 
 // 图标列表
