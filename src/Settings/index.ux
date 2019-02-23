@@ -6,7 +6,8 @@
     <div class="container">
         <div style="flex-direction: column;justify-content: center;">
             <block for="{{(settingIndex,settingItem) in list}}">
-                <div style="justify-content: space-between;align-items:center;height: {{settingItem.key=='siteUrl'?'190px':'160px'}};border-bottom-color: #ffffff;border-bottom-width: 1px;">
+                <div show="{{settingItem.group!='doubleInvest'&&settingItem.group!='investTotalTableNotification'}}"
+                     style="justify-content: space-between;align-items:center;height: {{settingItem.key=='siteUrl'?'190px':'160px'}};border-bottom-color: #ffffff;border-bottom-width: 1px;">
                     <div style="flex-direction: column;justify-content: center;width: {{settingItem.key=='siteUrl'?'15%':'50%'}};">
                         <text style="font-size: 24px;">{{settingItem.key}}</text>
                         <text style="font-size: 20px;">{{getDescription(settingItem).desc}}</text>
