@@ -6,7 +6,6 @@ const apiUrl = {
     getAllSettings: "https://www.cnlands.cn/settings/getAllSettings",
     updateSettingsByKey: "https://www.cnlands.cn/settings/updateSettingsByKey",
     getProfitList: "https://www.cnlands.cn/invest/getProfitList",
-    updateNextPeriodOpenNumber: "https://www.cnlands.cn/service/lottery/updateNextPeriodOpenNumber",
     manualInvest: "https://www.cnlands.cn/invest/manualInvest",
     manualCancelInvest: "https://www.cnlands.cn/invest/manualCancelInvest",
     manualStartApp: "https://www.cnlands.cn/app/start",

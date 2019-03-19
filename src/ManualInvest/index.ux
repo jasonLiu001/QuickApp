@@ -33,8 +33,6 @@
         <div class="investItemRow">
             <text>期号:</text>
             <text>{{investInfo.period}}</text>
-            <a style="height: 50px;background-color: #4286f5;color: #ffffff;padding: 5px;border-radius:10px"
-               onclick="clickBtnUpdateAward(investInfo)">更新上期奖号</a>
         </div>
         <div class="investItemRow">
             <text style="width: 200px;">时间:</text>
@@ -150,18 +148,6 @@
             this.$app.$def.showConfirmDialog(`投注取消`, `确定取消${investInfo.period}期投注吗？`,
                 () => {
                     self.$app.$def.updateData(apiUrl.manualCancelInvest, {period: investInfo.period}, (res) => {
-                        this.$app.$def.showAlert(`提示`, res.message);
-                    });
-                });
-        },
-        clickBtnUpdateAward(investInfo, evt) {
-            let self = this;
-            //确认提示
-            this.$app.$def.showConfirmDialog(`奖号更新`, `确定更新${investInfo.period}期奖号吗？`,
-                () => {
-                    // updateStatus 值： 1：自动  2：手动
-                    let url = apiUrl.updateNextPeriodOpenNumber + "?period=" + investInfo.period + "&updateStatus=2";
-                    self.$app.$def.updateData(url, null, (res) => {
                         this.$app.$def.showAlert(`提示`, res.message);
                     });
                 });
