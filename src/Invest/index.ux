@@ -139,16 +139,16 @@
                     url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4";
                     break;
                 case "plan01_all_before22":
-                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&startTime=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&endTime=22:00:00";
                     break;
                 case "plan02_all_before22":
-                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&startTime=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&endTime=22:00:00";
                     break;
                 case "plan03_all_before22":
-                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&startTime=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&endTime=22:00:00";
                     break;
                 case "plan04_all_before22":
-                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&startTime=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&endTime=22:00:00";
                     break;
                 default:
                     url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1";
@@ -159,31 +159,31 @@
             let url;
             switch (this.apiName) {
                 case "plan01_before22":
-                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&startTime=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&endTime=22:00:00";
                     break;
                 case "plan01_before02":
                     url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&startTime=02:00:00";
                     break;
                 case "plan02_before22":
-                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&startTime=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&endTime=22:00:00";
                     break;
                 case "plan02_before02":
                     url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&startTime=02:00:00";
                     break;
                 case "plan03_before22":
-                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&startTime=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&endTime=22:00:00";
                     break;
                 case "plan03_before02":
                     url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&startTime=02:00:00";
                     break;
                 case "plan04_before22":
-                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&startTime=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&endTime=22:00:00";
                     break;
                 case "plan04_before02":
                     url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&startTime=02:00:00";
                     break;
                 default:
-                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&startTime=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&endTime=22:00:00";
             }
             return url;
         },
