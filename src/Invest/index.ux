@@ -127,31 +127,31 @@
             let url;
             switch (this.apiName) {
                 case "plan01":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1";
                     break;
                 case "plan02":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2";
                     break;
                 case "plan03":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3";
                     break;
                 case "plan04":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4";
                     break;
                 case "plan01_all_before22":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&beforeTimeStr=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&startTime=22:00:00";
                     break;
                 case "plan02_all_before22":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&beforeTimeStr=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&startTime=22:00:00";
                     break;
                 case "plan03_all_before22":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&beforeTimeStr=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&startTime=22:00:00";
                     break;
                 case "plan04_all_before22":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&beforeTimeStr=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&startTime=22:00:00";
                     break;
                 default:
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1";
             }
             return url;
         },
@@ -159,31 +159,31 @@
             let url;
             switch (this.apiName) {
                 case "plan01_before22":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&beforeTimeStr=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&startTime=22:00:00";
                     break;
                 case "plan01_before02":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&beforeTimeStr=02:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&startTime=02:00:00";
                     break;
                 case "plan02_before22":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&beforeTimeStr=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&startTime=22:00:00";
                     break;
                 case "plan02_before02":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&beforeTimeStr=02:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&startTime=02:00:00";
                     break;
                 case "plan03_before22":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&beforeTimeStr=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&startTime=22:00:00";
                     break;
                 case "plan03_before02":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&beforeTimeStr=02:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&startTime=02:00:00";
                     break;
                 case "plan04_before22":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&beforeTimeStr=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&startTime=22:00:00";
                     break;
                 case "plan04_before02":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&beforeTimeStr=02:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&startTime=02:00:00";
                     break;
                 default:
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&beforeTimeStr=22:00:00";
+                    url = dataUrl + "&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&startTime=22:00:00";
             }
             return url;
         },
@@ -204,16 +204,16 @@
                     let url;
                     switch (this.investTableName) {
                         case INVEST_TABLE_NAME.invest://invest表
-                            url = apiUrl.findInvestInfoList;
+                            url = apiUrl.findInvestInfoList + "?tableName=invest";
                             break;
                         case INVEST_TABLE_NAME.investTotal://investTotal表
-                            url = apiUrl.findInvestTotalInfoList;
+                            url = apiUrl.findInvestTotalInfoList + "?tableName=invest_total";
                             break;
                         default:
-                            url = apiUrl.findInvestInfoList;
+                            url = apiUrl.findInvestInfoList + "?tableName=invest";
                             break;
                     }
-                    this.$app.$def.findList('POST', this.list, this.getInvestInfoRequestUrl(url), () => {
+                    this.$app.$def.findList('GET', this.list, this.getInvestInfoRequestUrl(url), () => {
                         this.hasMoreData = false;
                     });
                     break;
@@ -225,12 +225,12 @@
                 case "plan03_before02":
                 case "plan04_before22":
                 case "plan04_before02":
-                    this.$app.$def.findList('POST', this.list, this.getInvestInfoBeforeTimeRequestUrl(apiUrl.findInvestInfoListBeforeTime), () => {
+                    this.$app.$def.findList('GET', this.list, this.getInvestInfoBeforeTimeRequestUrl(apiUrl.findInvestInfoList), () => {
                         this.hasMoreData = false;
                     });
                     break;
                 default:
-                    this.$app.$def.findList('POST', this.list, this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList), () => {
+                    this.$app.$def.findList('GET', this.list, this.getInvestInfoRequestUrl(apiUrl.findInvestInfoList), () => {
                         this.hasMoreData = false;
                     });
             }
