@@ -1,12 +1,7 @@
 /*接口列表*/
 const apiUrl = {
-    findAwardInfoList: 'https://www.cnlands.cn/service/lottery/findAwardInfoList',
     findInvestInfoList: 'https://www.cnlands.cn/invest/getInvestList',
     findInvestTotalInfoList: 'https://www.cnlands.cn/invest/getInvestList',
-    findPlanInfoList: 'https://www.cnlands.cn/service/lottery/findPlanInfoList',
-    findAllInvestTotalInfoList: 'https://www.cnlands.cn/service/lottery/findAllInvestTotalInfoList',
-    findPlanResultInfoList: 'https://www.cnlands.cn/service/lottery/findPlanResultInfoList',
-    findInvestNumbersInfoList: 'https://www.cnlands.cn/service/lottery/findInvestNumbersInfoList',
     getInvestInfo: "https://www.cnlands.cn/invest/getInvestInfo",
     getAllSettings: "https://www.cnlands.cn/settings/getAllSettings",
     updateSettingsByKey: "https://www.cnlands.cn/settings/updateSettingsByKey",
