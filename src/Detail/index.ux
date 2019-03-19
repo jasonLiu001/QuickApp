@@ -90,17 +90,17 @@
             let url;
             switch (this.investTableName) {
                 case INVEST_TABLE_NAME.invest://invest表
-                    url = apiUrl.getInvestInfoByPeriod;
+                    url = apiUrl.getInvestInfo + "?tableName=invest";
                     break;
                 case INVEST_TABLE_NAME.investTotal://invest_total表
-                    url = apiUrl.getInvestTotalInfoByPeriod;
+                    url = apiUrl.getInvestInfo + "?tableName=invest_total";
                     break;
                 default:
-                    url = apiUrl.getInvestInfoByPeriod;
+                    url = apiUrl.getInvestInfo + "?tableName=invest";
                     break;
             }
-            url = url + "?period=" + this.period + "&planType=" + this.planType;
-            this.$app.$def.getData(url, null, 'POST', (res) => {
+            url = url + "&period=" + this.period + "&planType=" + this.planType;
+            this.$app.$def.getData(url, null, 'GET', (res) => {
                 this.investInfo = res.data;
                 this.isShowLoading = false;
             });
