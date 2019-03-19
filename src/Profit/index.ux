@@ -19,21 +19,21 @@
 
             <block for="{{(index,row) in list}}">
                 <block if="{{row.investDate>'2018-10-16'}}">
-                <!--表行数据-->
-                <list-item type="data" class="margin_top">
-                    <div style="width: 100%;padding:10px;border-radius:10px;background-color: #ffffff">
-                        <div style="flex-direction: row;justify-content: space-between;">
-                            <text style="width: 30%; text-align: left;">{{row.investDate}}</text>
-                            <text style="width: 20%; text-align: right;">{{getWeekInfo(row.investDate)}}</text>
-                            <text style="width: 20%; text-align: right; color:{{row.maxprofit<5000?'#f91e1e':''}}">
-                                {{row.maxprofit}}
-                            </text>
-                            <text style="width: 20%; text-align: right; color:{{row.minprofit<1000?'#f91e1e':''}}">
-                                {{row.minprofit}}
-                            </text>
+                    <!--表行数据-->
+                    <list-item type="data" class="margin_top">
+                        <div style="width: 100%;padding:10px;border-radius:10px;background-color: #ffffff">
+                            <div style="flex-direction: row;justify-content: space-between;">
+                                <text style="width: 30%; text-align: left;">{{row.investDate}}</text>
+                                <text style="width: 20%; text-align: right;">{{getWeekInfo(row.investDate)}}</text>
+                                <text style="width: 20%; text-align: right; color:{{row.maxprofit<5000?'#f91e1e':''}}">
+                                    {{row.maxprofit}}
+                                </text>
+                                <text style="width: 20%; text-align: right; color:{{row.minprofit<1000?'#f91e1e':''}}">
+                                    {{row.minprofit}}
+                                </text>
+                            </div>
                         </div>
-                    </div>
-                </list-item>
+                    </list-item>
                 </block>
             </block>
 
@@ -190,7 +190,7 @@
             return url;
         },
         renderPageData() {
-            this.$app.$def.findList('POST', this.list, this.getProfitRequestUrl(apiUrl.findInvestInfoListProfit, 6000), () => {
+            this.$app.$def.findList('GET', this.list, this.getProfitRequestUrl(apiUrl.getProfitList, 6000), () => {
                 this.hasMoreData = false;
             });
         },
