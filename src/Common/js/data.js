@@ -9,6 +9,7 @@ const apiUrl = {
     manualInvest: "https://www.cnlands.cn/invest/manualInvest",
     manualCancelInvest: "https://www.cnlands.cn/invest/manualCancelInvest",
     manualStartApp: "https://www.cnlands.cn/app/start",
+    manualLogin: "https://www.cnlands.cn/invest/manualLogin",
     manualCalculateWinMoney: "https://www.cnlands.cn/invest/manualCalculateWinMoney",
     updateHistoryAward: "https://www.cnlands.cn/award/updateHistoryAward"
 };
