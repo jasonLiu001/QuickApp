@@ -70,6 +70,7 @@
 
         <div class="groupContainer margin_top">
             <a class="btnGroup_3212bf" onclick="clickBtnManualStartApp">启动App</a>
+            <a class="btnGroup_3212bf" onclick="clickBtnManualStopApp">停止App</a>
             <a class="btnGroup_3212bf" onclick="clickBtnManualLogin">手动登录</a>
             <a class="btnGroup_3212bf" onclick="redirectToAllPlanList">所有方案结果</a>
             <a class="btnGroup_3212bf" onclick="redirectToH5WebSite">测试站点</a>
@@ -153,6 +154,13 @@
         clickBtnManualStartApp(evt) {
             this.$app.$def.showConfirmDialog(`提示`, '请首先检查isUseLastAccountBalance值是否设置正确，确定现在启动App?', () => {
                 this.$app.$def.getData(apiUrl.manualStartApp, null, 'GET', (res) => {
+                    this.$app.$def.showAlert(`提示`, res.data);
+                });
+            });
+        },
+        clickBtnManualStopApp(evt) {
+            this.$app.$def.showConfirmDialog(`提示`, '确定要停止App?', () => {
+                this.$app.$def.getData(apiUrl.manualStopApp, null, 'POST', (res) => {
                     this.$app.$def.showAlert(`提示`, res.data);
                 });
             });
