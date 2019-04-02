@@ -158,7 +158,7 @@
                 case "plan01_before22_minprofit":
                 case "plan01_wholeday_fixedprofit":
                 case "plan01_before22_fixedprofit":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
+                    url = dataUrl + "?tableName=invest_total&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
                     break;
                 case "plan02_wholeday_maxprofit":
                 case "plan02_before22_maxprofit":
@@ -166,7 +166,7 @@
                 case "plan02_before22_minprofit":
                 case "plan02_wholeday_fixedprofit":
                 case "plan02_before22_fixedprofit":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
+                    url = dataUrl + "?tableName=invest_total&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=2&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
                     break;
                 case "plan03_wholeday_maxprofit":
                 case "plan03_before22_maxprofit":
@@ -174,7 +174,7 @@
                 case "plan03_before22_minprofit":
                 case "plan03_wholeday_fixedprofit":
                 case "plan03_before22_fixedprofit":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
+                    url = dataUrl + "?tableName=invest_total&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=3&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
                     break;
                 case "plan04_wholeday_maxprofit":
                 case "plan04_before22_maxprofit":
@@ -182,10 +182,10 @@
                 case "plan04_before22_minprofit":
                 case "plan04_wholeday_fixedprofit":
                 case "plan04_before22_fixedprofit":
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
+                    url = dataUrl + "?tableName=invest_total&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=4&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
                     break;
                 default:
-                    url = dataUrl + "?pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
+                    url = dataUrl + "?tableName=invest_total&pageIndex=" + this.pageIndex + "&pageSize=" + this.pageSize + "&planType=1&profitType=" + this.getProfitType() + "&fixedProfit=" + fixedProfit;
             }
             return url;
         },
